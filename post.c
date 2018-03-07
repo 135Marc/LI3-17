@@ -67,6 +67,16 @@ int* arrayScore (Post p) {
 	return res;
 }
 
+int* arrayAnswerCount (Post p) {
+	int *res = malloc(4*sizeof(int));
+	int i;
+	while(p!=NULL) {
+	res[i++] = p-> answercount;
+	p=p->next;
+}
+	qsort(res,3,sizeof(int),cmpfunc);
+	return res;	
+}
 
 int postcount (Post p,long oid) {
 	int i=0;
@@ -79,10 +89,10 @@ int postcount (Post p,long oid) {
 
 
 int main () {
-	Post abc= nPost(1,2,3,10,11,"Fode-te puta");
-	abc->next=nPost(4,0,3,15,2,"Caralhinho");
-	abc->next->next = nPost(5,2,3,20,2,"lll");
-	int i,*scores=arrayScore(abc);
+	Post abc= nPost(1,2,3,10,11,"Teste1");
+	abc->next=nPost(4,0,3,15,2,"Teste2");
+	abc->next->next = nPost(5,2,3,20,3,"lll");
+	int i,*scores=arrayAnswerCount(abc);
 	for (i=0;i<3;i++) {
 		printf("%d\n",scores[i]);
 	}
