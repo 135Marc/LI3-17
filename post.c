@@ -28,6 +28,30 @@ void freePost (Post p) {
 		}
 }
 
+long getID (Post p) {
+	return p->id;
+}
+
+long getOwnerID (Post p) {
+	return p->ownerid;
+}
+
+int getTypeID (Post p) {
+	return p->typeid;
+}
+
+int getScore (Post p) {
+	return p->score;
+}
+
+int getAnswerCount (Post p) {
+	return p->answercount;
+}
+
+char* getTitle (Post p) {
+	return p->title;
+}
+
 // Função para fazer postcount NOTA: voltar a meter as tags aqui! //
 int postcount (Post p,long oid) {
 	int i=0;
