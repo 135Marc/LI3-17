@@ -23,6 +23,12 @@ void freeUser (User u) {
 	}
 }
 
+int llistSize (User u) {
+	int r=0;
+	for(u;u!=NULL;u=u->next) r++;
+	return r; 
+}
+
 int getRep (User u) {
 	return u->reputation;
 }
@@ -30,28 +36,12 @@ int getRep (User u) {
 double getID (User u) {
 	return u->id;
 }
-/*
-int getMaxRep (User u) {
-	int nextr,maxr;
-	int rep=maxr=nextr=0;
-	User unext=NULL;
-	if (u->next!=NULL) unext=u->next;
-	while (u!=NULL & unext !=NULL) {
-		rep=getRep(u);
-		nextr=getRep(unext);
-		if (rep>=nextr && maxr < rep) maxr=rep;
-		else  if (nextr>=rep && maxr< nextr) maxr=nextr;
-		u=u->next;
-		unext=unext->next;
-	}
-	if (u!=NULL && u->reputation > maxr) maxr=u->reputation;
-	return maxr;
 
-}
-*/
 int cmpfunc (const void * a, const void * b) {
    return ( *(int*)a - *(int*)b );
 }
+
+ // Constrói um array de reputações
 
 int* arrayrep (User u) {
 	int i=0;
@@ -60,25 +50,28 @@ int* arrayrep (User u) {
 		res[i++]=u->reputation;
 		u=u->next;
 	}
-	qsort(res, 3, sizeof(int), cmpfunc);
+	qsort(res, i, sizeof(int), cmpfunc);
 	return res;
-} // funca para um número conhecido de elementos
+} 
 
+// Calcula as N melhores reputações
 
-int* nBest (User u,int N,int nelem) {
-	int i,j=0;
+int* nBest (User u,int N) {
+	int i,j=0,d,size;
 	int*arr=arrayrep(u),*res=malloc(4*sizeof(int));
-	for(i=nelem-1;i!=0;i--) res[j++]=arr[nelem];
+	size=llistSize(u)-1;
+	d = size - N;
+	for(i=size;i>=d;i--) res[j++]=arr[i];
 	return res;
 }
+
 int main () {
-	User u = nUser(60,50);
+	User u = nUser(600,50);
 	u->next=nUser(550,49);
 	u->next->next=nUser(510,20);
-	//u->next->next->next=nUser(20,49);
-	int* ordenado = nBest(u,3,3);
+	u->next->next->next=nUser(20,49);
+	u->next->next->next->next=nUser(2000,49);
+	int* ordenado = nBest(u,4);
 	int i;
-	for (i=0;i<2;i++) {
-		printf ("%d\n",ordenado[i]);
-	}
+	for(i=0;i<4;i++) printf("%d\n",ordenado[i]);
 }
