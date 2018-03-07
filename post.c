@@ -52,7 +52,22 @@ char* getTitle (Post p) {
 	return p->title;
 }
 
-// Função para fazer postcount NOTA: voltar a meter as tags aqui! //
+int cmpfunc (const void * a, const void * b) {
+   return ( *(int*)a - *(int*)b );
+}
+
+int* arrayScore (Post p) {
+	int *res = malloc(4*sizeof(int));
+	int i;
+	while(p!=NULL) {
+	res[i++] = p->score;
+	p=p->next;
+}
+	qsort(res,3,sizeof(int),cmpfunc);
+	return res;
+}
+
+
 int postcount (Post p,long oid) {
 	int i=0;
 	while (p!=NULL) {
@@ -65,9 +80,11 @@ int postcount (Post p,long oid) {
 
 int main () {
 	Post abc= nPost(1,2,3,10,11,"Fode-te puta");
-	abc->next=nPost(4,0,3,1,2,"Caralhinho");
-	abc->next->next = nPost(5,2,3,1,2,"lll");
-	printf("%d\n",postcount(abc,-1));
-	freePost(abc);
-	printf("%d\n",postcount(abc,0));
+	abc->next=nPost(4,0,3,15,2,"Caralhinho");
+	abc->next->next = nPost(5,2,3,20,2,"lll");
+	int i,*scores=arrayScore(abc);
+	for (i=0;i<3;i++) {
+		printf("%d\n",scores[i]);
+	}
+	
 }
