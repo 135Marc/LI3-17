@@ -46,8 +46,8 @@ int cmpDate (Date d1, Date d2) {
 }
 
 int main () {
-	Date d1 = nDate(6,3,2018);
-	Date d2 = nDate(7,3,2018);
+	Date d1 = nDate(6,2,2018);
+	Date d2 = nDate(6,3,2018);
 	printf("%d\n",cmpDate(d1,d2));
 	return 0;
 }

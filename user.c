@@ -13,7 +13,7 @@ User nUser(int reputation, double id) {
 	new->next=NULL;
 	return new;
 }
-
+// Fode te puta
 void freeUser (User u) {
 	User tmp=NULL;
 	while (u!=NULL) {

@@ -124,8 +124,8 @@ int main () {
 	abc->next->next = nPost(5,3,3,10,16,"lll");
 	abc->next->next->next = nPost(5,2,3,11,24,"lll");
 	abc->next->next->next->next = nPost(5,0,3,2,15,"lll");
-	int i,*scores=nBestScores(abc,5);
-	for(i=0;i<5;i++) printf("%d\n",scores[i]);
+	int i,*scores=nBestScores(abc,1);
+	for(i=0;i<1;i++) printf("%d\n",scores[i]);
 	/*printf("Tamanho da lista ligada: %d\n",llistSize(abc));
 	printf(" Post count do user com id 0 : %li\n ",postcount(abc,0));*/
 	
