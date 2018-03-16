@@ -1,31 +1,36 @@
 #include "post.h"
+#include "date.h"
 
 typedef struct Posts {
 	long id,ownerid;
 	int typeid,score,answercount;
 	char* title;
-	struct Posts* next;
+	char* date;
+	char* tags;
 } Posts;
 
-Post nPost (long id,long ownerid,int typeid,int score,int answercount,char* title) {
+Post nPost (long id,long ownerid,int typeid,int score,int answercount,char* title,char* date,char* tags) {
 	Post new = malloc(sizeof(Posts));
 	new->title=malloc(sizeof(char*));
+	new->date = malloc(sizeof(char*));
+	new->tags=malloc(sizeof(char*));
 	new->id=id;
 	new->ownerid=ownerid;
 	new->typeid=typeid;
 	new->score=score;
 	new->answercount=answercount;
 	new->title=title;
+	new->date=date;
+	new->tags=tags;
 	return new;
 }
 
 void freePost (Post p) {
-	Post tmp=NULL;
-		while (p!=NULL) {
-			if (p->next!=NULL) tmp = tmp->next;
-			free(p);
-			p=tmp;
-		}
+	if (p) {
+		free(p->title);
+		free(p->date);
+		free(p);
+	}
 }
 
 long getID (Post p) {
@@ -52,9 +57,19 @@ char* getTitle (Post p) {
 	return p->title;
 }
 
+char* getDate (Post p) {
+	return p->date;
+}
+
+int elemTag (char* name,char* t1) {
+	(strcmp(name,t1) == 0) ? 1 : 0;
+}
+
+/*
 int cmpfunc (const void * a, const void * b) {
    return ( *(int*)a - *(int*)b );
 }
+
 
 int llistSize (Post p) {
 	int r=0;
@@ -76,7 +91,7 @@ int* arrayScore (Post p) {
 // Devolve os N melhores scores!
 
 int* nBestScores(Post p,int N) {
-	int *res=malloc(4*sizeof(int)),*answer=arrayScore(p);
+	int *res=malloc(N*sizeof(int)),*answer=arrayScore(p);
 	int i,j=0,size,d;
 	size = llistSize(p)-1;
 	d=size-N;
@@ -89,7 +104,8 @@ int* nBestScores(Post p,int N) {
 //	Número de respostas ordenadas por ordem crescente
 
 int* arrayAnswerCount (Post p) {
-	int *res = malloc(4*sizeof(int));
+	int len = llistSize(p);
+	int *res = malloc(len*sizeof(int));
 	int i=0;
 	for(p;p!=NULL;p=p->next) res[i++] = getAnswerCount(p);
 	qsort(res,i,sizeof(int),cmpfunc);
@@ -100,7 +116,7 @@ int* arrayAnswerCount (Post p) {
 
 int* nBestAnswers (Post p,int N) {
 	int i,j=0,size,d;
-	int *res=malloc(4*sizeof(int)),*answers=arrayAnswerCount(p);
+	int *res=malloc(N*sizeof(int)),*answers=arrayAnswerCount(p);
 	size=llistSize(p)-1;
 	d=size-N;
 	for(i=size;i>=d;i--) {
@@ -108,25 +124,17 @@ int* nBestAnswers (Post p,int N) {
 	}
 	return res;
 }
-
-int postcount (Post p,long oid) {
-	int i=0;
-	for(p;p!=NULL;p=p->next) {
-		if (p->ownerid==oid) i++;
-	}
-	return i;
-} 
-
+*/
 
 int main () {
-	Post abc= nPost(1,2,3,16,14,"Teste1");
-	abc->next=nPost(4,0,4,15,13,"Teste2");
-	abc->next->next = nPost(5,3,3,10,16,"lll");
-	abc->next->next->next = nPost(5,2,3,11,24,"lll");
-	abc->next->next->next->next = nPost(5,0,3,2,15,"lll");
+	/*Post abc= nPost(1,2,3,16,14,"Teste1","2017-03-02");
+	
+	abc->next=nPost(4,0,4,15,13,"Teste2","2017-04-01");
+	abc->next->next = nPost(5,3,3,10,16,"lll","2017-03-03");
+	abc->next->next->next = nPost(5,2,3,11,24,"lll","2017-03-05");
+	abc->next->next->next->next = nPost(5,0,3,2,15,"lll","2017-03-01");
 	int i,*scores=nBestScores(abc,1);
 	for(i=0;i<1;i++) printf("%d\n",scores[i]);
 	/*printf("Tamanho da lista ligada: %d\n",llistSize(abc));
-	printf(" Post count do user com id 0 : %li\n ",postcount(abc,0));*/
+	printf(" Post count do user com id 0 : %li\n ",postcount(abc,0));*/ }
 	
-}
