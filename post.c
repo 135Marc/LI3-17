@@ -1,5 +1,4 @@
 #include "post.h"
-#include "date.h"
 
 typedef struct Posts {
 	long id,ownerid;
@@ -61,10 +60,79 @@ char* getDate (Post p) {
 	return p->date;
 }
 
-int elemTag (char* name,char* t1) {
-	(strcmp(name,t1) == 0) ? 1 : 0;
+char* getTags (Post p) {
+	return p->tags;
 }
 
+int elemTag (char* name,char* tag) {
+	char* res = strstr(name,tag);
+	(strcmp(res,name)==0) ? 1 : 0;	
+}
+
+int isQuestion (Post p) {
+	(getTypeID(p)==1) ? 1 : 0;
+}
+
+//Retorna a string resultante até um caracter específico.
+
+char* stringTill(char* string, char c) {
+	int i;
+	char* res = malloc(sizeof(char*));
+	for(i=0;string[i]!=c ;i++) {
+		res[i]=string[i];
+	}
+	return res;
+}
+
+char* sortDate (char* date) {
+	char *res = stringTill(date,'T');
+	return res;
+}
+
+//Retorna a string resultante após dois caracteres específico.
+
+char* stringAfter (char* string, char c,int n) {
+	int i,count;
+	i=count=0;
+	char* res = malloc(sizeof(char*));
+	while(string[i]!='\0' && count < n){
+		if (string[i]==c) count+=1;
+		i+=1;
+	}
+	for (i;string[i]!='\0';i++) {
+		res[i] = string[i];
+	}
+	return res;
+}
+
+char* stringBetween (char* string, char c) {
+	int i,count,j;
+	i=count=j=0;
+	char* res = malloc(sizeof(char*));	
+	while (string[i]!='\0' && count==0) {
+		if (string[i]==c) count+=1;
+		i+=1;
+	}
+	for (i;string[i]!='\0' && count < 2;i++) {
+		res[j++]=string[i];
+	}
+	return res;
+}
+
+
+
+
+Date postDate (char* date) {
+	Date d;
+	char* year = stringTill(date,'-');
+	char* month = stringBetween(date,'-');
+	char *day = stringAfter(date,'-',2);
+	int y = atoi(year);
+	int m = atoi(month);
+	int dd = atoi(day);
+	d = nDate(y,m,dd);
+	return d;
+}
 /*
 int cmpfunc (const void * a, const void * b) {
    return ( *(int*)a - *(int*)b );
