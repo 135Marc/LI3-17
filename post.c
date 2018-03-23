@@ -6,7 +6,7 @@ typedef struct Posts {
 	char* title;
 	char* date;
 	char* tags;
-} Posts;
+}Posts;
 
 Post nPost (long id,long ownerid,int typeid,int score,int answercount,char* title,char* date,char* tags) {
 	Post new = malloc(sizeof(Posts));
@@ -73,77 +73,11 @@ int isQuestion (Post p) {
 	(getTypeID(p)==1) ? 1 : 0;
 }
 
-//Retorna a string resultante até um caracter específico.
-
-char* stringTill(char* string, char c) {
-	int i;
-	char* res = malloc(sizeof(char*));
-	for(i=0;string[i]!=c ;i++) {
-		res[i]=string[i];
-	}
-	return res;
-}
-
-char* sortDate (char* date) {
-	char *res = stringTill(date,'T');
-	return res;
-}
-
-//Retorna a string resultante após dois caracteres específico.
-
-char* stringAfter (char* string, char c,int n) {
-	int i,count;
-	i=count=0;
-	char* res = malloc(sizeof(char*));
-	while(string[i]!='\0' && count < n){
-		if (string[i]==c) count+=1;
-		i+=1;
-	}
-	for (i;string[i]!='\0';i++) {
-		res[i] = string[i];
-	}
-	return res;
-}
-
-char* stringBetween (char* string, char c) {
-	int i,count,j;
-	i=count=j=0;
-	char* res = malloc(sizeof(char*));	
-	while (string[i]!='\0' && count==0) {
-		if (string[i]==c) count+=1;
-		i+=1;
-	}
-	for (i;string[i]!='\0' && count < 2;i++) {
-		res[j++]=string[i];
-	}
-	return res;
-}
-
-
-
-
-Date postDate (char* date) {
-	Date d;
-	char* year = stringTill(date,'-');
-	char* month = stringBetween(date,'-');
-	char *day = stringAfter(date,'-',2);
-	int y = atoi(year);
-	int m = atoi(month);
-	int dd = atoi(day);
-	d = nDate(y,m,dd);
-	return d;
-}
 /*
 int cmpfunc (const void * a, const void * b) {
    return ( *(int*)a - *(int*)b );
 }
 
-
-int llistSize (Post p) {
-	int r=0;
-	for(p;p!=NULL;p=p->next) r++;
-	return r; 
-}
 
 //Scores ordenados por ordem crescente.
 
@@ -195,14 +129,6 @@ int* nBestAnswers (Post p,int N) {
 */
 
 int main () {
-	/*Post abc= nPost(1,2,3,16,14,"Teste1","2017-03-02");
-	
-	abc->next=nPost(4,0,4,15,13,"Teste2","2017-04-01");
-	abc->next->next = nPost(5,3,3,10,16,"lll","2017-03-03");
-	abc->next->next->next = nPost(5,2,3,11,24,"lll","2017-03-05");
-	abc->next->next->next->next = nPost(5,0,3,2,15,"lll","2017-03-01");
-	int i,*scores=nBestScores(abc,1);
-	for(i=0;i<1;i++) printf("%d\n",scores[i]);
-	/*printf("Tamanho da lista ligada: %d\n",llistSize(abc));
-	printf(" Post count do user com id 0 : %li\n ",postcount(abc,0));*/ }
+	return 0;
+}
 	

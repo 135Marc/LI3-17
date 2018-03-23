@@ -36,18 +36,25 @@ int cmpVal (int a,int b) {
 }
 
 int cmpDate (Date d1, Date d2) {
-	if (cmpVal(d1->year,d2->year)==1) return 1;
-		else if (cmpVal(d1->year,d2->year)==-1) return -1;
-	if (cmpVal(d1->year,d2->year) == 0 && cmpVal(d1->month,d2->month) == 1) return 1;
-		else if (cmpVal(d1->year,d2->year) == 0 && cmpVal(d1->month,d2->month) == -1) return -1;
-	if (cmpVal(d1->year,d2->year) == 0 && cmpVal(d1->month,d2->month) == 0 && cmpVal(d1->day,d2->day)==1) return 1;
-		else if (cmpVal(d1->year,d2->year) == 0 && cmpVal(d1->month,d2->month) == 0 && cmpVal(d1->day,d2->day)) return -1;	
+	if (cmpVal(getYear(d1),getYear(d2))==1) return 1;
+		else if (cmpVal(getYear(d1),getYear(d2))==-1) return -1;
+	if (cmpVal(getYear(d1),getYear(d2)) == 0 && cmpVal(getMonth(d1),getMonth(d2)) == 1) return 1;
+		else if (cmpVal(getYear(d1),getYear(d2)) == 0 && cmpVal(getMonth(d1),getMonth(d2)) == -1) return -1;
+	if (cmpVal(getYear(d1),getYear(d2)) == 0 && cmpVal(getMonth(d1),getMonth(d2)) == 0 && cmpVal(getDay(d1),getDay(d2))==1) return 1;
+		else if (cmpVal(getYear(d1),getYear(d2)) == 0 && cmpVal(getMonth(d1),getMonth(d2)) == 0 && cmpVal(getDay(d1),getDay(d2))==-1) return -1;	
 	return 0;
 }
 
+void printDate (Date d) {
+	printf("Year : %d\n",d->year);
+	printf("Month : %d\n",d->month);
+	printf("Day: %d\n",d->day);
+}
+
 int main () {
-	Date d1 = nDate(6,2,2018);
+	Date d1 = nDate(7,3,2018);
 	Date d2 = nDate(6,3,2018);
+	printDate(d1);
 	printf("%d\n",cmpDate(d1,d2));
 	return 0;
 }

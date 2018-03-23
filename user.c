@@ -1,5 +1,4 @@
 #include "user.h"
-#include "post.h"
 
 typedef struct Users {
 	int reputation;
@@ -17,21 +16,12 @@ User nUser(int reputation, long id,char* display) {
 }
 
 void freeUser (User u) {
-	User tmp=NULL;
-	for(u;u!=NULL;u=u->next) {
-		if(u->next!=NULL) tmp=u->next;
+	if (u) {
 		free(u->displayname);
 		free(u);
-		u=tmp;
 	}
 }
-/*
-int llistSize (User u) {
-	int r=0;
-	for(u;u!=NULL;u=u->next) r++;
-	return r; 
-}
-*/
+
 int getRep (User u) {
 	return u->reputation;
 }
@@ -40,9 +30,14 @@ long getID (User u) {
 	return u->id;
 }
 
+char* getDisplayName (User u) {
+	return u->displayname;
+}
+
 int cmpfunc (const void * a, const void * b) {
    return ( *(int*)a - *(int*)b );
 }
+
 /*
  // Constrói um array de reputações
 
@@ -68,14 +63,37 @@ int* nBest (User u,int N) {
 	return res;
 }*/
 
-int main () {/*
-	User u = nUser(600,50,"asshole");
-	u->next=nUser(550,49,"merdas");
-	u->next->next=nUser(510,20,"Jacker");
-	u->next->next->next=nUser(20,49,"merdas");
-	u->next->next->next->next=nUser(2000,49,"asshole");
-	int* ordenado = nBest(u,4);
-	int i;
-	for(i=0;i<4;i++) printf("%d\n",ordenado[i]);
-	int res = postcount(u->p,49);*/
+void printUser (User u) {
+	printf("Display do utilizador : %s\n",u->displayname);
+	printf("ID do utilizador : %li\n",u->id);
+	printf("Reputação : %d\n",u->reputation);
 }
+
+int main () {
+	User u = nUser(600,50,"asshole");
+	User u1 =nUser(550,49,"merdas");
+	User u2=nUser(510,20,"Jacker");
+	User u3=nUser(20,49,"merdas");
+	User u4=nUser(2000,49,"asshole");
+	GList* lista = NULL;
+	lista = g_list_append(lista,u);
+	lista = g_list_append(lista,u1);
+	lista= g_list_append(lista,u2);
+	lista = g_list_append(lista,u3);
+	lista = g_list_append(lista,u4);
+	
+	int res;
+	
+	res = (int) g_list_length(lista);
+	
+	printf("O tamanho da lista ligada é : %d\n",res);
+	
+	g_list_foreach(lista , (GFunc) printUser , (User)lista->data);
+	/*for(lista;lista!=NULL;lista=lista->next) {
+		printUser((User)lista->data);
+		printf("\n");
+	}*/
+	return 0;
+}
+
+

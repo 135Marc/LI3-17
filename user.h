@@ -4,7 +4,8 @@
 	#include <stdlib.h>
 	#include <stdio.h>
 	#include <string.h>
-	#include "post.h"
+	#include <glib.h>
+	#include <gmodule.h>
 	typedef struct Users *User;
 
 #endif

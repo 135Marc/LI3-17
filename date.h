@@ -11,5 +11,6 @@
 	int get_Month(Date d); // must return a value between 0 and 11 
 	int get_Year(Date d);
 	int cmpDate (Date d1, Date d2);
+	void printDate (Date d);
 	
 #endif
