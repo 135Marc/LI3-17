@@ -3,6 +3,7 @@
 	#include <stdlib.h>
 	#include <stdio.h>
 	#include <string.h>
+	#include <glib.h>
 
 	typedef struct dates *Date;
 	Date nDate(int day, int month, int year);

@@ -35,33 +35,8 @@ char* getDisplayName (User u) {
 }
 
 int cmpfunc (const void * a, const void * b) {
-   return ( *(int*)a - *(int*)b );
+   return ( *(int*)b - *(int*)a );
 }
-
-/*
- // Constrói um array de reputações
-
-int* arrayrep (User u) {
-	int i=0;
-	int *res= malloc(4*sizeof(int));
-	while (u!=NULL) {
-		res[i++]=u->reputation;
-		u=u->next;
-	}
-	qsort(res, i, sizeof(int), cmpfunc);
-	return res;
-} 
-
-// Calcula as N melhores reputações
-
-int* nBest (User u,int N) {
-	int i,j=0,d,size;
-	int*arr=arrayrep(u),*res=malloc(4*sizeof(int));
-	size=llistSize(u)-1;
-	d = size - N;
-	for(i=size;i>=d;i--) res[j++]=arr[i];
-	return res;
-}*/
 
 void printUser (User u) {
 	printf("Display do utilizador : %s\n",u->displayname);
@@ -76,23 +51,15 @@ int main () {
 	User u3=nUser(20,49,"merdas");
 	User u4=nUser(2000,49,"asshole");
 	GList* lista = NULL;
-	lista = g_list_append(lista,u);
-	lista = g_list_append(lista,u1);
-	lista= g_list_append(lista,u2);
-	lista = g_list_append(lista,u3);
-	lista = g_list_append(lista,u4);
-	
+	lista = g_list_insert_sorted(lista,u,(GCompareFunc) cmpfunc);
+	lista = g_list_insert_sorted(lista,u1,(GCompareFunc) cmpfunc);
+	lista= g_list_insert_sorted(lista,u2,(GCompareFunc) cmpfunc);
+	lista = g_list_insert_sorted(lista,u3,(GCompareFunc) cmpfunc);
+	lista = g_list_insert_sorted(lista,u4,(GCompareFunc) cmpfunc);
 	int res;
-	
 	res = (int) g_list_length(lista);
-	
 	printf("O tamanho da lista ligada é : %d\n",res);
-	
 	g_list_foreach(lista , (GFunc) printUser , (User)lista->data);
-	/*for(lista;lista!=NULL;lista=lista->next) {
-		printUser((User)lista->data);
-		printf("\n");
-	}*/
 	return 0;
 }
 

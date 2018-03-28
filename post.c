@@ -66,67 +66,12 @@ char* getTags (Post p) {
 
 int elemTag (char* name,char* tag) {
 	char* res = strstr(name,tag);
-	(strcmp(res,name)==0) ? 1 : 0;	
+	return (strcmp(res,name)==0) ? 1 : 0;	
 }
 
 int isQuestion (Post p) {
-	(getTypeID(p)==1) ? 1 : 0;
+	return (getTypeID(p)==1) ? 1 : 0;
 }
-
-/*
-int cmpfunc (const void * a, const void * b) {
-   return ( *(int*)a - *(int*)b );
-}
-
-
-//Scores ordenados por ordem crescente.
-
-int* arrayScore (Post p) {
-	int *res = malloc(4*sizeof(int));
-	int i=0;
-	for(p;p!=NULL;p=p->next) {
-	res[i++] = getScore(p);
-}	
-	qsort(res,i,sizeof(int),cmpfunc);
-	return res;
-}
-// Devolve os N melhores scores!
-
-int* nBestScores(Post p,int N) {
-	int *res=malloc(N*sizeof(int)),*answer=arrayScore(p);
-	int i,j=0,size,d;
-	size = llistSize(p)-1;
-	d=size-N;
-	for(i=size;i>=d;i--) {
-		res[j++]=answer[i];
-	}
-	return res;
-}
-
-//	Número de respostas ordenadas por ordem crescente
-
-int* arrayAnswerCount (Post p) {
-	int len = llistSize(p);
-	int *res = malloc(len*sizeof(int));
-	int i=0;
-	for(p;p!=NULL;p=p->next) res[i++] = getAnswerCount(p);
-	qsort(res,i,sizeof(int),cmpfunc);
-	return res;	
-} 
-
-// Devolve as N respostas mais votadas!
-
-int* nBestAnswers (Post p,int N) {
-	int i,j=0,size,d;
-	int *res=malloc(N*sizeof(int)),*answers=arrayAnswerCount(p);
-	size=llistSize(p)-1;
-	d=size-N;
-	for(i=size;i>=d;i--) {
-		res[j++]=answers[i];
-	}
-	return res;
-}
-*/
 
 int main () {
 	return 0;
