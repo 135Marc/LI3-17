@@ -57,17 +57,29 @@ char* stringAfter (char* string, char c) {
 	return res;
 }
 
+// Obtém a data de um post (string) e converte-a no formato Date
 
-int main () {
-	char* input = "2010-09-13T19:17:17.917";
-	char* res = sortDate(input);
+Date dateFromPost (Post p) {
+	char* date = getDate(p);
+	char* res = sortDate(date);
 	char* year = stringTill(res,'-');
 	char* month = stringBetween(res,'-');
 	char* day = stringAfter(res,'-');
-	printf("%s\n",res);
-	printf("Year : %s\n",year);
-	printf("Month : %s\n",month);
-	printf("Day : %s\n",day);
-	char* tag = "&lt;2.2-froyo&gt;&lt;sms&gt;&lt;notifications&gt;&lt;handcent-sms&gt";
+	int y = atoi(year);
+	int m = atoi(month);
+	int dd = atoi(day);
+	Date d = nDate(dd,m,y);
+	return d;
+}
+
+int main () {
+	Post p = nPost(1,2,1,10,3,"Why do i suck at this shit?","2015-10-13T19:17:17.917","fuckyoumodafokaz");
+	/*char* res = sortDate(input);
+	char* year = stringTill(res,'-');
+	char* month = stringBetween(res,'-');
+	char* day = stringAfter(res,'-');*/
+	Date d = dateFromPost(p);
+	printDate(d);
+	//char* tag = "<2.2-froyo><sms><notifications><handcent-sms>";
 	return 0;
 }
