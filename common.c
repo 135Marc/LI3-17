@@ -1,10 +1,10 @@
 #include "common.h"
 
-/*
+// Compara dois ints de forma inversa
 
-	FALTAM AS FUNÇÕES PARA METER AS TAGS NO FORMATO CORRECTO!
-
-*/
+int cmpfunci (const void * a, const void * b) {
+   return ( *(int*)b - *(int*)a );
+}
 
 //Retorna a string resultante até um caracter específico.
 
@@ -17,12 +17,16 @@ char* stringTill(char* string, char c) {
 	return res;
 }
 
+// Normaliza o formato de uma string (que contém uma data)
+
 char* sortDate (char* date) {
 	char *res = stringTill(date,'T');
 	return res;
 }
 
-// Retorna a string resultante entre um caracter especifico.
+
+// Verifica se um caractere pertence a uma string
+
 int elemChar (char* string, char c) {
 	int i,r=0;
 	for(i=0;string[i]!='\0';i++) {
@@ -30,6 +34,8 @@ int elemChar (char* string, char c) {
 	}
 	return r;
 }
+
+// Retorna a string resultante entre um caracter especifico.
 
 char* stringBetween (char* string, char c) {
 	int i,count;
@@ -72,14 +78,33 @@ Date dateFromPost (Post p) {
 	return d;
 }
 
+// Verifica se uma data está entre um dado intervalo de datas.
+
+int betweenDate (Date d,Date x,Date y) {
+	return (cmpDate(d,x) <= 0 || cmpDate(d,y) >= 0) ? 1 : 0;
+}
+
+// Retorna o número de posts (não diferencia entre perguntas e respostas) numa lista ligada de posts
+
+int postCount (GList* list,long id) {
+	int r=0;
+	for(list;list!=NULL;list=list->next) r++;
+	return r;
+}
+
+// Retorna o número de questões presentes numa lista ligada de posts
+
+int questionCount (GList* list) {
+	int r=0;
+	for(list;list!=NULL;list=list->next) {
+		if(isQuestion(list->(User)data)) r++;
+	}
+	return r;
+}
+
 int main () {
-	Post p = nPost(1,2,1,10,3,"Why do i suck at this shit?","2015-10-13T19:17:17.917","fuckyoumodafokaz");
-	/*char* res = sortDate(input);
-	char* year = stringTill(res,'-');
-	char* month = stringBetween(res,'-');
-	char* day = stringAfter(res,'-');*/
+	Post p = nPost(1,2,1,10,3,"Titulo teste","2015-10-13T19:17:17.917","$lt;lalala;&gt");
 	Date d = dateFromPost(p);
 	printDate(d);
-	//char* tag = "<2.2-froyo><sms><notifications><handcent-sms>";
 	return 0;
 }

@@ -8,6 +8,8 @@ typedef struct Posts {
 	char* tags;
 }Posts;
 
+// Cria um novo Post 
+
 Post nPost (long id,long ownerid,int typeid,int score,int answercount,char* title,char* date,char* tags) {
 	Post new = malloc(sizeof(Posts));
 	new->title=malloc(sizeof(char*));
@@ -24,6 +26,8 @@ Post nPost (long id,long ownerid,int typeid,int score,int answercount,char* titl
 	return new;
 }
 
+// Liberta o espaço utilizado por um Post na memória
+
 void freePost (Post p) {
 	if (p) {
 		free(p->title);
@@ -32,48 +36,57 @@ void freePost (Post p) {
 	}
 }
 
+// Devolver o ID de um Post
+
 long getID (Post p) {
 	return p->id;
 }
+
+// Devolver o ID do criador de um Post
 
 long getOwnerID (Post p) {
 	return p->ownerid;
 }
 
+// Devolver o tipo de um Post
+
 int getTypeID (Post p) {
 	return p->typeid;
 }
+
+// Devolver o score(upvote-downvote) de um Post
 
 int getScore (Post p) {
 	return p->score;
 }
 
+// Devolver o número de respostas presentes num Post
+
 int getAnswerCount (Post p) {
 	return p->answercount;
 }
+
+// Devolver o título de um Post
 
 char* getTitle (Post p) {
 	return p->title;
 }
 
+// Devolver a data(em forma de string) de um Post
+
 char* getDate (Post p) {
 	return p->date;
 }
+
+// Devolver as tags presente num Post(caso este seja uma questão)
 
 char* getTags (Post p) {
 	return p->tags;
 }
 
-int elemTag (char* name,char* tag) {
-	char* res = strstr(name,tag);
-	return (strcmp(res,name)==0) ? 1 : 0;	
-}
+// Verifica se um Post é uma pergunta ou resposta
 
 int isQuestion (Post p) {
 	return (getTypeID(p)==1) ? 1 : 0;
 }
 
-int main () {
-	return 0;
-}
-	

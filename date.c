@@ -51,19 +51,3 @@ void printDate (Date d) {
 	printf("Day: %d\n",d->day);
 	printf("\n");
 }
-/*
-int main () {
-	Date d 	= nDate(6,3,2018);
-	Date d1 = nDate(7,3,2018);
-	Date d2	= nDate(7,3,2017);
-	Date d3	= nDate(17,4,2018);
-	Date d4	= nDate(18,3,2008);
-	GList* lista = NULL;
-	lista = g_list_insert_sorted(lista,d,(GCompareFunc) cmpDate);
-	lista = g_list_insert_sorted(lista,d1,(GCompareFunc) cmpDate);
-	lista= g_list_insert_sorted(lista,d2,(GCompareFunc) cmpDate);
-	lista = g_list_insert_sorted(lista,d3,(GCompareFunc) cmpDate);
-	lista = g_list_insert_sorted(lista,d4,(GCompareFunc) cmpDate);
-	g_list_foreach(lista , (GFunc) printDate , (Date)lista->data);
-	return 0;
-}*/
