@@ -1,42 +1,80 @@
 #include "pair.h"
-#include <string.h>
 
-typedef struct strpair {
-	char* s1;
-	char* s2;
-} STRPAIR;
+// STR_pair definitions
+struct str_pair {
+  char* fst;
+  char* snd;
+};
 
-STR_pair create_pair(char* fst, char* snd) {
-	STR_PAIR res = malloc(sizeof(STRPAIR));
-	res->s1 = malloc(sizeof(char*));
-	res->s1 = strcpy(res->s1,fst);
-	res->s2 = malloc(sizeof(char*));
-	res->s2= strcpy(res->s2,snd);
-	return res;
+STR_pair create_str_pair(char* fst, char* snd) {
+  STR_pair p = malloc(sizeof(struct str_pair));
+  p->fst = mystrdup(fst);
+  p->snd = mystrdup(snd);
+  return p;
 }
 
-void set_fst(STR_pair pair, char* str) {
-	free(pair->s1);
-	pair->s1 = malloc(sizeof(char*));
-	pair->s1 = strcpy(pair->s1,str);
+void set_fst_str(STR_pair pair, char* str) {
+  free(pair->fst);
+  pair->fst = mystrdup(str);
 }
 
-void set_snd(STR_pair pair, char* str) {
-	free(pair->s2);
-	pair->s2 = malloc(sizeof(char*));
-	pair->s2 = strcpy(pair->s2,str);
+void set_snd_str(STR_pair pair, char* str) {
+  free(pair->snd);
+  pair->snd = mystrdup(str);
 }
 
-char* get_fst(STR_pair pair) {
-	return pair->s1;
+char* get_fst_str(STR_pair pair) {
+  return pair? mystrdup(pair->fst) : NULL;
 }
 
-char* get_snd(STR_pair pair) {
-	return pair->s2;
+char* get_snd_str(STR_pair pair) {
+  return pair? mystrdup(pair->snd) : NULL;
 }
 
-void free_pair(STR_pair pair) {
-	free(pair->s1);
-	free(pair->s2);
-	free(pair);
+void free_str_pair(STR_pair pair) {
+  if(pair) {
+    free(pair->fst);
+    free(pair->snd);
+    free(pair);
+  }
 }
+
+void print_pair (STR_pair pair) {
+	printf("Primeiro elemento : %s\n",get_fst_str(pair));
+	printf("Segundo elemento : %s\n",get_snd_str(pair));
+}
+
+// LONG_pair definitions
+struct long_pair {
+  long fst;
+  long snd;
+};
+
+LONG_pair create_long_pair(long fst, long snd) {
+  LONG_pair p = malloc(sizeof(struct long_pair));
+  p->fst = fst; 
+  p->snd = snd;
+  return p;
+}
+
+void set_fst_long(LONG_pair pair, long l) {
+  pair->fst = l;
+}
+
+void set_snd_long(LONG_pair pair, long l) {
+  pair->snd = l;
+}
+
+long get_fst_long(LONG_pair pair) {
+  return pair->fst;
+}
+
+long get_snd_long(LONG_pair pair) {
+  return pair->snd;
+}
+
+void free_long_pair(LONG_pair pair) {
+    free(pair);
+}
+
+

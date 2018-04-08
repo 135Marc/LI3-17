@@ -5,17 +5,18 @@
 	#include <stdio.h>
 	#include <glib.h>
 	#include <gmodule.h>
-	#include "post.h"
-	#include "user.h"
-
-	typedef struct ht *HashMerdas;
-	GHashTable* initHashUser (GHashTable* hp);
+	#include "./post.h"
+	#include "./user.h"
+	#include "./pair.h"
+	#include "./list.h"
+	typedef struct TCD_community* TAD_community;
+	GHashTable* init_HashUser (GHashTable* hp);
 	void clearHashUser (GHashTable* hp);
 	void insertUserH (GHashTable* hp,User p);
 	void removeUserH (GHashTable* hp, User p);
 	GList* getUsersHTU (GHashTable* hp);
 	User getUserHT (GHashTable* hp,long id);
-	void initHashPost (GHashTable* hp);
+	GHashTable* init_HashPost (GHashTable* hp);
 	void clearHashPost (GHashTable* hp);
 	void insertPostH (GHashTable* hp,Post p);
 	void removePostH (GHashTable* hp, Post p);

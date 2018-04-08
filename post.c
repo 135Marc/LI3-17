@@ -90,3 +90,20 @@ int isQuestion (Post p) {
 	return (getTypeID(p)==1) ? 1 : 0;
 }
 
+void printPost (Post p) {
+	printf("ID: %li\n",getID(p));
+	printf("ID do Utilizador : %li\n",getOwnerID(p));
+	printf("ID_Type : %d\n",getTypeID(p));
+	printf("Score: %d\n",getScore(p));
+	printf("Answer_Count : %d\n",getAnswerCount(p));
+	printf("Título : %s\n",getTitle(p));
+	printf("Data : %s\n",getDate(p));
+	printf("Tags : %s\n",getTags(p));
+}
+
+int cmpPostScore (Post u1, Post u2) {
+	int r1 = getScore(u1);
+	int r2 = getScore(u2);
+	if (r1==r2) return 0;
+	return (r1>r2) ? -1 : 1;
+}

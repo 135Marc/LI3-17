@@ -15,6 +15,8 @@
 	char* getDate (Post p);
 	char* getTags (Post p);
 	int isQuestion (Post p);
+	void printPost (Post p);
+	int cmpPostScore (Post u1, Post u2);
 
 
 #endif

@@ -1,5 +1,12 @@
 #include "common.h"
 
+char * mystrdup (const char *s) {
+    if(s == NULL) return NULL;          
+    char *d = malloc (strlen (s) + 1); 
+    if (d == NULL) return NULL;       
+    strcpy (d,s);                    
+    return d;                       
+}
 // Compara dois ints de forma inversa
 
 int cmpfunci (const void * a, const void * b) {
@@ -84,27 +91,19 @@ int betweenDate (Date d,Date x,Date y) {
 	return (cmpDate(d,x) <= 0 || cmpDate(d,y) >= 0) ? 1 : 0;
 }
 
-// Retorna o número de posts (não diferencia entre perguntas e respostas) numa lista ligada de posts
-
-int postCount (GList* list,long id) {
-	int r=0;
-	for(list;list!=NULL;list=list->next) r++;
-	return r;
-}
-
 // Retorna o número de questões presentes numa lista ligada de posts
-
+/*
 int questionCount (GList* list) {
 	int r=0;
 	for(list;list!=NULL;list=list->next) {
-		if(isQuestion(list->(User)data)) r++;
+		if(isQuestion((User)list->data)) r++;
 	}
 	return r;
-}
-
+}*/
+/*
 int main () {
 	Post p = nPost(1,2,1,10,3,"Titulo teste","2015-10-13T19:17:17.917","$lt;lalala;&gt");
 	Date d = dateFromPost(p);
 	printDate(d);
 	return 0;
-}
+}*/

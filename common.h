@@ -5,8 +5,9 @@
 	#include <stdlib.h>
 	#include <glib.h>
 	#include <gmodule.h>
-	#include "date.h"
-	#include "post.h"
+	#include "./date.h"
+	#include "./post.h"
+	char * mystrdup (const char *s);
 	int cmpfunci (const void * a, const void * b);
 	char* stringTill(char* string, char c);
 	char* sortDate (char* date);
@@ -15,7 +16,6 @@
 	char* stringAfter (char* string, char c);
 	Date dateFromPost (Post p);
 	int betweenDate (Date d,Date x,Date y);
-	int postCount (GList* list,long id);
 	
 
 #endif
