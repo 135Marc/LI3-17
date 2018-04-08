@@ -10,18 +10,16 @@
 	#include "./pair.h"
 	#include "./list.h"
 	typedef struct TCD_community* TAD_community;
-	GHashTable* init_HashUser (GHashTable* hp);
-	void clearHashUser (GHashTable* hp);
-	void insertUserH (GHashTable* hp,User p);
-	void removeUserH (GHashTable* hp, User p);
-	GList* getUsersHTU (GHashTable* hp);
-	User getUserHT (GHashTable* hp,long id);
-	GHashTable* init_HashPost (GHashTable* hp);
-	void clearHashPost (GHashTable* hp);
-	void insertPostH (GHashTable* hp,Post p);
-	void removePostH (GHashTable* hp, Post p);
-	GList* getPostsHTP (GHashTable* hp);
-	Post getPostHT (GHashTable* hp,long id);
+	TAD_community init (TAD_community hp);
+	void insert_User (TAD_community ht,User u);
+	void remove_User (TAD_community hp, User p);
+	GList* get_Users (TAD_community hp);
+	User get_User (TAD_community ht,long id);
+	void insert_Post (TAD_community hp,Post p);
+	void remove_Post (TAD_community hp, Post p);
+	GList* get_Posts (TAD_community hp);
+	Post get_Post (TAD_community hp,long id);
+	TAD_community clean (TAD_community hu);
 
 
 #endif
