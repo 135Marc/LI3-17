@@ -40,8 +40,11 @@ void free_str_pair(STR_pair pair) {
 }
 
 void print_pair (STR_pair pair) {
-	printf("Primeiro elemento : %s\n",get_fst_str(pair));
-	printf("Segundo elemento : %s\n",get_snd_str(pair));
+  if (pair==NULL) return;
+	if (get_fst_str(pair)!=NULL) printf("Primeiro elemento : %s\n",get_fst_str(pair));
+	else printf("NULL\n");
+  if (get_snd_str(pair)!=NULL) printf("Segundo elemento : %s\n",get_snd_str(pair));
+  else (printf("NULL\n"));
 }
 
 // LONG_pair definitions

@@ -28,3 +28,9 @@ void free_list(LONG_list l) {
     }
 }
 
+void print_LONG_list (LONG_list l) {
+    int i;
+    for (i=0;i<l->size;i++) printf("%li\n",l->list[i]);
+}
+
+

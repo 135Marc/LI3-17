@@ -5,6 +5,9 @@
 	#include <stdio.h>
 	#include <glib.h>
 	#include <gmodule.h>
+	#include <libxml/xmlmemory.h>
+	#include <libxml/parser.h>
+	#include <libxml/tree.h>
 	#include "./post.h"
 	#include "./user.h"
 	#include "./pair.h"

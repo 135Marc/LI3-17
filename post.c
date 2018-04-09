@@ -12,9 +12,6 @@ typedef struct Posts {
 
 Post nPost (long id,long ownerid,int typeid,int score,int answercount,char* title,char* date,char* tags) {
 	Post new = malloc(sizeof(Posts));
-	new->title=malloc(sizeof(char*));
-	new->date = malloc(sizeof(char*));
-	new->tags=malloc(sizeof(char*));
 	new->id=id;
 	new->ownerid=ownerid;
 	new->typeid=typeid;
@@ -96,9 +93,9 @@ void printPost (Post p) {
 	printf("ID_Type : %d\n",getTypeID(p));
 	printf("Score: %d\n",getScore(p));
 	printf("Answer_Count : %d\n",getAnswerCount(p));
-	printf("Título : %s\n",getTitle(p));
-	printf("Data : %s\n",getDate(p));
-	printf("Tags : %s\n",getTags(p));
+	if (getTitle(p)!=NULL) printf("Título : %s\n",getTitle(p));
+	if (getDate(p)!=NULL) printf("Data : %s\n",getDate(p));
+	if (getTags(p)!=NULL)printf("Tags : %s\n",getTags(p));
 }
 
 int cmpPostScore (Post u1, Post u2) {

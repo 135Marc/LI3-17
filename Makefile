@@ -1,12 +1,10 @@
 CC=gcc
-CFLAGS = -Wall -std=c11 -g `pkg-config --cflags glib-2.0`
-LIBS = `pkg-config --libs glib-2.0`
+CFLAGS = -Wall -std=c11 -g `pkg-config --cflags libxml-2.0` `pkg-config --cflags glib-2.0`
+LIBS = `pkg-config --libs libxml-2.0` `pkg-config --libs glib-2.0`
 
 
 program: 
-	$(CC) $(CFLAGS) $(LIBS) -O2 -c ./user.c ./hashuser.c ./user.c ./post.c ./common.c ./date.c ./pair.c
-	$(CC) $(CFLAGS) $(LIBS) -O2 -o Prog ./*.o 
+	$(CC) $(CFLAGS) $(LIBS) -O2 -o Prog ./*.c
 
 clean:
-	rm ./*.o
 	rm ./Prog

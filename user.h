@@ -12,10 +12,14 @@
 	void freeUser (User u);
 	int getRep (User u);
 	long getIDUser (User u);
+	int getPostCount (User u);
 	char* getDisplayName (User u);
 	char* getShortBio (User u);
 	void printUser (User u);
 	long cmpUserID (User u1, User u2);
+	void add_Post(User u);
+	int cmpPostCount (User u1, User u2);
+
 
 
 #endif

@@ -5,16 +5,16 @@ typedef struct Users {
 	long id;
 	char* displayname;
 	char* shortbio;
+	int postcount;
 } Users;
 
 User new_User(int reputation, long id,char* displayname,char* shortbio) {
 	User new = malloc(sizeof(Users));
 	new->reputation=reputation;
 	new->id=id;
-	new->displayname = malloc(sizeof(char*));
 	new->displayname = displayname;
-	new->shortbio = malloc(sizeof(char*));
 	new->shortbio=shortbio;
+	new->postcount=0;
 	return new;
 }
 
@@ -34,6 +34,10 @@ long getIDUser (User u) {
 	return u->id;
 }
 
+int getPostCount (User u) {
+	return u->postcount;
+}
+
 char* getDisplayName (User u) {
 	return u->displayname;
 }
@@ -47,6 +51,7 @@ void printUser (User u) {
 	printf("ID do utilizador : %li\n",getIDUser(u));
 	printf("Reputação : %d\n",getRep(u));
 	printf("About me: %s\n",getShortBio(u));
+	printf("PostCount : %d\n",getPostCount(u));
 }
 
 long cmpUserID (User u1, User u2) {
@@ -54,6 +59,18 @@ long cmpUserID (User u1, User u2) {
 	long r2 = getIDUser(u2);
 	if (r1==r2) return 0;
 	return (r1>r2) ? -1 : 1;
+}
+
+void add_Post(User u) {
+	u->postcount++;
+}
+
+int cmpPostCount (User u1, User u2) {
+	int r1 = getPostCount(u1);
+	int r2 = getPostCount(u2);
+	if (r1==r2) return 0;
+	return (r2<r1) ? 1 : -1;
+
 }
 /*
 int main () {
