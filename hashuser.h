@@ -11,7 +11,6 @@
 	#include "./post.h"
 	#include "./user.h"
 	#include "./pair.h"
-	#include "./list.h"
 	typedef struct TCD_community* TAD_community;
 	TAD_community init (TAD_community hp);
 	void insert_User (TAD_community ht,User u);
@@ -23,6 +22,7 @@
 	GList* get_Posts (TAD_community hp);
 	Post get_Post (TAD_community hp,long id);
 	TAD_community clean (TAD_community hu);
+	LONG_list top_most_active(TAD_community com, int N);
 
 
 #endif

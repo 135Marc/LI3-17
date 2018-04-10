@@ -18,36 +18,23 @@ void freeDate (Date d) {
 	free(d);
 }
 
-int getDay (Date d) {
+int get_Day (Date d) {
 	return d -> day;
 }
 
-int getMonth (Date d) {
+int get_Month (Date d) {
 	return d -> month;
 }
 
-int getYear (Date d) {
+int get_Year (Date d) {
 	return d -> year;
 }
 
-int cmpVal (int a,int b) {
-	if (a==b) return 0;
-	return (a>b) ? -1 : 1;
-}
-
-int cmpDate (Date d1, Date d2) {
-	if (cmpVal(getYear(d1),getYear(d2))==1) return 1;
-		else if (cmpVal(getYear(d1),getYear(d2))==-1) return -1;
-	if (cmpVal(getYear(d1),getYear(d2)) == 0 && cmpVal(getMonth(d1),getMonth(d2)) == 1) return 1;
-		else if (cmpVal(getYear(d1),getYear(d2)) == 0 && cmpVal(getMonth(d1),getMonth(d2)) == -1) return -1;
-	if (cmpVal(getYear(d1),getYear(d2)) == 0 && cmpVal(getMonth(d1),getMonth(d2)) == 0 && cmpVal(getDay(d1),getDay(d2))==1) return 1;
-		else if (cmpVal(getYear(d1),getYear(d2)) == 0 && cmpVal(getMonth(d1),getMonth(d2)) == 0 && cmpVal(getDay(d1),getDay(d2))==-1) return -1;	
-	return 0;
-}
-
 void printDate (Date d) {
+	if (d){
 	printf("Year : %d\n",d->year);
 	printf("Month : %d\n",d->month);
 	printf("Day: %d\n",d->day);
 	printf("\n");
+}
 }

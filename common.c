@@ -53,7 +53,7 @@ char* stringBetween (char* string, char c) {
 		i+=1;
 	}
 	res=strcpy(res,string+i);
-	res=stringTill(res,'-');
+	res=stringTill(res,c);
 	return res;
 }
 
@@ -72,8 +72,7 @@ char* stringAfter (char* string, char c) {
 
 // Obtém a data de um post (string) e converte-a no formato Date
 
-Date dateFromPost (Post p) {
-	char* date = getDate(p);
+Date dateFromPost (char* date) {
 	char* res = sortDate(date);
 	char* year = stringTill(res,'-');
 	char* month = stringBetween(res,'-');
@@ -84,26 +83,3 @@ Date dateFromPost (Post p) {
 	Date d = nDate(dd,m,y);
 	return d;
 }
-
-// Verifica se uma data está entre um dado intervalo de datas.
-
-int betweenDate (Date d,Date x,Date y) {
-	return (cmpDate(d,x) <= 0 || cmpDate(d,y) >= 0) ? 1 : 0;
-}
-
-// Retorna o número de questões presentes numa lista ligada de posts
-/*
-int questionCount (GList* list) {
-	int r=0;
-	for(list;list!=NULL;list=list->next) {
-		if(isQuestion((User)list->data)) r++;
-	}
-	return r;
-}*/
-/*
-int main () {
-	Post p = nPost(1,2,1,10,3,"Titulo teste","2015-10-13T19:17:17.917","$lt;lalala;&gt");
-	Date d = dateFromPost(p);
-	printDate(d);
-	return 0;
-}*/

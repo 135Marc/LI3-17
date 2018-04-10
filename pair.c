@@ -80,4 +80,8 @@ void free_long_pair(LONG_pair pair) {
     free(pair);
 }
 
+void print_long_pair(LONG_pair pair) {
+  printf("Questões : %li\n",get_fst_long(pair));
+  printf("Respostas : %li\n",get_snd_long(pair));
+}
 

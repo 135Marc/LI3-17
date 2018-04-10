@@ -6,6 +6,7 @@ typedef struct Users {
 	char* displayname;
 	char* shortbio;
 	int postcount;
+	LONG_list list10;
 } Users;
 
 User new_User(int reputation, long id,char* displayname,char* shortbio) {
@@ -15,6 +16,7 @@ User new_User(int reputation, long id,char* displayname,char* shortbio) {
 	new->displayname = displayname;
 	new->shortbio=shortbio;
 	new->postcount=0;
+	new->list10 = NULL;
 	return new;
 }
 
@@ -22,6 +24,7 @@ void freeUser (User u) {
 	if (u) {
 		free(u->displayname);
 		free(u->shortbio);
+		free_list(u->list10);
 		free(u);
 	}
 }
@@ -46,12 +49,21 @@ char* getShortBio (User u) {
 	return u->shortbio;
 }
 
+LONG_list getList10 (User u) {
+	return u->list10;
+}
+
+void setList10 (User u,LONG_list l) {
+	u->list10=l;
+}
+
 void printUser (User u) {
 	printf("Display do utilizador : %s\n",getDisplayName(u));
 	printf("ID do utilizador : %li\n",getIDUser(u));
 	printf("Reputação : %d\n",getRep(u));
 	printf("About me: %s\n",getShortBio(u));
 	printf("PostCount : %d\n",getPostCount(u));
+	if (getList10(u))print_LONG_list(getList10(u)); 
 }
 
 long cmpUserID (User u1, User u2) {
@@ -62,32 +74,12 @@ long cmpUserID (User u1, User u2) {
 }
 
 void add_Post(User u) {
-	u->postcount++;
+	u->postcount+=1;
 }
 
 int cmpPostCount (User u1, User u2) {
 	int r1 = getPostCount(u1);
 	int r2 = getPostCount(u2);
 	if (r1==r2) return 0;
-	return (r2<r1) ? 1 : -1;
-
+	return (r1>r2) ? -1 : 1;
 }
-/*
-int main () {
-	User u = new_User(600,50,"asshole","Cago-te na fronha");
-	User u1 =new_User(550,49,"merdas","Cago-te na cozinha");
-	User u2=new_User(510,20,"Jacker","Só fumo umas merdas para me divertir");
-	User u3=new_User(20,49,"merdas","Cago-te na cozinha");
-	User u4=new_User(2000,49,"asshole","Cago-te na fronha");
-	GList* lista = NULL;
-	lista = g_list_insert_sorted(lista,u,(GCompareFunc) cmpfunci);
-	lista = g_list_insert_sorted(lista,u1,(GCompareFunc) cmpfunci);
-	lista= g_list_insert_sorted(lista,u2,(GCompareFunc) cmpfunci);
-	lista = g_list_insert_sorted(lista,u3,(GCompareFunc) cmpfunci);
-	lista = g_list_insert_sorted(lista,u4,(GCompareFunc) cmpfunci);
-	int res;
-	res = (int) g_list_length(lista);
-	printf("O tamanho da lista ligada é : %d\n",res);
-	g_list_foreach(lista , (GFunc) printUser , (User)lista->data);
-	return 0;
-}*/
