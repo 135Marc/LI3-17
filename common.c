@@ -16,11 +16,13 @@ int cmpfunci (const void * a, const void * b) {
 //Retorna a string resultante até um caracter específico.
 
 char* stringTill(char* string, char c) {
-	int i;
-	char* res = malloc(sizeof(char*));
+	int i,size;
+	size = strlen(string);
+	char* res = malloc(size);
 	for(i=0;string[i]!=c ;i++) {
 		res[i]=string[i];
 	}
+	res[i]='\0';
 	return res;
 }
 
@@ -45,9 +47,10 @@ int elemChar (char* string, char c) {
 // Retorna a string resultante entre um caracter especifico.
 
 char* stringBetween (char* string, char c) {
-	int i,count;
+	int i,count,size;
 	i=count=0;
-	char* res = malloc(sizeof(char*));
+	size = strlen(string);
+	char* res = malloc(size);
 	while (string[i]!='\0' && count < 1) {
 		if (string[i]==c) count+=1; 
 		i+=1;
@@ -60,9 +63,10 @@ char* stringBetween (char* string, char c) {
 //Retorna a string resultante após n ocorrências de um caracter específico.
 
 char* stringAfter (char* string, char c) {
-	int i,count;
+	int i,count,size;
 	i=count=0;
-	char* res = malloc(sizeof(char*));
+	size = strlen(string);
+	char* res = malloc(size);
 	while(string[i]!='\0' && elemChar(string+i,'-')!=0){
 		i+=1;
 	}
@@ -77,9 +81,13 @@ Date dateFromPost (char* date) {
 	char* year = stringTill(res,'-');
 	char* month = stringBetween(res,'-');
 	char* day = stringAfter(res,'-');
+	free(res);
 	int y = atoi(year);
 	int m = atoi(month);
 	int dd = atoi(day);
+	free(year);
+	free(month);
+	free(day);
 	Date d = nDate(dd,m,y);
 	return d;
 }

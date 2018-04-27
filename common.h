@@ -14,6 +14,5 @@
 	char* stringBetween (char* string, char c);
 	char* stringAfter (char* string, char c);
 	Date dateFromPost (char* date);
-	
 
 #endif
