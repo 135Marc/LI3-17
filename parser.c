@@ -1,6 +1,106 @@
-/*#include "parser.h"
+#include "parser.h"
 
-TAD_community load_post (TAD_community com, char* dump_path) {
+void insert_User (GHashTable* ht,User u) {
+	glong id = (glong) getIDUser(u);
+	g_hash_table_insert(ht,(gpointer)GINT_TO_POINTER(id),(gpointer) u);
+}
+
+void insert_Tag (GHashTable* ht,Tag t) {
+	glong id = (glong) getTagID(t);
+	g_hash_table_insert(ht,(gpointer)GINT_TO_POINTER(id),(gpointer) t);
+}
+
+void insert_Post (GHashTable* hp,Post p) {
+	glong id = (glong) getID(p);
+	g_hash_table_insert(hp,(gpointer)GINT_TO_POINTER(id),(gpointer) p);
+}
+
+User get_UUser (GHashTable* ht,long id) {
+	return g_hash_table_lookup(ht,GINT_TO_POINTER((glong) id));
+}
+
+GHashTable* load_user (GHashTable* com, char* dump_path) {
+	xmlDocPtr doc;
+	xmlNodePtr cur;
+	User u=NULL;
+	long id;
+	int reputation;
+	char* display=NULL;
+	char* shortbio=NULL;
+	char* buff=malloc(150);
+	strcpy(buff,dump_path);
+	strcat(buff,"Users.xml");
+	doc=xmlParseFile(buff);
+	if(doc==NULL){
+		printf("Couldn't parse\n");
+		exit(-1);
+	}
+	cur=xmlDocGetRootElement(doc);
+	if(cur==NULL){
+		printf("Nothing here.\n");
+		xmlFreeDoc(doc);
+		exit(0);
+	}
+	cur=cur->xmlChildrenNode;
+	while(cur!=NULL){
+			if(!xmlStrcmp((cur->name),((const xmlChar *)"row"))){
+				 id = atol((char*) xmlGetProp(cur,(const xmlChar *)"Id"));
+				 reputation =atoi((char*) xmlGetProp(cur,(const xmlChar *)"Reputation"));
+				 display = (char*) xmlGetProp(cur,(const xmlChar *)"DisplayName");
+				 shortbio = (char*) xmlGetProp(cur,(const xmlChar *)"AboutMe");
+				 u=new_User(reputation,id,display,shortbio);
+				 insert_User(com,u);
+				 free(display);
+				 free(shortbio);
+			}
+			cur=cur->next;
+		}
+		free(buff);
+		xmlFreeDoc(doc);
+		xmlFreeNode(cur);
+	return com;
+}
+
+
+GHashTable* load_tag (GHashTable* com, char* dump_path) {
+	xmlDocPtr doc;
+	xmlNodePtr cur;
+	Tag t =NULL;
+	long id;
+	char* name=NULL;
+	char* buff=malloc(150);
+	strcpy(buff,dump_path);
+	strcat(buff,"Tags.xml");
+	doc=xmlParseFile(buff);
+	if(doc==NULL){
+		printf("Couldn't parse\n");
+		exit(-1);
+	}
+	cur=xmlDocGetRootElement(doc);
+	if(cur==NULL){
+		printf("Nothing here.\n");
+		xmlFreeDoc(doc);
+		exit(0);
+	}
+	cur=cur->xmlChildrenNode;
+	while(cur!=NULL){
+			if(!xmlStrcmp((cur->name),((const xmlChar *)"row"))){
+				 id = atol((char*) xmlGetProp(cur,(const xmlChar *)"Id"));
+				 name = (char*) xmlGetProp(cur,(const xmlChar *)"TagName");
+				 t=new_Tag(id,name);
+				 insert_Tag(com,t);
+				 free(name);
+			}
+			cur=cur->next;
+		}
+		free(buff);
+		xmlFreeDoc(doc);
+		xmlFreeNode(cur);
+	return com;
+}
+
+
+GHashTable* load_post (GHashTable* com, GHashTable* comz,char* dump_path) {
 	xmlDocPtr doc;
 	xmlNodePtr cur;
 	Post p=NULL;
@@ -42,7 +142,7 @@ TAD_community load_post (TAD_community com, char* dump_path) {
 				 tags =  (char*) xmlGetProp(cur,(const xmlChar *)"Tags");
 				 p=nPost(id,ownerid,parentid,typeid,score,answercount,commentcount,title,date,tags);
 				 set_Date(p);
-				 add_Post(get_User(com,getOwnerID(p)));
+				 add_Post(get_User(comz,getOwnerID(p)));
 				 insert_Post(com,p);
 				 free(title);
 				 free(date);
@@ -51,90 +151,7 @@ TAD_community load_post (TAD_community com, char* dump_path) {
 			cur=cur->next;
 		}
 		free(buff);
-		freePost(p);
 		xmlFreeDoc(doc);
 		xmlFreeNode(cur);
 	return com;
 }
-
-TAD_community load_user (TAD_community com, char* dump_path) {
-	xmlDocPtr doc;
-	xmlNodePtr cur;
-	User u=NULL;
-	long id;
-	int reputation;
-	char* display=NULL;
-	char* shortbio=NULL;
-	char* buff=malloc(150);
-	strcpy(buff,dump_path);
-	strcat(buff,"Users.xml");
-	doc=xmlParseFile(buff);
-	if(doc==NULL){
-		printf("Couldn't parse\n");
-		exit(-1);
-	}
-	cur=xmlDocGetRootElement(doc);
-	if(cur==NULL){
-		printf("Nothing here.\n");
-		xmlFreeDoc(doc);
-		exit(0);
-	}
-	cur=cur->xmlChildrenNode;
-	while(cur!=NULL){
-			if(!xmlStrcmp((cur->name),((const xmlChar *)"row"))){
-				 id = atol((char*) xmlGetProp(cur,(const xmlChar *)"Id"));
-				 reputation =atoi((char*) xmlGetProp(cur,(const xmlChar *)"Reputation"));
-				 display = (char*) xmlGetProp(cur,(const xmlChar *)"DisplayName");
-				 shortbio = (char*) xmlGetProp(cur,(const xmlChar *)"AboutMe");
-				 u=new_User(reputation,id,display,shortbio);
-				 insert_User(com,u);
-				 free(display);
-				 free(shortbio);
-			}
-			cur=cur->next;
-		}
-		free(buff);
-		freeUser(u);
-		xmlFreeDoc(doc);
-		xmlFreeNode(cur);
-	return com;
-}
-
-TAD_community load_tag (TAD_community com, char* dump_path) {
-	xmlDocPtr doc;
-	xmlNodePtr cur;
-	Tag t =NULL;
-	long id;
-	char* name=NULL;
-	char* buff=malloc(150);
-	strcpy(buff,dump_path);
-	strcat(buff,"Tags.xml");
-	doc=xmlParseFile(buff);
-	if(doc==NULL){
-		printf("Couldn't parse\n");
-		exit(-1);
-	}
-	cur=xmlDocGetRootElement(doc);
-	if(cur==NULL){
-		printf("Nothing here.\n");
-		xmlFreeDoc(doc);
-		exit(0);
-	}
-	cur=cur->xmlChildrenNode;
-	while(cur!=NULL){
-			if(!xmlStrcmp((cur->name),((const xmlChar *)"row"))){
-				 id = atol((char*) xmlGetProp(cur,(const xmlChar *)"Id"));
-				 name = (char*) xmlGetProp(cur,(const xmlChar *)"TagName");
-				 t=new_Tag(id,name);
-				 insert_Tag(com,t);
-				 free(name);
-			}
-			cur=cur->next;
-		}
-		free(buff);
-		freeTag(t);
-		xmlFreeDoc(doc);
-		xmlFreeNode(cur);
-	return com;
-}
-*/

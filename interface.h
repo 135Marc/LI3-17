@@ -9,20 +9,12 @@
 	#include <libxml/parser.h>
 	#include <libxml/tree.h>
 	#include "./utilities.h"
+	#include "./parser.h"
 	typedef struct TCD_community* TAD_community;
 	TAD_community init (TAD_community hp);
-	void insert_User (TAD_community ht,User u);
 	GList* get_Users (TAD_community hp);
-	User get_User (TAD_community ht,long id);
-	void insert_Post (TAD_community hp,Post p);
 	GList* get_Posts (TAD_community hp);
-	Post get_Post (TAD_community hp,long id);
-	void insert_Tag (TAD_community ht,Tag t);
 	GList* get_Tags (TAD_community ht);
-	Tag get_Tag (TAD_community ht,long id);
-	TAD_community load_user (TAD_community com, char* dump_path);
-	TAD_community load_post (TAD_community com, char* dump_path);
-	TAD_community load_tag (TAD_community com, char* dump_path);
 	TAD_community load (TAD_community com, char* dump_path);
 	STR_pair info_from_post(TAD_community hp, long id);
 	LONG_list top_most_active(TAD_community com, int N);

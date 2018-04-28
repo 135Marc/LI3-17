@@ -1,5 +1,14 @@
 #include "utilities.h"
 
+User get_User (GHashTable* ht,long id) {
+	return g_hash_table_lookup(ht,GINT_TO_POINTER((glong) id));
+}
+
+Post get_Post (GHashTable* hp,long id) {
+	return g_hash_table_lookup(hp,GINT_TO_POINTER((glong) id));
+}
+
+
 LONG_list sort_user_by_N (GList* list,GCompareFunc func,int N) {
 	User u = NULL;
 	LONG_list res = create_list(N);
@@ -89,8 +98,13 @@ LONG_list set_long_N (GList* list,int N) {
 	return res;
 }
 
-STR_pair infos_from (Post p,User u) {
+STR_pair infos_from (GHashTable* ht,Post p,User u) {
 	STR_pair new;
+	long pid;
+	if (isAnswer(p)) {
+		pid = getParentID(p);
+		p = get_Post(ht,pid);
+	}
 	char* title = getTitle(p);
 	char* name = getDisplayName(u);
 	new=create_str_pair(title,name);
@@ -269,6 +283,27 @@ int calc_answer (Post p,User u) {
 	score = getScore(p);
 	res = ((0.65*score)+(0.25*rep)+(0.1*comt));
 	return res;
+}
+
+long calculate_best_answer(GHashTable* com,GList* aux) {
+	Post p1 = NULL;
+	User u = NULL;
+	long idr=0;
+	int curr,max,oid;
+	curr=max=0;
+	while (aux!=NULL) {
+		p1 = (Post)aux->data;
+		oid = getOwnerID(p1);
+		u = get_User(com,oid);
+		curr = calc_answer(p1,u);
+		if (curr>max) {
+			max = curr;
+			idr = getID(p1);
+		}
+		aux = aux->next;
+	}
+	g_list_free_full (aux,(GDestroyNotify) freePost);
+	return idr;
 }
 
 LONG_list sort_N_tags_by (GList* tags,GCompareFunc func,int N){

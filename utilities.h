@@ -12,13 +12,15 @@
 	#include "./tag.h"
 	#include "./user.h"
 	#include "./common.h"
+	User get_User (GHashTable* ht,long id);
+	Post get_Post (GHashTable* hp,long id);
 	LONG_list sort_user_by_N (GList* list,GCompareFunc func,int N);
 	LONG_list sort_post_by_N (GList* list,GCompareFunc func,int N);
 	LONG_pair total_QandA(GList* list,Date begin, Date end);
 	GList* filter_answer_by_dates(GList* list,Date begin,Date end);
 	GList* filter_questions_by_dates(GList* list,Date begin,Date end);
 	LONG_list set_long_N (GList* list,int N);
-	STR_pair infos_from (Post p,User u);
+	STR_pair infos_from (GHashTable* ht,Post p,User u);
 	GList* filter_question_inTitle(GList* list,char* word);
 	GList* filter_question_tags_date(GList* list,char* tag,Date begin,Date end);
 	GList* filter_post_by_user(GList* list,long id);
@@ -29,6 +31,7 @@
 	GList* filter_by_user_and_dates (GList* posts,long uid,Date x, Date y);
 	void set_Tag_Count (GList* tags,Post p);
 	int calc_answer (Post p,User u);
+	long calculate_best_answer(GHashTable* com,GList* aux);
 	LONG_list sort_N_tags_by (GList* tags,GCompareFunc func,int N);
 	void set_Tag_Counters (GList* totalposts,GList* com);
 	GList* create_N_best_users(GList* users,int N);

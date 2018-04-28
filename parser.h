@@ -6,9 +6,13 @@
 	#include <libxml/xmlmemory.h>
 	#include <libxml/parser.h>
 	#include <libxml/tree.h>
-	#include "./interface.h"
-	TAD_community load_user (TAD_community com, char* dump_path);
-	TAD_community load_post (TAD_community com, char* dump_path);
-	TAD_community load_tag (TAD_community com, char* dump_path);
+	#include "./utilities.h"
+	void insert_User (GHashTable* ht,User u);
+	void insert_Tag (GHashTable* ht,Tag t);
+	void insert_Post (GHashTable* hp,Post p);
+	GHashTable* load_user (GHashTable* com, char* dump_path);
+	GHashTable* load_tag (GHashTable* com, char* dump_path);
+	GHashTable* load_post (GHashTable* com, GHashTable* comz,char* dump_path);
+	
 
 #endif
