@@ -12,7 +12,6 @@
 	void freeTag (Tag t);
 	void printTag (Tag t);
 	void add_Tag_Count(Tag t);
-	int cmpTagID (Tag t1, Tag t2);
 	int cmpCounter (Tag t1,Tag t2);
 
 #endif

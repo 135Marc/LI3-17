@@ -23,15 +23,10 @@
 	Date get_DDate (Post p);
 	int isQuestion (Post p);
 	int isAnswer (Post p);
-	int inTag (char* tags, char* tag);
-	int inTitle (Post p, char* s2);
 	void printPost (Post p);
 	int cmpPostScore (Post u1, Post u2);
 	int cmpAnswerCount (Post p1, Post p2);
-	int cmpVal (int a,int b);
 	int cmpDate (Post p1, Post p2);
-	int cmpDates (Date d1, Date d2);
-	int betweenDate (Date d,Date x,Date y);
 
 
 #endif

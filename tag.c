@@ -28,6 +28,7 @@ int get_TagCounter(Tag t) {
 void freeTag (Tag t) {
 	if (t) {
 		free(t->name);
+		t->counter=0;
 		free(t);
 	}
 }
@@ -44,10 +45,10 @@ void add_Tag_Count(Tag t) {
 	t->counter+=1;
 }
 
-int cmpTagID (Tag t1, Tag t2) {
-	long id1 = getTagID(t1);
-	long id2 = getTagID(t2);
-	return (id1>id2) ? -1 : 1;
+int cmpTagID (Tag t1,Tag t2) {
+	long r1 = getTagID(t1);
+	long r2 = getTagID(t2);
+	return (r1>r2) ? 1 : -1;
 }
 
 int cmpCounter (Tag t1,Tag t2) {

@@ -14,6 +14,18 @@ TAD_community init (TAD_community ht) {
 	return ht;
 }
 
+GHashTable* get_HashT_Posts (TAD_community ht) {
+	return ht->hashPost;
+}
+
+GHashTable* get_HashT_Users (TAD_community ht) {
+	return ht->hashUser;
+}
+
+GHashTable* get_HashT_Tags (TAD_community ht) {
+	return ht->hashTags;
+}
+
 GList* get_Users (TAD_community ht) {
 	return g_hash_table_get_values(ht->hashUser);
 }
@@ -36,10 +48,12 @@ TAD_community load (TAD_community com, char* dump_path) {
 
 // QUERY 1
 STR_pair info_from_post(TAD_community hp, long id) {
-	Post p = get_Post(hp->hashPost,id);
+	GHashTable* htp = get_HashT_Posts(hp);
+	GHashTable* htu = get_HashT_Users(hp);
+	Post p = get_Post(htp,id);
  	long uid=getOwnerID(p);
-	User u = get_User(hp->hashUser,uid);
-	STR_pair new = infos_from(hp->hashPost,p,u);
+	User u = get_User(htu,uid);
+	STR_pair new = infos_from(htp,p,u);
 	return new;
 }
 
@@ -68,8 +82,9 @@ LONG_list questions_with_tag(TAD_community com, char* tag, Date begin, Date end)
 
 // QUERY 5
 USER get_user_info(TAD_community com, long id) {
+	GHashTable* htu = get_HashT_Users(com);
 	GList* posts = get_Posts(com);
-	User u = get_User(com->hashUser,id);
+	User u = get_User(htu,id);
 	GList* aux = filter_post_by_user(posts,id);
 	char* shortbio = getShortBio(u);
 	long *l = get_10_latest(aux);
@@ -84,6 +99,7 @@ LONG_list most_voted_answers(TAD_community com, int N, Date begin, Date end) {
 	LONG_list res = set_long_N (filtered,N); 
 	return res;
 }
+
 // QUERY 7
 LONG_list most_answered_questions(TAD_community com, int N, Date begin, Date end) {
 	GList* posts = get_Posts(com);
@@ -110,16 +126,19 @@ LONG_list both_participated(TAD_community com, long id1, long id2, int N) {
 
 // QUERY 10
 long better_answer(TAD_community com, long id) {
+	GHashTable* htp = get_HashT_Posts(com);
+	GHashTable* htu = get_HashT_Users(com);
+	Post p = get_Post(htp,id);
+	if (getAnswerCount(p)==0) return -1;
 	GList* list = get_Posts(com);
 	GList* aux=filter_answers_by_qid(list,id);
-	long best = calculate_best_answer(com->hashUser,aux);
+	long best = calculate_best_answer(htu,aux);
 	return best;
 }
 
 //QUERY 11 
 LONG_list most_used_best_rep(TAD_community com, int N, Date begin, Date end) {
 	GList* users = get_Users(com);
-	users = g_list_sort(users,(GCompareFunc) cmpRep);
 	GList* posts = get_Posts(com);
 	GList* tags = get_Tags(com);
 	GList* nbest = create_N_best_users(users,N);

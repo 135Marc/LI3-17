@@ -26,7 +26,8 @@
 	GList* filter_post_by_user(GList* list,long id);
 	long* get_10_latest(GList* list);
 	LONG_list filter_both_contributions(GList* com,GList* aux, long id1,long id2,int N);
-	GList* posts_from_both(GList* list,long id1,long id2);
+	GList* posts_from (GList* list,long id);
+	GList* posts_from_both (GList* list,long id1,long id2);
 	GList* filter_answers_by_qid (GList* list,long id);
 	GList* filter_by_user_and_dates (GList* posts,long uid,Date x, Date y);
 	void set_Tag_Count (GList* tags,Post p);

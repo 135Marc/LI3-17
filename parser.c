@@ -142,7 +142,7 @@ GHashTable* load_post (GHashTable* com, GHashTable* comz,char* dump_path) {
 				 tags =  (char*) xmlGetProp(cur,(const xmlChar *)"Tags");
 				 p=nPost(id,ownerid,parentid,typeid,score,answercount,commentcount,title,date,tags);
 				 set_Date(p);
-				 add_Post(get_User(comz,getOwnerID(p)));
+				 if (isQuestion(p) || isAnswer(p)) add_Post(get_User(comz,getOwnerID(p)));
 				 insert_Post(com,p);
 				 free(title);
 				 free(date);

@@ -95,6 +95,7 @@ LONG_list set_long_N (GList* list,int N) {
 			p = (Post)list->data;
 			set_list(res,i,getID(p));
 	}
+	g_list_free_full (list,(GDestroyNotify) freePost);
 	return res;
 }
 
@@ -116,11 +117,12 @@ STR_pair infos_from (GHashTable* ht,Post p,User u) {
 GList* filter_question_inTitle(GList* list,char* word) {
 	Post p = NULL;
 	GList* aux = NULL;
+	char* buff;
+	list = g_list_sort(list,(GCompareFunc) cmpDate);
 	while (list!=NULL) {
 		p = (Post) list->data;
-		if (isQuestion(p) && inTitle(p,word)) {
-			aux = g_list_insert_sorted(aux,(gpointer) p,(GCompareFunc) cmpDate);
-		}
+		buff = getTitle(p);
+		if (isQuestion(p) && inTitle(buff,word)) aux = g_list_append(aux,(gpointer) p);
 		list=list->next;
 	}
 	g_list_free_full (list,(GDestroyNotify) freePost);
@@ -144,6 +146,7 @@ GList* filter_question_tags_date(GList* list,char* tag,Date begin,Date end) {
 	g_list_free_full (list,(GDestroyNotify) freePost);
 	return aux;
 }
+
 GList* filter_post_by_user(GList* list,long id) {
 	Post p = NULL;
 	GList* aux = NULL;
@@ -164,6 +167,7 @@ long* get_10_latest(GList* list) {
 		p = (Post)list->data;
 		l[i]=getID(p);
 	}
+	g_list_free_full (list,(GDestroyNotify) freePost);
 	return l;
 }
 
@@ -172,9 +176,10 @@ GList* get_Answers(GList* l,long postid) {
 	GList* res = NULL;
 	while (l!=NULL) {
 		p = (Post) l->data;
-		if (isAnswer(p) && getParentID(p)==postid) res = g_list_prepend(res,(gpointer) p);
+		if (isAnswer(p) && getParentID(p)==postid) res = g_list_append(res,(gpointer) p);
 		l=l->next;
 	}
+	g_list_free_full (l,(GDestroyNotify) freePost);
 	return res;
 }
 
@@ -187,48 +192,63 @@ int has_answered_post(GList* list,long postid,long uid) {
 		if (getOwnerID(p)==uid) r=1;
 		res=res->next;
 	}
+	g_list_free_full (res,(GDestroyNotify) freePost);
 	return r;
 }
-
 
 LONG_list filter_both_contributions(GList* com,GList* aux, long id1,long id2,int N) {
 	int i=0;
 	long oid,pid;
 	Post p = NULL;
 	LONG_list res = create_list(N);
+	GList* posts1 = posts_from(com,id1);
+	GList* posts2 = posts_from(com,id2);
 	while(aux!=NULL && i<N) {
 		p = (Post)aux->data;
 		oid = getOwnerID(p);
 		if (isQuestion(p)) {
 			pid = getID(p);
-			if (oid==id1 && has_answered_post(com,pid,id2)) {
-				set_list(res,i,pid);
-				i++; 
-			}
-			else if (oid==id2 && has_answered_post(com,pid,id1)) {
+			if (oid==id1 && has_answered_post(posts2,pid,id2)) {
 				set_list(res,i,pid);
 				i++;
-			}
+			} 
+			else if (oid==id2 && has_answered_post(posts1,pid,id1)) {
+				set_list(res,i,pid);
+				i++;
+			} 
 		}
 		if (isAnswer(p)) {
 			pid = getParentID(p);
-			if (oid == id1 && has_answered_post(com,pid,id2))  {
+			if (oid == id1 && has_answered_post(posts2,pid,id2))  {
 				set_list(res,i,pid);
 				i++;
+				}
 			}
-		}
 		aux=aux->next;	
 	}
 	g_list_free_full (aux,(GDestroyNotify) freePost);
+	g_list_free_full (posts1,(GDestroyNotify) freePost);
+	g_list_free_full (posts2,(GDestroyNotify) freePost);
 	return res;
 }
 
-GList* posts_from_both(GList* list,long id1,long id2) {
+GList* posts_from (GList* list,long id) {
 	GList* aux = NULL;
 	Post p = NULL;
 	while(list!=NULL) { 
 		p = (Post) list->data;
-		if (getOwnerID(p)==id1 || getOwnerID(p)==id2) aux = g_list_insert_sorted(aux,(gpointer) p,(GCompareFunc) cmpDate);
+		if (getOwnerID(p)==id) aux = g_list_prepend(aux,(gpointer) p);
+		list=list->next;
+	}
+	return aux;
+}
+
+GList* posts_from_both (GList* list,long id1,long id2) {
+	GList* aux = NULL;
+	Post p = NULL;
+	while(list!=NULL) { 
+		p = (Post) list->data;
+		if (getOwnerID(p)==id1 || getOwnerID(p)==id2) aux = g_list_prepend(aux,(gpointer) p);
 		list=list->next;
 	}
 	return aux;
@@ -256,7 +276,7 @@ GList* filter_by_user_and_dates (GList* posts,long uid,Date x, Date y) {
 		oid = getOwnerID(p);
 		d = get_DDate(p);
 		if (oid==uid && betweenDate(d,x,y)) {
-			if (isQuestion(p)) res = g_list_append(res,(gpointer) p);
+			if (isQuestion(p)) res = g_list_prepend(res,(gpointer) p);
 		} 
 		posts=posts->next;	
 	}
@@ -265,8 +285,8 @@ GList* filter_by_user_and_dates (GList* posts,long uid,Date x, Date y) {
 
 void set_Tag_Count (GList* tags,Post p) {
 	Tag t=NULL;
-	char* res = getTags(p);
 	char* name=NULL;
+	char* res = getTags(p);
 	while (tags!=NULL) {
 		t = (Tag) tags->data;	
 		name = getTagName(t);
@@ -335,14 +355,16 @@ GList* create_N_best_users(GList* users,int N) {
 	GList* nbest = NULL;
 	User u = NULL;
 	int i=0;
+	users = g_list_sort(users,(GCompareFunc) cmpRep);
 	while (users!=NULL && i<N) {
 		u = (User) users->data;
-		nbest = g_list_insert_sorted(nbest,(gpointer) u,(GCompareFunc) cmpRep);
+		nbest = g_list_append(nbest,(gpointer) u);
 		i++;
 		users=users->next;
 	}
 	return nbest;
 }
+
 
 GList* filter_total_posts (GList* nbest,GList* com,Date begin,Date end) {
 	GList* filter = NULL;

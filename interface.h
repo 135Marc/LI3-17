@@ -5,13 +5,13 @@
 	#include <stdio.h>
 	#include <glib.h>
 	#include <gmodule.h>
-	#include <libxml/xmlmemory.h>
-	#include <libxml/parser.h>
-	#include <libxml/tree.h>
 	#include "./utilities.h"
 	#include "./parser.h"
 	typedef struct TCD_community* TAD_community;
 	TAD_community init (TAD_community hp);
+	GHashTable* get_HashT_Posts (TAD_community ht);
+	GHashTable* get_HashT_Users (TAD_community ht);
+	GHashTable* get_HashT_Tags (TAD_community ht);
 	GList* get_Users (TAD_community hp);
 	GList* get_Posts (TAD_community hp);
 	GList* get_Tags (TAD_community ht);
