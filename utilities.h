@@ -23,7 +23,7 @@
 	STR_pair infos_from (GHashTable* ht,Post p,User u);
 	GList* filter_question_inTitle(GList* list,char* word);
 	GList* filter_question_tags_date(GList* list,char* tag,Date begin,Date end);
-	GList* filter_post_by_user(GList* list,long id);
+	GList* filter_ordered_posts(GList* list);
 	long* get_10_latest(GList* list);
 	LONG_list filter_both_contributions(GList* com,GList* aux, long id1,long id2,int N);
 	GList* posts_from (GList* list,long id);

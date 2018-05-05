@@ -22,6 +22,7 @@ void freeUser (User u) {
 	if (u) {
 		free(u->displayname);
 		free(u->shortbio);
+		u->postcount=0;
 		free(u);
 	}
 }

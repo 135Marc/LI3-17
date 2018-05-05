@@ -26,6 +26,7 @@ Post nPost (long id,long ownerid,long parentid,int typeid,int score,int answerco
 	return new;
 }
 
+
 // Liberta o espaço utilizado por um Post na memória
 
 void freePost (Post p) {
@@ -105,6 +106,7 @@ Date get_DDate (Post p) {
 	Date d = p->d;
 	return d;
 }
+
 // Verifica se um Post é uma pergunta ou resposta
 
 int isQuestion (Post p) {

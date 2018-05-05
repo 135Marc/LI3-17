@@ -8,9 +8,9 @@ typedef struct TCD_community {
 
 TAD_community init (TAD_community ht) {
 	ht = g_new(TCD_community,1);
-	ht->hashUser = g_hash_table_new((GHashFunc) g_direct_hash,(GEqualFunc) g_direct_equal);
-	ht->hashPost = g_hash_table_new((GHashFunc) g_direct_hash,(GEqualFunc) g_direct_equal);
-	ht->hashTags = g_hash_table_new((GHashFunc) g_direct_hash,(GEqualFunc) g_direct_equal);
+	ht->hashUser = g_hash_table_new_full((GHashFunc) g_direct_hash,(GEqualFunc) g_direct_equal,NULL,(GDestroyNotify) freeUser);
+	ht->hashPost = g_hash_table_new_full((GHashFunc) g_direct_hash,(GEqualFunc) g_direct_equal,NULL,(GDestroyNotify) freePost);
+	ht->hashTags = g_hash_table_new_full((GHashFunc) g_direct_hash,(GEqualFunc) g_direct_equal,NULL,(GDestroyNotify) freeTag);
 	return ht;
 }
 
@@ -39,7 +39,6 @@ GList* get_Tags (TAD_community ht) {
 }
 
 TAD_community load (TAD_community com, char* dump_path) {
-	com = init(com);
 	com->hashUser = load_user(com->hashUser,dump_path);
 	com->hashPost = load_post(com->hashPost,com->hashUser,dump_path);
 	com->hashTags = load_tag(com->hashTags,dump_path);
@@ -61,6 +60,7 @@ STR_pair info_from_post(TAD_community hp, long id) {
 LONG_list top_most_active(TAD_community com, int N) {
 	GList* usa = get_Users(com);
 	LONG_list res = sort_user_by_N (usa,(GCompareFunc) cmpPostCount,N);
+	g_list_free(usa);
 	return res;
 }
 
@@ -68,6 +68,7 @@ LONG_list top_most_active(TAD_community com, int N) {
 LONG_pair total_posts(TAD_community com, Date begin, Date end) {
 	GList* res = get_Posts(com);
 	LONG_pair lp = total_QandA(res,begin,end);
+	g_list_free(res);
 	return lp;
 }
 
@@ -77,6 +78,8 @@ LONG_list questions_with_tag(TAD_community com, char* tag, Date begin, Date end)
 	GList* filtered = filter_question_tags_date(posts,tag,begin,end);
 	int i = (int) g_list_length(filtered);
 	LONG_list res = sort_post_by_N (filtered,(GCompareFunc) cmpDate,i);
+	g_list_free(filtered);
+	g_list_free(posts);
 	return res;
 }
 
@@ -85,10 +88,14 @@ USER get_user_info(TAD_community com, long id) {
 	GHashTable* htu = get_HashT_Users(com);
 	GList* posts = get_Posts(com);
 	User u = get_User(htu,id);
-	GList* aux = filter_post_by_user(posts,id);
+	GList* filter= posts_from (posts,id);
+	GList* aux = filter_ordered_posts(filter);
 	char* shortbio = getShortBio(u);
 	long *l = get_10_latest(aux);
 	USER res = create_user(shortbio,l);
+	g_list_free(aux);
+	g_list_free(filter);
+	g_list_free(posts);
 	return res;
 }
 
@@ -97,6 +104,8 @@ LONG_list most_voted_answers(TAD_community com, int N, Date begin, Date end) {
 	GList* posts = get_Posts(com);
 	GList* filtered = filter_answer_by_dates(posts,begin,end);
 	LONG_list res = set_long_N (filtered,N); 
+	g_list_free(filtered);
+	g_list_free(posts);
 	return res;
 }
 
@@ -105,6 +114,8 @@ LONG_list most_answered_questions(TAD_community com, int N, Date begin, Date end
 	GList* posts = get_Posts(com);
 	GList* aux = filter_questions_by_dates(posts,begin,end);
 	LONG_list res= set_long_N (aux,N);
+	g_list_free(aux);
+	g_list_free(posts);
 	return res;
 }
 
@@ -113,6 +124,8 @@ LONG_list contains_word(TAD_community com, char* word, int N) {
 	GList* posts = get_Posts(com);
 	GList* aux = filter_question_inTitle(posts,word);
 	LONG_list res = set_long_N(aux,N);
+	g_list_free(aux);
+	g_list_free(posts);
 	return res;
 }
 
@@ -121,6 +134,8 @@ LONG_list both_participated(TAD_community com, long id1, long id2, int N) {
 	GList* posts = get_Posts(com);
 	GList* aux = posts_from_both(posts,id1,id2);
 	LONG_list res = filter_both_contributions(posts,aux,id1,id2,N);
+	g_list_free(aux);
+	g_list_free(posts);
 	return res;
 }
 
@@ -133,6 +148,8 @@ long better_answer(TAD_community com, long id) {
 	GList* list = get_Posts(com);
 	GList* aux=filter_answers_by_qid(list,id);
 	long best = calculate_best_answer(htu,aux);
+	g_list_free(aux);
+	g_list_free(list);
 	return best;
 }
 
@@ -145,6 +162,11 @@ LONG_list most_used_best_rep(TAD_community com, int N, Date begin, Date end) {
 	GList* totalposts = filter_total_posts (nbest,posts,begin,end);
 	set_Tag_Counters (totalposts,tags);
 	LONG_list res = sort_N_tags_by (tags,(GCompareFunc) cmpCounter,N);
+	g_list_free(nbest);
+	g_list_free(users);
+	g_list_free(totalposts);
+	g_list_free(posts);
+	g_list_free(tags);
 	return res;
 }
 
