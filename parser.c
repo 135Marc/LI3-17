@@ -1,24 +1,51 @@
 #include "parser.h"
 
+
+/**	@brief Função que insere o user na tabela de Hash
+*   @param GHashTable*
+*   @param User 
+*/
 void insert_User (GHashTable* ht,User u) {
 	glong id = (glong) getIDUser(u);
 	g_hash_table_insert(ht,(gpointer)GINT_TO_POINTER(id),(gpointer) u);
 }
 
+
+/**	@brief Função que insere a tag na tabela de Hash
+*   @param GHashTable*
+*   @param Tag 
+*/
 void insert_Tag (GHashTable* ht,Tag t) {
 	glong id = (glong) getTagID(t);
 	g_hash_table_insert(ht,(gpointer)GINT_TO_POINTER(id),(gpointer) t);
 }
 
+
+/**	@brief Função que insere o post na tabela de Hash
+*   @param GHashTable*
+*   @param Post
+*/
 void insert_Post (GHashTable* hp,Post p) {
 	glong id = (glong) getID(p);
 	g_hash_table_insert(hp,(gpointer)GINT_TO_POINTER(id),(gpointer) p);
 }
 
+
+/**	@brief Função que devolve o user da tabela de Hash
+*   @param GHashTable*
+*   @param long ID
+*   @return User
+*/
 User get_UUser (GHashTable* ht,long id) {
 	return g_hash_table_lookup(ht,GINT_TO_POINTER((glong) id));
 }
 
+
+/**	@brief Função que carrega os ficheiros XML dos users para a tabela de hash
+*   @param GHashTable*
+*   @param char* path para os ficheiros XML
+*   @return GHashTable* 
+*/
 GHashTable* load_user (GHashTable* com, char* dump_path) {
 	xmlDocPtr doc;
 	xmlNodePtr cur;
@@ -62,6 +89,11 @@ GHashTable* load_user (GHashTable* com, char* dump_path) {
 }
 
 
+/**	@brief Função que carrega os ficheiros XML das Tags para a tabela de hash
+*   @param GHashTable*
+*   @param char* path para os ficheiros XML
+*   @return GHashTable* 
+*/
 GHashTable* load_tag (GHashTable* com, char* dump_path) {
 	xmlDocPtr doc;
 	xmlNodePtr cur;
@@ -100,6 +132,12 @@ GHashTable* load_tag (GHashTable* com, char* dump_path) {
 }
 
 
+/**	@brief Função que carrega os ficheiros XML dos Posts para a tabela de hash
+*   @param GHashTable*
+*   @param GHashTable*
+*   @param char* path para os ficheiros XML
+*   @return GHashTable* 
+*/
 GHashTable* load_post (GHashTable* com, GHashTable* comz,char* dump_path) {
 	xmlDocPtr doc;
 	xmlNodePtr cur;

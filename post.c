@@ -9,8 +9,21 @@ typedef struct Posts {
 	Date d;
 }Posts;
 
-// Cria um novo Post 
 
+
+/**	@brief Função que cria um post
+*   @param long ID
+*   @param long ID do criador do post
+*   @param long ID do parente
+*   @param long ID do tipo de post
+*   @param int score
+*   @param int contador de perguntas
+*   @param int contador de comentarios
+*   @param char* titulo do post
+*   @param char* data do post
+*   @param char* tag do post
+*	@return Post
+*/
 Post nPost (long id,long ownerid,long parentid,int typeid,int score,int answercount,int commentcount,char* title,char* date,char* tags) {
 	Post new = malloc(sizeof(Posts));
 	new->id=id;
@@ -27,8 +40,9 @@ Post nPost (long id,long ownerid,long parentid,int typeid,int score,int answerco
 }
 
 
-// Liberta o espaço utilizado por um Post na memória
-
+/**	@brief Função que liberta o espaço utilizado por um Post na memoria
+*   @param Post
+*/
 void freePost (Post p) {
 	if (p) {
 		free(p->title);
@@ -39,84 +53,143 @@ void freePost (Post p) {
 	}
 }
 
-// Devolver o ID de um Post
 
+
+/**	@brief Função que devolve o identificador do Post
+*   @param Post
+*   @return long
+*/
 long getID (Post p) {
 	return p->id;
 }
 
-// Devolver o ID do criador de um Post
 
+/**	@brief Função que devolve o identificador do criador do Post
+*   @param Post
+*   @return long
+*/
 long getOwnerID (Post p) {
 	return p->ownerid;
 }
 
-// Devolver o "ID Parente" caso seja uma resposta
 
+/**	@brief Função que devolve o identificador do parente caso seja uma resposta
+*   @param Post
+*   @return long
+*/
 long getParentID (Post p) {
 	return p->parentid;
 }
 
-// Devolver o tipo de um Post
 
+// Devolver o tipo de um Post
+/**	@brief Função que devolve o tipo do post
+*   @param Post
+*   @return int
+*/
 int getTypeID (Post p) {
 	return p->typeid;
 }
 
-// Devolver o score(upvote-downvote) de um Post
 
+/**	@brief Função que devolve o score de um Post
+*   @param Post
+*   @return int 
+*/
 int getScore (Post p) {
 	return p->score;
 }
 
-// Devolver o número de respostas presentes num Post
 
+// Devolver o número de respostas presentes num Post
+/**	@brief Função que devolve o numero de respostas presentes num Post
+*   @param Post
+*   @return int 
+*/
 int getAnswerCount (Post p) {
 	return p->answercount;
 }
 
+
+/**	@brief Função que devolve o numero de comentarios de um Post
+*   @param Post
+*   @return int 
+*/
 int getCommentCount (Post p) {
 	return p->commentcount;
 }
 
-// Devolver o título de um Post
 
+/**	@brief Função que devolve o titulo de um Post
+*   @param Post
+*   @return char*
+*/
 char* getTitle (Post p) {
 	return p->title;
 }
 
-// Devolver a data(em forma de string) de um Post
 
+/**	@brief Função que devolve a data de um Post
+*   @param Post
+*   @return char*
+*/
 char* getDate (Post p) {
 	return p->date;
 }
 
-// Devolver as tags presente num Post(caso este seja uma questão)
 
+// Devolver as tags presente num Post(caso este seja uma questão)
+/**	@brief Função que devolve as tags presentes num Post
+*   @param Post
+*   @return char*
+*/
 char* getTags (Post p) {
 	return p->tags;
 }
 
+
+/**	@brief Função que devolve a data de um Post
+*   @param Post
+*   @return long
+*/
 void set_Date(Post p) {
 	Date d1 = dateFromPost(getDate(p));
 	p-> d = d1;
 }
 
+
+/**	@brief Função que devolve a data de um Post
+*   @param Post
+*   @return long
+*/
 Date get_DDate (Post p) {
 	Date d = p->d;
 	return d;
 }
 
-// Verifica se um Post é uma pergunta ou resposta
 
+// Verifica se um Post é uma pergunta ou resposta
+/**	@brief Função que devolve se um Post e pergunta ou resposta
+*   @param Post
+*   @return int retorna 1 se for uma pergunta e 0 caso contrario
+*/
 int isQuestion (Post p) {
 	return (getTypeID(p)==1) ? 1 : 0;
 }
 
+
+/**	@brief Função que devolve se um Post e uma resposta
+*   @param Post
+*   @return int retorna 1 se for resposta e 0 caso contrario
+*/
 int isAnswer (Post p) {
 	return (getTypeID(p)==2) ? 1 : 0;
 }
 
+
+/**	@brief Função que faz os printf 
+*   @param Post
+*/
 void printPost (Post p) {
 	printf("ID: %li\n",getID(p));
 	printf("ID do Utilizador : %li\n",getOwnerID(p));
@@ -131,12 +204,24 @@ void printPost (Post p) {
 	printDate(get_DDate(p));
 }
 
+
+/**	@brief Função que compara os identificadores de dois Posts
+*   @param Post u1
+*   @param Post u2
+*   @return int retorna -1 se o ID do primeiro post for maior que o segundo e 1 caso contrario
+*/
 int cmpPostID (Post u1, Post u2) {
 	long r1 = getID(u1);
 	long r2 = getID(u2);
 	return (r1>r2) ? -1 : 1;
 }
 
+
+/**	@brief Função que compara o score de dois Posts
+*   @param Post u1
+*   @param Post u2
+*   @return int retorna -1 se o score do primeiro post for maior que o segundo e 1 caso contrario
+*/
 int cmpPostScore (Post u1, Post u2) {
 	int r1 = getScore(u1);
 	int r2 = getScore(u2);
@@ -144,6 +229,12 @@ int cmpPostScore (Post u1, Post u2) {
 	return (r1>r2) ? -1 : 1;
 }
 
+
+/**	@brief Função que compara o numero de respostas de dois Posts
+*   @param Post u1
+*   @param Post u2
+*   @return int retorna -1 se o numero de respostas do primeiro post for maior que o segundo e 1 caso contrario
+*/
 int cmpAnswerCount (Post p1, Post p2) {
 	int r1 = getAnswerCount(p1);
 	int r2 = getAnswerCount(p2);
@@ -151,6 +242,12 @@ int cmpAnswerCount (Post p1, Post p2) {
 	return (r1>r2) ? -1 : 1;
 }
 
+
+/**	@brief Função que compara as datas de dois Posts
+*   @param Post u1
+*   @param Post u2
+*   @return int retorna -1 se a data do primeiro post for maior que o segundo e 1 caso contrario
+*/
 int cmpDate (Post p1, Post p2) {
 	Date d1 = dateFromPost(getDate(p1));
 	Date d2 = dateFromPost(getDate(p2));
