@@ -1,10 +1,14 @@
 #include "interface.h"
 
+/**
+* @file interface.c
+* @brief Tipo Abstrato de Dados
+*/
 
 typedef struct TCD_community {
-	GHashTable* hashUser;
-	GHashTable* hashPost;
-	GHashTable* hashTags;
+	GHashTable* hashUser; /**< HashTable dos utilizadores */
+	GHashTable* hashPost; /**< HashTable dos posts */
+	GHashTable* hashTags; /**< HashTable das tags */
 }TCD_community;
 
 

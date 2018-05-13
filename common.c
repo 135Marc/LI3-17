@@ -1,5 +1,16 @@
 #include "common.h"
 
+/**
+* @file common.c
+* @brief Estrutura dos utilizadores
+*/
+
+/** @brief Função que duplica uma string;
+*
+* @param s     		String a ser duplicada;     
+* @return char*    	String duplicada;
+*
+*/
 char * mystrdup (const char *s) {
     if(s == NULL) return NULL;          
     char *d = malloc (strlen (s) + 1); 
@@ -8,10 +19,26 @@ char * mystrdup (const char *s) {
     return d;                       
 }
 
+/** @brief Função que compara dois inteiros de forma inversa;
+*
+* @param a     		Inteiro;
+* @param b 			Inteiro;     
+* @return int    	-1 se a > b , 1 se b > a , 0 caso contrário;
+*
+*/
+
 int cmpVal (int a,int b) {
 	if (a==b) return 0;
 	return (a>b) ? -1 : 1;
 }
+
+/** @brief Função que divide uma string;
+*
+* @param s     		String a ser dividida;
+* @param i 			Indice onde a string vai começar a ser percorrida;     
+* @return char*    	String dividida;
+*
+*/
 
 char* split_string (char* s,int i) {
 	int size = strlen(s);
@@ -21,6 +48,14 @@ char* split_string (char* s,int i) {
 	buff[j]='\0';
 	return buff;
 }
+
+/** @brief Função que verifica se uma string está contida noutra;
+*
+* @param s1     	String maior;
+* @param s2 		String menor;     
+* @return int    	1 caso s2 esteja contida em s1,0 caso contrário;
+*
+*/
 
 int inTitle (char* s1, char* s2) {
 	int i;
@@ -35,11 +70,14 @@ int inTitle (char* s1, char* s2) {
 	return 0;
 }
 
-// Compara dois ints de forma inversa
 
-int cmpfunci (const void * a, const void * b) {
-   return ( *(int*)b - *(int*)a );
-}
+/** @brief Função que verifica se uma string está contida noutra;
+*
+* @param tags     	String em formato de tag;
+* @param tag 		String a comparar;     
+* @return int    	1 caso s2 esteja contida em s1,0 caso contrário;
+*
+*/
 
 int inTag (char* tags, char* tag) {
 	int i,j,c1,size;
@@ -56,7 +94,13 @@ int inTag (char* tags, char* tag) {
 	return (c1==size) ? 1 : 0; 
 }
 
-//Retorna a string resultante até um caracter específico.
+/** @brief Função que Retorna a string resultante até um caracter específico.
+*
+* @param string     String a ser percorrida;
+* @param c 			Caracter onde a string para;     
+* @return char*    	String obtida até ao caracter especificado;
+*
+*/
 
 char* stringTill(char* string, char c) {
 	int i,size;
@@ -69,7 +113,13 @@ char* stringTill(char* string, char c) {
 	return res;
 }
 
-// Normaliza o formato de uma string (que contém uma data)
+/** @brief Função que normaliza o formato de uma string (que contém uma data)
+*
+* @param s1     	String maior;
+* @param s2 		String menor;     
+* @return int    	1 caso s2 esteja contida em s1,0 caso contrário;
+*
+*/
 
 char* sortDate (char* date) {
 	char *res = stringTill(date,'T');
@@ -77,7 +127,13 @@ char* sortDate (char* date) {
 }
 
 
-// Verifica se um caractere pertence a uma string
+/** @brief Função que verifica se um caracter pertence a uma string
+*
+* @param string     	String maior;
+* @param c 				Caracter a encontrar;     
+* @return int    		1 caso o caracter esteja contido na string,0 caso contrário;
+*
+*/
 
 int elemChar (char* string, char c) {
 	int i,r=0;
@@ -87,8 +143,13 @@ int elemChar (char* string, char c) {
 	return r;
 }
 
-// Retorna a string resultante entre um caracter especifico.
-
+/** @brief Função que retorna a string resultante entre um caracter especifico.
+*
+* @param string     	String a ser percorrida;
+* @param c 				Caracter delimitador;     
+* @return char*    		String contida entre o delimitador;
+*
+*/
 char* stringBetween (char* string, char c) {
 	int i,count,size;
 	i=count=0;
@@ -103,7 +164,13 @@ char* stringBetween (char* string, char c) {
 	return res;
 }
 
-//Retorna a string resultante após n ocorrências de um caracter específico.
+/** @brief Função que retorna a string resultante após n ocorrências de um caracter específico.
+*
+* @param string     	String a ser percorrida;
+* @param c 				Caracter delimitador;     
+* @return char*    		String contida após o delimitador;
+*
+*/
 
 char* stringAfter (char* string, char c) {
 	int i,count,size;
@@ -117,7 +184,12 @@ char* stringAfter (char* string, char c) {
 	return res;
 }
 
-// Obtém a data de um post (string) e converte-a no formato Date
+/** @brief Função que obtém a data de um post (string) e converte-a no formato Date
+*
+* @param date    		String a converter;     
+* @return Date    		Apontador da estrutura Date;
+*
+*/
 
 Date dateFromPost (char* date) {
 	char* res = sortDate(date);
@@ -135,6 +207,13 @@ Date dateFromPost (char* date) {
 	return d;
 }
 
+/** @brief Função que obtém a data de um post (string) e converte-a no formato Date
+*
+* @param date    		String a converter;     
+* @return Date    		Apontador da estrutura Date;
+*
+*/
+
 int cmpDates (Date d1, Date d2) {
 	int year1 = get_Year(d1);
 	int year2 = get_Year(d2);
@@ -151,9 +230,15 @@ int cmpDates (Date d1, Date d2) {
 	return 0;
 }
 
-// Verifica se uma data está entre um dado intervalo de datas.
+/** @brief Função que verifica se uma data está entre um dado intervalo de datas.
+*
+* @param d    			Data a comparar;
+* @param x 				Data inicial;
+* @param y 				Data final;     
+* @return int    		1 se está contida, 0 caso contrário;
+*
+*/
+
 int betweenDate (Date d,Date x,Date y) {
 	return (cmpDates(d,x) <= 0 && cmpDates(d,y) >= 0) ? 1 : 0;
 }
-
-

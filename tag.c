@@ -1,8 +1,14 @@
 #include "tag.h"
+
+/**
+* @file tag.c
+* @brief Estrutura das tags;
+*/
+
 typedef struct Tags {
-	long id;
-	char* name;
-	int counter;
+	long id; /**< Identificador da tag*/
+	char* name; /**< Nome da tag */
+	int counter; /**< Contador da tag */
 }Tags;
 
 

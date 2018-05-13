@@ -1,6 +1,11 @@
 #include <stdlib.h>
 #include "list.h"
 
+/**
+* @file list.c
+* @brief Lista de dados do tipo long;
+*/
+
 struct llist {
   int size;
   long * list;

@@ -1,0 +1,126 @@
+\hypertarget{list_8c}{}\section{list.\+c File Reference}
+\label{list_8c}\index{list.\+c@{list.\+c}}
+
+
+Lista de dados do tipo long;.  
+
+
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}list.\+h\char`\"{}}\newline
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structllist}{llist}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structllist}{L\+O\+N\+G\+\_\+list} \hyperlink{list_8c_ac493f609072d58e2fedebea0e970cccf}{create\+\_\+list} (int size)
+\begin{DoxyCompactList}\small\item\em Função que cria uma lista. \end{DoxyCompactList}\item 
+long \hyperlink{list_8c_a8bd1bfbc125c15a8fdb8047b37333438}{get\+\_\+list} (\hyperlink{structllist}{L\+O\+N\+G\+\_\+list} l, int index)
+\begin{DoxyCompactList}\small\item\em Função que extrai o elemento da lista que esta num certo indice. \end{DoxyCompactList}\item 
+void \hyperlink{list_8c_af36db9802abd3f9f461d659c5bf08c51}{set\+\_\+list} (\hyperlink{structllist}{L\+O\+N\+G\+\_\+list} l, int index, long value)
+\begin{DoxyCompactList}\small\item\em Função que insere o elemento com um dado valor, numa lista, num certo indice. \end{DoxyCompactList}\item 
+void \hyperlink{list_8c_a9b1c30494f0b8a4bc01710ff04b68321}{free\+\_\+list} (\hyperlink{structllist}{L\+O\+N\+G\+\_\+list} l)
+\begin{DoxyCompactList}\small\item\em Função que liberta o espaço que ja foi utilizado na estrutura. \end{DoxyCompactList}\item 
+void \hyperlink{list_8c_a13f454d765a2231bea17bec3567f925e}{print\+\_\+\+L\+O\+N\+G\+\_\+list} (\hyperlink{structllist}{L\+O\+N\+G\+\_\+list} l)
+\begin{DoxyCompactList}\small\item\em Função que faz printf. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Lista de dados do tipo long;. 
+
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{list_8c_ac493f609072d58e2fedebea0e970cccf}\label{list_8c_ac493f609072d58e2fedebea0e970cccf}} 
+\index{list.\+c@{list.\+c}!create\+\_\+list@{create\+\_\+list}}
+\index{create\+\_\+list@{create\+\_\+list}!list.\+c@{list.\+c}}
+\subsubsection{\texorpdfstring{create\+\_\+list()}{create\_list()}}
+{\footnotesize\ttfamily \hyperlink{structllist}{L\+O\+N\+G\+\_\+list} create\+\_\+list (\begin{DoxyParamCaption}\item[{int}]{size }\end{DoxyParamCaption})}
+
+
+
+Função que cria uma lista. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em int} & tamanho \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+L\+O\+N\+G\+\_\+list 
+\end{DoxyReturn}
+\mbox{\Hypertarget{list_8c_a9b1c30494f0b8a4bc01710ff04b68321}\label{list_8c_a9b1c30494f0b8a4bc01710ff04b68321}} 
+\index{list.\+c@{list.\+c}!free\+\_\+list@{free\+\_\+list}}
+\index{free\+\_\+list@{free\+\_\+list}!list.\+c@{list.\+c}}
+\subsubsection{\texorpdfstring{free\+\_\+list()}{free\_list()}}
+{\footnotesize\ttfamily void free\+\_\+list (\begin{DoxyParamCaption}\item[{\hyperlink{structllist}{L\+O\+N\+G\+\_\+list}}]{l }\end{DoxyParamCaption})}
+
+
+
+Função que liberta o espaço que ja foi utilizado na estrutura. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em L\+O\+N\+G\+\_\+list} & \\
+\hline
+{\em int} & indice \\
+\hline
+{\em long} & valor \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{list_8c_a8bd1bfbc125c15a8fdb8047b37333438}\label{list_8c_a8bd1bfbc125c15a8fdb8047b37333438}} 
+\index{list.\+c@{list.\+c}!get\+\_\+list@{get\+\_\+list}}
+\index{get\+\_\+list@{get\+\_\+list}!list.\+c@{list.\+c}}
+\subsubsection{\texorpdfstring{get\+\_\+list()}{get\_list()}}
+{\footnotesize\ttfamily long get\+\_\+list (\begin{DoxyParamCaption}\item[{\hyperlink{structllist}{L\+O\+N\+G\+\_\+list}}]{l,  }\item[{int}]{index }\end{DoxyParamCaption})}
+
+
+
+Função que extrai o elemento da lista que esta num certo indice. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em L\+O\+N\+G\+\_\+list} & \\
+\hline
+{\em int} & indice \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+long 
+\end{DoxyReturn}
+\mbox{\Hypertarget{list_8c_a13f454d765a2231bea17bec3567f925e}\label{list_8c_a13f454d765a2231bea17bec3567f925e}} 
+\index{list.\+c@{list.\+c}!print\+\_\+\+L\+O\+N\+G\+\_\+list@{print\+\_\+\+L\+O\+N\+G\+\_\+list}}
+\index{print\+\_\+\+L\+O\+N\+G\+\_\+list@{print\+\_\+\+L\+O\+N\+G\+\_\+list}!list.\+c@{list.\+c}}
+\subsubsection{\texorpdfstring{print\+\_\+\+L\+O\+N\+G\+\_\+list()}{print\_LONG\_list()}}
+{\footnotesize\ttfamily void print\+\_\+\+L\+O\+N\+G\+\_\+list (\begin{DoxyParamCaption}\item[{\hyperlink{structllist}{L\+O\+N\+G\+\_\+list}}]{l }\end{DoxyParamCaption})}
+
+
+
+Função que faz printf. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em L\+O\+N\+G\+\_\+list} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{list_8c_af36db9802abd3f9f461d659c5bf08c51}\label{list_8c_af36db9802abd3f9f461d659c5bf08c51}} 
+\index{list.\+c@{list.\+c}!set\+\_\+list@{set\+\_\+list}}
+\index{set\+\_\+list@{set\+\_\+list}!list.\+c@{list.\+c}}
+\subsubsection{\texorpdfstring{set\+\_\+list()}{set\_list()}}
+{\footnotesize\ttfamily void set\+\_\+list (\begin{DoxyParamCaption}\item[{\hyperlink{structllist}{L\+O\+N\+G\+\_\+list}}]{l,  }\item[{int}]{index,  }\item[{long}]{value }\end{DoxyParamCaption})}
+
+
+
+Função que insere o elemento com um dado valor, numa lista, num certo indice. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em L\+O\+N\+G\+\_\+list} & \\
+\hline
+{\em int} & indice \\
+\hline
+{\em long} & valor \\
+\hline
+\end{DoxyParams}

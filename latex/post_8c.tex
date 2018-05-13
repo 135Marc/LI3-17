@@ -1,0 +1,470 @@
+\hypertarget{post_8c}{}\section{post.\+c File Reference}
+\label{post_8c}\index{post.\+c@{post.\+c}}
+
+
+Estrutura dos posts;.  
+
+
+{\ttfamily \#include \char`\"{}post.\+h\char`\"{}}\newline
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structPosts}{Posts}
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{post_8c_aceebb4b49be0a765d195a63728652a8d}\label{post_8c_aceebb4b49be0a765d195a63728652a8d}} 
+typedef struct \hyperlink{structPosts}{Posts} {\bfseries Posts}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structPosts}{Post} \hyperlink{post_8c_ac7079aeec712a7308fa8800d04aba38e}{n\+Post} (long id, long ownerid, long parentid, int typeid, int score, int answercount, int commentcount, char $\ast$title, char $\ast$date, char $\ast$tags)
+\begin{DoxyCompactList}\small\item\em Função que cria um post. \end{DoxyCompactList}\item 
+void \hyperlink{post_8c_af886012ab964a46b6b6cfff38d01a12b}{free\+Post} (\hyperlink{structPosts}{Post} p)
+\begin{DoxyCompactList}\small\item\em Função que liberta o espaço utilizado por um Post na memoria. \end{DoxyCompactList}\item 
+long \hyperlink{post_8c_a977825b0e8f65aefd248cdb797eb1e54}{get\+ID} (\hyperlink{structPosts}{Post} p)
+\begin{DoxyCompactList}\small\item\em Função que devolve o identificador do Post. \end{DoxyCompactList}\item 
+long \hyperlink{post_8c_a1369dfe5a19414e53bf6351442181107}{get\+Owner\+ID} (\hyperlink{structPosts}{Post} p)
+\begin{DoxyCompactList}\small\item\em Função que devolve o identificador do criador do Post. \end{DoxyCompactList}\item 
+long \hyperlink{post_8c_a4e4dfe0cbc07d181f4b9df5252c850d6}{get\+Parent\+ID} (\hyperlink{structPosts}{Post} p)
+\begin{DoxyCompactList}\small\item\em Função que devolve o identificador do parente caso seja uma resposta. \end{DoxyCompactList}\item 
+int \hyperlink{post_8c_a79bbd3d7014c01252d7dbc2014344d98}{get\+Type\+ID} (\hyperlink{structPosts}{Post} p)
+\begin{DoxyCompactList}\small\item\em Função que devolve o tipo do post. \end{DoxyCompactList}\item 
+int \hyperlink{post_8c_a972036054a4698650bb2d38eddf1936e}{get\+Score} (\hyperlink{structPosts}{Post} p)
+\begin{DoxyCompactList}\small\item\em Função que devolve o score de um Post. \end{DoxyCompactList}\item 
+int \hyperlink{post_8c_a7216e5a6be2eb2978ebb9a482680df66}{get\+Answer\+Count} (\hyperlink{structPosts}{Post} p)
+\begin{DoxyCompactList}\small\item\em Função que devolve o numero de respostas presentes num Post. \end{DoxyCompactList}\item 
+int \hyperlink{post_8c_af521582910e06c5a4a9afce23488c357}{get\+Comment\+Count} (\hyperlink{structPosts}{Post} p)
+\begin{DoxyCompactList}\small\item\em Função que devolve o numero de comentarios de um Post. \end{DoxyCompactList}\item 
+char $\ast$ \hyperlink{post_8c_a0b27e360fd1c3e5440c5ab9d8d787f5b}{get\+Title} (\hyperlink{structPosts}{Post} p)
+\begin{DoxyCompactList}\small\item\em Função que devolve o titulo de um Post. \end{DoxyCompactList}\item 
+char $\ast$ \hyperlink{post_8c_a75e4b1a8f472931cc763b30f5bbecd4d}{get\+Date} (\hyperlink{structPosts}{Post} p)
+\begin{DoxyCompactList}\small\item\em Função que devolve a data de um Post. \end{DoxyCompactList}\item 
+char $\ast$ \hyperlink{post_8c_acd382616c1edc7c690e80e37ae29d35d}{get\+Tags} (\hyperlink{structPosts}{Post} p)
+\begin{DoxyCompactList}\small\item\em Função que devolve as tags presentes num Post. \end{DoxyCompactList}\item 
+void \hyperlink{post_8c_af6b38862fc63b5208a35aed8af5e88d1}{set\+\_\+\+Date} (\hyperlink{structPosts}{Post} p)
+\begin{DoxyCompactList}\small\item\em Função que devolve a data de um Post. \end{DoxyCompactList}\item 
+\hyperlink{structdates}{Date} \hyperlink{post_8c_a92af751096f6a89308ded84cb505c32e}{get\+\_\+\+D\+Date} (\hyperlink{structPosts}{Post} p)
+\begin{DoxyCompactList}\small\item\em Função que devolve a data de um Post. \end{DoxyCompactList}\item 
+int \hyperlink{post_8c_ac5144ed09d260898aceac674b03c67c8}{is\+Question} (\hyperlink{structPosts}{Post} p)
+\begin{DoxyCompactList}\small\item\em Função que devolve se um Post e pergunta ou resposta. \end{DoxyCompactList}\item 
+int \hyperlink{post_8c_a4cdfe0d80ae0c0bcd8a74df78c49f0ca}{is\+Answer} (\hyperlink{structPosts}{Post} p)
+\begin{DoxyCompactList}\small\item\em Função que devolve se um Post e uma resposta. \end{DoxyCompactList}\item 
+void \hyperlink{post_8c_a474d0d64e0e8e436802396bdf051b0c7}{print\+Post} (\hyperlink{structPosts}{Post} p)
+\begin{DoxyCompactList}\small\item\em Função que faz os printf. \end{DoxyCompactList}\item 
+int \hyperlink{post_8c_a62141f29e799ac75fa0092e9815780bf}{cmp\+Post\+ID} (\hyperlink{structPosts}{Post} u1, \hyperlink{structPosts}{Post} u2)
+\begin{DoxyCompactList}\small\item\em Função que compara os identificadores de dois \hyperlink{structPosts}{Posts}. \end{DoxyCompactList}\item 
+int \hyperlink{post_8c_a9fa00ab17a6eaf9b27d33e201e80a0cd}{cmp\+Post\+Score} (\hyperlink{structPosts}{Post} u1, \hyperlink{structPosts}{Post} u2)
+\begin{DoxyCompactList}\small\item\em Função que compara o score de dois \hyperlink{structPosts}{Posts}. \end{DoxyCompactList}\item 
+int \hyperlink{post_8c_acd76ebcd26f5b1d901c468be03c2753e}{cmp\+Answer\+Count} (\hyperlink{structPosts}{Post} p1, \hyperlink{structPosts}{Post} p2)
+\begin{DoxyCompactList}\small\item\em Função que compara o numero de respostas de dois \hyperlink{structPosts}{Posts}. \end{DoxyCompactList}\item 
+int \hyperlink{post_8c_a4748c8c5b3cc629a524ac4fec7484538}{cmp\+Date} (\hyperlink{structPosts}{Post} p1, \hyperlink{structPosts}{Post} p2)
+\begin{DoxyCompactList}\small\item\em Função que compara as datas de dois \hyperlink{structPosts}{Posts}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Estrutura dos posts;. 
+
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{post_8c_acd76ebcd26f5b1d901c468be03c2753e}\label{post_8c_acd76ebcd26f5b1d901c468be03c2753e}} 
+\index{post.\+c@{post.\+c}!cmp\+Answer\+Count@{cmp\+Answer\+Count}}
+\index{cmp\+Answer\+Count@{cmp\+Answer\+Count}!post.\+c@{post.\+c}}
+\subsubsection{\texorpdfstring{cmp\+Answer\+Count()}{cmpAnswerCount()}}
+{\footnotesize\ttfamily int cmp\+Answer\+Count (\begin{DoxyParamCaption}\item[{\hyperlink{structPosts}{Post}}]{p1,  }\item[{\hyperlink{structPosts}{Post}}]{p2 }\end{DoxyParamCaption})}
+
+
+
+Função que compara o numero de respostas de dois \hyperlink{structPosts}{Posts}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Post} & u1 \\
+\hline
+{\em Post} & u2 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int retorna -\/1 se o numero de respostas do primeiro post for maior que o segundo e 1 caso contrario 
+\end{DoxyReturn}
+\mbox{\Hypertarget{post_8c_a4748c8c5b3cc629a524ac4fec7484538}\label{post_8c_a4748c8c5b3cc629a524ac4fec7484538}} 
+\index{post.\+c@{post.\+c}!cmp\+Date@{cmp\+Date}}
+\index{cmp\+Date@{cmp\+Date}!post.\+c@{post.\+c}}
+\subsubsection{\texorpdfstring{cmp\+Date()}{cmpDate()}}
+{\footnotesize\ttfamily int cmp\+Date (\begin{DoxyParamCaption}\item[{\hyperlink{structPosts}{Post}}]{p1,  }\item[{\hyperlink{structPosts}{Post}}]{p2 }\end{DoxyParamCaption})}
+
+
+
+Função que compara as datas de dois \hyperlink{structPosts}{Posts}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Post} & u1 \\
+\hline
+{\em Post} & u2 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int retorna -\/1 se a data do primeiro post for maior que o segundo e 1 caso contrario 
+\end{DoxyReturn}
+\mbox{\Hypertarget{post_8c_a62141f29e799ac75fa0092e9815780bf}\label{post_8c_a62141f29e799ac75fa0092e9815780bf}} 
+\index{post.\+c@{post.\+c}!cmp\+Post\+ID@{cmp\+Post\+ID}}
+\index{cmp\+Post\+ID@{cmp\+Post\+ID}!post.\+c@{post.\+c}}
+\subsubsection{\texorpdfstring{cmp\+Post\+I\+D()}{cmpPostID()}}
+{\footnotesize\ttfamily int cmp\+Post\+ID (\begin{DoxyParamCaption}\item[{\hyperlink{structPosts}{Post}}]{u1,  }\item[{\hyperlink{structPosts}{Post}}]{u2 }\end{DoxyParamCaption})}
+
+
+
+Função que compara os identificadores de dois \hyperlink{structPosts}{Posts}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Post} & u1 \\
+\hline
+{\em Post} & u2 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int retorna -\/1 se o ID do primeiro post for maior que o segundo e 1 caso contrario 
+\end{DoxyReturn}
+\mbox{\Hypertarget{post_8c_a9fa00ab17a6eaf9b27d33e201e80a0cd}\label{post_8c_a9fa00ab17a6eaf9b27d33e201e80a0cd}} 
+\index{post.\+c@{post.\+c}!cmp\+Post\+Score@{cmp\+Post\+Score}}
+\index{cmp\+Post\+Score@{cmp\+Post\+Score}!post.\+c@{post.\+c}}
+\subsubsection{\texorpdfstring{cmp\+Post\+Score()}{cmpPostScore()}}
+{\footnotesize\ttfamily int cmp\+Post\+Score (\begin{DoxyParamCaption}\item[{\hyperlink{structPosts}{Post}}]{u1,  }\item[{\hyperlink{structPosts}{Post}}]{u2 }\end{DoxyParamCaption})}
+
+
+
+Função que compara o score de dois \hyperlink{structPosts}{Posts}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Post} & u1 \\
+\hline
+{\em Post} & u2 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int retorna -\/1 se o score do primeiro post for maior que o segundo e 1 caso contrario 
+\end{DoxyReturn}
+\mbox{\Hypertarget{post_8c_af886012ab964a46b6b6cfff38d01a12b}\label{post_8c_af886012ab964a46b6b6cfff38d01a12b}} 
+\index{post.\+c@{post.\+c}!free\+Post@{free\+Post}}
+\index{free\+Post@{free\+Post}!post.\+c@{post.\+c}}
+\subsubsection{\texorpdfstring{free\+Post()}{freePost()}}
+{\footnotesize\ttfamily void free\+Post (\begin{DoxyParamCaption}\item[{\hyperlink{structPosts}{Post}}]{p }\end{DoxyParamCaption})}
+
+
+
+Função que liberta o espaço utilizado por um Post na memoria. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Post} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{post_8c_a92af751096f6a89308ded84cb505c32e}\label{post_8c_a92af751096f6a89308ded84cb505c32e}} 
+\index{post.\+c@{post.\+c}!get\+\_\+\+D\+Date@{get\+\_\+\+D\+Date}}
+\index{get\+\_\+\+D\+Date@{get\+\_\+\+D\+Date}!post.\+c@{post.\+c}}
+\subsubsection{\texorpdfstring{get\+\_\+\+D\+Date()}{get\_DDate()}}
+{\footnotesize\ttfamily \hyperlink{structdates}{Date} get\+\_\+\+D\+Date (\begin{DoxyParamCaption}\item[{\hyperlink{structPosts}{Post}}]{p }\end{DoxyParamCaption})}
+
+
+
+Função que devolve a data de um Post. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Post} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+long 
+\end{DoxyReturn}
+\mbox{\Hypertarget{post_8c_a7216e5a6be2eb2978ebb9a482680df66}\label{post_8c_a7216e5a6be2eb2978ebb9a482680df66}} 
+\index{post.\+c@{post.\+c}!get\+Answer\+Count@{get\+Answer\+Count}}
+\index{get\+Answer\+Count@{get\+Answer\+Count}!post.\+c@{post.\+c}}
+\subsubsection{\texorpdfstring{get\+Answer\+Count()}{getAnswerCount()}}
+{\footnotesize\ttfamily int get\+Answer\+Count (\begin{DoxyParamCaption}\item[{\hyperlink{structPosts}{Post}}]{p }\end{DoxyParamCaption})}
+
+
+
+Função que devolve o numero de respostas presentes num Post. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Post} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+\mbox{\Hypertarget{post_8c_af521582910e06c5a4a9afce23488c357}\label{post_8c_af521582910e06c5a4a9afce23488c357}} 
+\index{post.\+c@{post.\+c}!get\+Comment\+Count@{get\+Comment\+Count}}
+\index{get\+Comment\+Count@{get\+Comment\+Count}!post.\+c@{post.\+c}}
+\subsubsection{\texorpdfstring{get\+Comment\+Count()}{getCommentCount()}}
+{\footnotesize\ttfamily int get\+Comment\+Count (\begin{DoxyParamCaption}\item[{\hyperlink{structPosts}{Post}}]{p }\end{DoxyParamCaption})}
+
+
+
+Função que devolve o numero de comentarios de um Post. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Post} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+\mbox{\Hypertarget{post_8c_a75e4b1a8f472931cc763b30f5bbecd4d}\label{post_8c_a75e4b1a8f472931cc763b30f5bbecd4d}} 
+\index{post.\+c@{post.\+c}!get\+Date@{get\+Date}}
+\index{get\+Date@{get\+Date}!post.\+c@{post.\+c}}
+\subsubsection{\texorpdfstring{get\+Date()}{getDate()}}
+{\footnotesize\ttfamily char$\ast$ get\+Date (\begin{DoxyParamCaption}\item[{\hyperlink{structPosts}{Post}}]{p }\end{DoxyParamCaption})}
+
+
+
+Função que devolve a data de um Post. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Post} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+char$\ast$ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{post_8c_a977825b0e8f65aefd248cdb797eb1e54}\label{post_8c_a977825b0e8f65aefd248cdb797eb1e54}} 
+\index{post.\+c@{post.\+c}!get\+ID@{get\+ID}}
+\index{get\+ID@{get\+ID}!post.\+c@{post.\+c}}
+\subsubsection{\texorpdfstring{get\+I\+D()}{getID()}}
+{\footnotesize\ttfamily long get\+ID (\begin{DoxyParamCaption}\item[{\hyperlink{structPosts}{Post}}]{p }\end{DoxyParamCaption})}
+
+
+
+Função que devolve o identificador do Post. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Post} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+long 
+\end{DoxyReturn}
+\mbox{\Hypertarget{post_8c_a1369dfe5a19414e53bf6351442181107}\label{post_8c_a1369dfe5a19414e53bf6351442181107}} 
+\index{post.\+c@{post.\+c}!get\+Owner\+ID@{get\+Owner\+ID}}
+\index{get\+Owner\+ID@{get\+Owner\+ID}!post.\+c@{post.\+c}}
+\subsubsection{\texorpdfstring{get\+Owner\+I\+D()}{getOwnerID()}}
+{\footnotesize\ttfamily long get\+Owner\+ID (\begin{DoxyParamCaption}\item[{\hyperlink{structPosts}{Post}}]{p }\end{DoxyParamCaption})}
+
+
+
+Função que devolve o identificador do criador do Post. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Post} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+long 
+\end{DoxyReturn}
+\mbox{\Hypertarget{post_8c_a4e4dfe0cbc07d181f4b9df5252c850d6}\label{post_8c_a4e4dfe0cbc07d181f4b9df5252c850d6}} 
+\index{post.\+c@{post.\+c}!get\+Parent\+ID@{get\+Parent\+ID}}
+\index{get\+Parent\+ID@{get\+Parent\+ID}!post.\+c@{post.\+c}}
+\subsubsection{\texorpdfstring{get\+Parent\+I\+D()}{getParentID()}}
+{\footnotesize\ttfamily long get\+Parent\+ID (\begin{DoxyParamCaption}\item[{\hyperlink{structPosts}{Post}}]{p }\end{DoxyParamCaption})}
+
+
+
+Função que devolve o identificador do parente caso seja uma resposta. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Post} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+long 
+\end{DoxyReturn}
+\mbox{\Hypertarget{post_8c_a972036054a4698650bb2d38eddf1936e}\label{post_8c_a972036054a4698650bb2d38eddf1936e}} 
+\index{post.\+c@{post.\+c}!get\+Score@{get\+Score}}
+\index{get\+Score@{get\+Score}!post.\+c@{post.\+c}}
+\subsubsection{\texorpdfstring{get\+Score()}{getScore()}}
+{\footnotesize\ttfamily int get\+Score (\begin{DoxyParamCaption}\item[{\hyperlink{structPosts}{Post}}]{p }\end{DoxyParamCaption})}
+
+
+
+Função que devolve o score de um Post. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Post} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+\mbox{\Hypertarget{post_8c_acd382616c1edc7c690e80e37ae29d35d}\label{post_8c_acd382616c1edc7c690e80e37ae29d35d}} 
+\index{post.\+c@{post.\+c}!get\+Tags@{get\+Tags}}
+\index{get\+Tags@{get\+Tags}!post.\+c@{post.\+c}}
+\subsubsection{\texorpdfstring{get\+Tags()}{getTags()}}
+{\footnotesize\ttfamily char$\ast$ get\+Tags (\begin{DoxyParamCaption}\item[{\hyperlink{structPosts}{Post}}]{p }\end{DoxyParamCaption})}
+
+
+
+Função que devolve as tags presentes num Post. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Post} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+char$\ast$ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{post_8c_a0b27e360fd1c3e5440c5ab9d8d787f5b}\label{post_8c_a0b27e360fd1c3e5440c5ab9d8d787f5b}} 
+\index{post.\+c@{post.\+c}!get\+Title@{get\+Title}}
+\index{get\+Title@{get\+Title}!post.\+c@{post.\+c}}
+\subsubsection{\texorpdfstring{get\+Title()}{getTitle()}}
+{\footnotesize\ttfamily char$\ast$ get\+Title (\begin{DoxyParamCaption}\item[{\hyperlink{structPosts}{Post}}]{p }\end{DoxyParamCaption})}
+
+
+
+Função que devolve o titulo de um Post. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Post} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+char$\ast$ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{post_8c_a79bbd3d7014c01252d7dbc2014344d98}\label{post_8c_a79bbd3d7014c01252d7dbc2014344d98}} 
+\index{post.\+c@{post.\+c}!get\+Type\+ID@{get\+Type\+ID}}
+\index{get\+Type\+ID@{get\+Type\+ID}!post.\+c@{post.\+c}}
+\subsubsection{\texorpdfstring{get\+Type\+I\+D()}{getTypeID()}}
+{\footnotesize\ttfamily int get\+Type\+ID (\begin{DoxyParamCaption}\item[{\hyperlink{structPosts}{Post}}]{p }\end{DoxyParamCaption})}
+
+
+
+Função que devolve o tipo do post. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Post} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+\mbox{\Hypertarget{post_8c_a4cdfe0d80ae0c0bcd8a74df78c49f0ca}\label{post_8c_a4cdfe0d80ae0c0bcd8a74df78c49f0ca}} 
+\index{post.\+c@{post.\+c}!is\+Answer@{is\+Answer}}
+\index{is\+Answer@{is\+Answer}!post.\+c@{post.\+c}}
+\subsubsection{\texorpdfstring{is\+Answer()}{isAnswer()}}
+{\footnotesize\ttfamily int is\+Answer (\begin{DoxyParamCaption}\item[{\hyperlink{structPosts}{Post}}]{p }\end{DoxyParamCaption})}
+
+
+
+Função que devolve se um Post e uma resposta. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Post} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int retorna 1 se for resposta e 0 caso contrario 
+\end{DoxyReturn}
+\mbox{\Hypertarget{post_8c_ac5144ed09d260898aceac674b03c67c8}\label{post_8c_ac5144ed09d260898aceac674b03c67c8}} 
+\index{post.\+c@{post.\+c}!is\+Question@{is\+Question}}
+\index{is\+Question@{is\+Question}!post.\+c@{post.\+c}}
+\subsubsection{\texorpdfstring{is\+Question()}{isQuestion()}}
+{\footnotesize\ttfamily int is\+Question (\begin{DoxyParamCaption}\item[{\hyperlink{structPosts}{Post}}]{p }\end{DoxyParamCaption})}
+
+
+
+Função que devolve se um Post e pergunta ou resposta. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Post} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int retorna 1 se for uma pergunta e 0 caso contrario 
+\end{DoxyReturn}
+\mbox{\Hypertarget{post_8c_ac7079aeec712a7308fa8800d04aba38e}\label{post_8c_ac7079aeec712a7308fa8800d04aba38e}} 
+\index{post.\+c@{post.\+c}!n\+Post@{n\+Post}}
+\index{n\+Post@{n\+Post}!post.\+c@{post.\+c}}
+\subsubsection{\texorpdfstring{n\+Post()}{nPost()}}
+{\footnotesize\ttfamily \hyperlink{structPosts}{Post} n\+Post (\begin{DoxyParamCaption}\item[{long}]{id,  }\item[{long}]{ownerid,  }\item[{long}]{parentid,  }\item[{int}]{typeid,  }\item[{int}]{score,  }\item[{int}]{answercount,  }\item[{int}]{commentcount,  }\item[{char $\ast$}]{title,  }\item[{char $\ast$}]{date,  }\item[{char $\ast$}]{tags }\end{DoxyParamCaption})}
+
+
+
+Função que cria um post. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em long} & ID \\
+\hline
+{\em long} & ID do criador do post \\
+\hline
+{\em long} & ID do parente \\
+\hline
+{\em long} & ID do tipo de post \\
+\hline
+{\em int} & score \\
+\hline
+{\em int} & contador de perguntas \\
+\hline
+{\em int} & contador de comentarios \\
+\hline
+{\em char$\ast$} & titulo do post \\
+\hline
+{\em char$\ast$} & data do post \\
+\hline
+{\em char$\ast$} & tag do post \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Post 
+\end{DoxyReturn}
+\mbox{\Hypertarget{post_8c_a474d0d64e0e8e436802396bdf051b0c7}\label{post_8c_a474d0d64e0e8e436802396bdf051b0c7}} 
+\index{post.\+c@{post.\+c}!print\+Post@{print\+Post}}
+\index{print\+Post@{print\+Post}!post.\+c@{post.\+c}}
+\subsubsection{\texorpdfstring{print\+Post()}{printPost()}}
+{\footnotesize\ttfamily void print\+Post (\begin{DoxyParamCaption}\item[{\hyperlink{structPosts}{Post}}]{p }\end{DoxyParamCaption})}
+
+
+
+Função que faz os printf. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Post} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{post_8c_af6b38862fc63b5208a35aed8af5e88d1}\label{post_8c_af6b38862fc63b5208a35aed8af5e88d1}} 
+\index{post.\+c@{post.\+c}!set\+\_\+\+Date@{set\+\_\+\+Date}}
+\index{set\+\_\+\+Date@{set\+\_\+\+Date}!post.\+c@{post.\+c}}
+\subsubsection{\texorpdfstring{set\+\_\+\+Date()}{set\_Date()}}
+{\footnotesize\ttfamily void set\+\_\+\+Date (\begin{DoxyParamCaption}\item[{\hyperlink{structPosts}{Post}}]{p }\end{DoxyParamCaption})}
+
+
+
+Função que devolve a data de um Post. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Post} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+long 
+\end{DoxyReturn}

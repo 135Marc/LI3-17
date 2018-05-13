@@ -1,0 +1,207 @@
+\hypertarget{tag_8c}{}\section{tag.\+c File Reference}
+\label{tag_8c}\index{tag.\+c@{tag.\+c}}
+
+
+Estrutura das tags;.  
+
+
+{\ttfamily \#include \char`\"{}tag.\+h\char`\"{}}\newline
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structTags}{Tags}
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{tag_8c_a24953790066fc6a5c5446db673704d6d}\label{tag_8c_a24953790066fc6a5c5446db673704d6d}} 
+typedef struct \hyperlink{structTags}{Tags} {\bfseries Tags}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structTags}{Tag} \hyperlink{tag_8c_a6ab39bde31d995a33c06f7247affc6e6}{new\+\_\+\+Tag} (long id, char $\ast$name)
+\begin{DoxyCompactList}\small\item\em Função que cria uma tag. \end{DoxyCompactList}\item 
+long \hyperlink{tag_8c_a1dbc96a0d2851c0b2c9e468e3ae91ea5}{get\+Tag\+ID} (\hyperlink{structTags}{Tag} t)
+\begin{DoxyCompactList}\small\item\em Função que extrai uma tag da estrutura. \end{DoxyCompactList}\item 
+char $\ast$ \hyperlink{tag_8c_ac5b9468b420ff068ca72dd4df27bf90f}{get\+Tag\+Name} (\hyperlink{structTags}{Tag} t)
+\begin{DoxyCompactList}\small\item\em Função que extrai o nome da tag da estrutura. \end{DoxyCompactList}\item 
+int \hyperlink{tag_8c_aa0a557f0cac8f812c62e05d8e183f2c8}{get\+\_\+\+Tag\+Counter} (\hyperlink{structTags}{Tag} t)
+\begin{DoxyCompactList}\small\item\em Função que extrai o contador da tag da estrutura. \end{DoxyCompactList}\item 
+void \hyperlink{tag_8c_a063006aa6d9c78835de989667f648dd5}{free\+Tag} (\hyperlink{structTags}{Tag} t)
+\begin{DoxyCompactList}\small\item\em Função que liberta o espaço utilizado na estrutura. \end{DoxyCompactList}\item 
+void \hyperlink{tag_8c_a600ebbf4d39b607b317775d38b7bd782}{print\+Tag} (\hyperlink{structTags}{Tag} t)
+\begin{DoxyCompactList}\small\item\em Função que faz os printf. \end{DoxyCompactList}\item 
+void \hyperlink{tag_8c_a718eff48f94789c76cd789887733e8f7}{add\+\_\+\+Tag\+\_\+\+Count} (\hyperlink{structTags}{Tag} t)
+\begin{DoxyCompactList}\small\item\em Função que incrementa o contador das tags. \end{DoxyCompactList}\item 
+int \hyperlink{tag_8c_a382be99bceb69b54b9b0e3c19fd33cf1}{cmp\+Tag\+ID} (\hyperlink{structTags}{Tag} t1, \hyperlink{structTags}{Tag} t2)
+\begin{DoxyCompactList}\small\item\em Função que compara os identificadores de duas tags. \end{DoxyCompactList}\item 
+int \hyperlink{tag_8c_a4d5676d0b94463400253442c93a1f46f}{cmp\+Counter} (\hyperlink{structTags}{Tag} t1, \hyperlink{structTags}{Tag} t2)
+\begin{DoxyCompactList}\small\item\em Função que compara o contador de duas tags. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Estrutura das tags;. 
+
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{tag_8c_a718eff48f94789c76cd789887733e8f7}\label{tag_8c_a718eff48f94789c76cd789887733e8f7}} 
+\index{tag.\+c@{tag.\+c}!add\+\_\+\+Tag\+\_\+\+Count@{add\+\_\+\+Tag\+\_\+\+Count}}
+\index{add\+\_\+\+Tag\+\_\+\+Count@{add\+\_\+\+Tag\+\_\+\+Count}!tag.\+c@{tag.\+c}}
+\subsubsection{\texorpdfstring{add\+\_\+\+Tag\+\_\+\+Count()}{add\_Tag\_Count()}}
+{\footnotesize\ttfamily void add\+\_\+\+Tag\+\_\+\+Count (\begin{DoxyParamCaption}\item[{\hyperlink{structTags}{Tag}}]{t }\end{DoxyParamCaption})}
+
+
+
+Função que incrementa o contador das tags. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Tag} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{tag_8c_a4d5676d0b94463400253442c93a1f46f}\label{tag_8c_a4d5676d0b94463400253442c93a1f46f}} 
+\index{tag.\+c@{tag.\+c}!cmp\+Counter@{cmp\+Counter}}
+\index{cmp\+Counter@{cmp\+Counter}!tag.\+c@{tag.\+c}}
+\subsubsection{\texorpdfstring{cmp\+Counter()}{cmpCounter()}}
+{\footnotesize\ttfamily int cmp\+Counter (\begin{DoxyParamCaption}\item[{\hyperlink{structTags}{Tag}}]{t1,  }\item[{\hyperlink{structTags}{Tag}}]{t2 }\end{DoxyParamCaption})}
+
+
+
+Função que compara o contador de duas tags. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Tag} & t1 \\
+\hline
+{\em Tag} & t2 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int retorna -\/1 se o contador da primeira tag for maior do que o da segunda e 1 caso contrario 
+\end{DoxyReturn}
+\mbox{\Hypertarget{tag_8c_a382be99bceb69b54b9b0e3c19fd33cf1}\label{tag_8c_a382be99bceb69b54b9b0e3c19fd33cf1}} 
+\index{tag.\+c@{tag.\+c}!cmp\+Tag\+ID@{cmp\+Tag\+ID}}
+\index{cmp\+Tag\+ID@{cmp\+Tag\+ID}!tag.\+c@{tag.\+c}}
+\subsubsection{\texorpdfstring{cmp\+Tag\+I\+D()}{cmpTagID()}}
+{\footnotesize\ttfamily int cmp\+Tag\+ID (\begin{DoxyParamCaption}\item[{\hyperlink{structTags}{Tag}}]{t1,  }\item[{\hyperlink{structTags}{Tag}}]{t2 }\end{DoxyParamCaption})}
+
+
+
+Função que compara os identificadores de duas tags. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Tag} & t1 \\
+\hline
+{\em Tag} & t2 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int retorna 1 se a tag t1 for maior que t2 e -\/1 caso contrario 
+\end{DoxyReturn}
+\mbox{\Hypertarget{tag_8c_a063006aa6d9c78835de989667f648dd5}\label{tag_8c_a063006aa6d9c78835de989667f648dd5}} 
+\index{tag.\+c@{tag.\+c}!free\+Tag@{free\+Tag}}
+\index{free\+Tag@{free\+Tag}!tag.\+c@{tag.\+c}}
+\subsubsection{\texorpdfstring{free\+Tag()}{freeTag()}}
+{\footnotesize\ttfamily void free\+Tag (\begin{DoxyParamCaption}\item[{\hyperlink{structTags}{Tag}}]{t }\end{DoxyParamCaption})}
+
+
+
+Função que liberta o espaço utilizado na estrutura. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Tag} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{tag_8c_aa0a557f0cac8f812c62e05d8e183f2c8}\label{tag_8c_aa0a557f0cac8f812c62e05d8e183f2c8}} 
+\index{tag.\+c@{tag.\+c}!get\+\_\+\+Tag\+Counter@{get\+\_\+\+Tag\+Counter}}
+\index{get\+\_\+\+Tag\+Counter@{get\+\_\+\+Tag\+Counter}!tag.\+c@{tag.\+c}}
+\subsubsection{\texorpdfstring{get\+\_\+\+Tag\+Counter()}{get\_TagCounter()}}
+{\footnotesize\ttfamily int get\+\_\+\+Tag\+Counter (\begin{DoxyParamCaption}\item[{\hyperlink{structTags}{Tag}}]{t }\end{DoxyParamCaption})}
+
+
+
+Função que extrai o contador da tag da estrutura. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Tag} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int contador 
+\end{DoxyReturn}
+\mbox{\Hypertarget{tag_8c_a1dbc96a0d2851c0b2c9e468e3ae91ea5}\label{tag_8c_a1dbc96a0d2851c0b2c9e468e3ae91ea5}} 
+\index{tag.\+c@{tag.\+c}!get\+Tag\+ID@{get\+Tag\+ID}}
+\index{get\+Tag\+ID@{get\+Tag\+ID}!tag.\+c@{tag.\+c}}
+\subsubsection{\texorpdfstring{get\+Tag\+I\+D()}{getTagID()}}
+{\footnotesize\ttfamily long get\+Tag\+ID (\begin{DoxyParamCaption}\item[{\hyperlink{structTags}{Tag}}]{t }\end{DoxyParamCaption})}
+
+
+
+Função que extrai uma tag da estrutura. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Tag} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+long 
+\end{DoxyReturn}
+\mbox{\Hypertarget{tag_8c_ac5b9468b420ff068ca72dd4df27bf90f}\label{tag_8c_ac5b9468b420ff068ca72dd4df27bf90f}} 
+\index{tag.\+c@{tag.\+c}!get\+Tag\+Name@{get\+Tag\+Name}}
+\index{get\+Tag\+Name@{get\+Tag\+Name}!tag.\+c@{tag.\+c}}
+\subsubsection{\texorpdfstring{get\+Tag\+Name()}{getTagName()}}
+{\footnotesize\ttfamily char$\ast$ get\+Tag\+Name (\begin{DoxyParamCaption}\item[{\hyperlink{structTags}{Tag}}]{t }\end{DoxyParamCaption})}
+
+
+
+Função que extrai o nome da tag da estrutura. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Tag} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+char$\ast$ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{tag_8c_a6ab39bde31d995a33c06f7247affc6e6}\label{tag_8c_a6ab39bde31d995a33c06f7247affc6e6}} 
+\index{tag.\+c@{tag.\+c}!new\+\_\+\+Tag@{new\+\_\+\+Tag}}
+\index{new\+\_\+\+Tag@{new\+\_\+\+Tag}!tag.\+c@{tag.\+c}}
+\subsubsection{\texorpdfstring{new\+\_\+\+Tag()}{new\_Tag()}}
+{\footnotesize\ttfamily \hyperlink{structTags}{Tag} new\+\_\+\+Tag (\begin{DoxyParamCaption}\item[{long}]{id,  }\item[{char $\ast$}]{name }\end{DoxyParamCaption})}
+
+
+
+Função que cria uma tag. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em long} & ID \\
+\hline
+{\em char$\ast$} & nome \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Tag 
+\end{DoxyReturn}
+\mbox{\Hypertarget{tag_8c_a600ebbf4d39b607b317775d38b7bd782}\label{tag_8c_a600ebbf4d39b607b317775d38b7bd782}} 
+\index{tag.\+c@{tag.\+c}!print\+Tag@{print\+Tag}}
+\index{print\+Tag@{print\+Tag}!tag.\+c@{tag.\+c}}
+\subsubsection{\texorpdfstring{print\+Tag()}{printTag()}}
+{\footnotesize\ttfamily void print\+Tag (\begin{DoxyParamCaption}\item[{\hyperlink{structTags}{Tag}}]{t }\end{DoxyParamCaption})}
+
+
+
+Função que faz os printf. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Tag} & \\
+\hline
+\end{DoxyParams}

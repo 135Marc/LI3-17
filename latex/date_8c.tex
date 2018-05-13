@@ -1,0 +1,155 @@
+\hypertarget{date_8c}{}\section{date.\+c File Reference}
+\label{date_8c}\index{date.\+c@{date.\+c}}
+
+
+Estrutura das datas;.  
+
+
+{\ttfamily \#include \char`\"{}date.\+h\char`\"{}}\newline
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structdates}{dates}
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{date_8c_a6c72dab93838af4d6017ac150e583c42}\label{date_8c_a6c72dab93838af4d6017ac150e583c42}} 
+typedef struct \hyperlink{structdates}{dates} {\bfseries Dates}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structdates}{Date} \hyperlink{date_8c_a13346d88d25d2921266504351ce6345e}{n\+Date} (int day, int month, int year)
+\begin{DoxyCompactList}\small\item\em Função que cria uma data. \end{DoxyCompactList}\item 
+void \hyperlink{date_8c_a11244bbbb8e0144bd0bd2d387d7abd7d}{free\+Date} (\hyperlink{structdates}{Date} d)
+\begin{DoxyCompactList}\small\item\em Função que cria uma data. \end{DoxyCompactList}\item 
+int \hyperlink{date_8c_a42a3834f4d495ea987daa5d719252cbe}{get\+\_\+\+Day} (\hyperlink{structdates}{Date} d)
+\begin{DoxyCompactList}\small\item\em Função que extrai um dia. \end{DoxyCompactList}\item 
+int \hyperlink{date_8c_aee0dc9fedddf20d2322fb2daf9b8ebec}{get\+\_\+\+Month} (\hyperlink{structdates}{Date} d)
+\begin{DoxyCompactList}\small\item\em Função que extrai um mes. \end{DoxyCompactList}\item 
+int \hyperlink{date_8c_a34d7c1616f470fa2e2802027a34e6ff1}{get\+\_\+\+Year} (\hyperlink{structdates}{Date} d)
+\begin{DoxyCompactList}\small\item\em Função que extrai um mes. \end{DoxyCompactList}\item 
+void \hyperlink{date_8c_a321791d1095cb4a243e750a61002eac0}{print\+Date} (\hyperlink{structdates}{Date} d)
+\begin{DoxyCompactList}\small\item\em Função que faz printf. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Estrutura das datas;. 
+
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{date_8c_a11244bbbb8e0144bd0bd2d387d7abd7d}\label{date_8c_a11244bbbb8e0144bd0bd2d387d7abd7d}} 
+\index{date.\+c@{date.\+c}!free\+Date@{free\+Date}}
+\index{free\+Date@{free\+Date}!date.\+c@{date.\+c}}
+\subsubsection{\texorpdfstring{free\+Date()}{freeDate()}}
+{\footnotesize\ttfamily void free\+Date (\begin{DoxyParamCaption}\item[{\hyperlink{structdates}{Date}}]{d }\end{DoxyParamCaption})}
+
+
+
+Função que cria uma data. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em int} & dia \\
+\hline
+{\em int} & mes \\
+\hline
+{\em int} & ano \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Date 
+\end{DoxyReturn}
+\mbox{\Hypertarget{date_8c_a42a3834f4d495ea987daa5d719252cbe}\label{date_8c_a42a3834f4d495ea987daa5d719252cbe}} 
+\index{date.\+c@{date.\+c}!get\+\_\+\+Day@{get\+\_\+\+Day}}
+\index{get\+\_\+\+Day@{get\+\_\+\+Day}!date.\+c@{date.\+c}}
+\subsubsection{\texorpdfstring{get\+\_\+\+Day()}{get\_Day()}}
+{\footnotesize\ttfamily int get\+\_\+\+Day (\begin{DoxyParamCaption}\item[{\hyperlink{structdates}{Date}}]{d }\end{DoxyParamCaption})}
+
+
+
+Função que extrai um dia. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Date} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int dia 
+\end{DoxyReturn}
+\mbox{\Hypertarget{date_8c_aee0dc9fedddf20d2322fb2daf9b8ebec}\label{date_8c_aee0dc9fedddf20d2322fb2daf9b8ebec}} 
+\index{date.\+c@{date.\+c}!get\+\_\+\+Month@{get\+\_\+\+Month}}
+\index{get\+\_\+\+Month@{get\+\_\+\+Month}!date.\+c@{date.\+c}}
+\subsubsection{\texorpdfstring{get\+\_\+\+Month()}{get\_Month()}}
+{\footnotesize\ttfamily int get\+\_\+\+Month (\begin{DoxyParamCaption}\item[{\hyperlink{structdates}{Date}}]{d }\end{DoxyParamCaption})}
+
+
+
+Função que extrai um mes. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Date} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int mes 
+\end{DoxyReturn}
+\mbox{\Hypertarget{date_8c_a34d7c1616f470fa2e2802027a34e6ff1}\label{date_8c_a34d7c1616f470fa2e2802027a34e6ff1}} 
+\index{date.\+c@{date.\+c}!get\+\_\+\+Year@{get\+\_\+\+Year}}
+\index{get\+\_\+\+Year@{get\+\_\+\+Year}!date.\+c@{date.\+c}}
+\subsubsection{\texorpdfstring{get\+\_\+\+Year()}{get\_Year()}}
+{\footnotesize\ttfamily int get\+\_\+\+Year (\begin{DoxyParamCaption}\item[{\hyperlink{structdates}{Date}}]{d }\end{DoxyParamCaption})}
+
+
+
+Função que extrai um mes. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Date} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int ano 
+\end{DoxyReturn}
+\mbox{\Hypertarget{date_8c_a13346d88d25d2921266504351ce6345e}\label{date_8c_a13346d88d25d2921266504351ce6345e}} 
+\index{date.\+c@{date.\+c}!n\+Date@{n\+Date}}
+\index{n\+Date@{n\+Date}!date.\+c@{date.\+c}}
+\subsubsection{\texorpdfstring{n\+Date()}{nDate()}}
+{\footnotesize\ttfamily \hyperlink{structdates}{Date} n\+Date (\begin{DoxyParamCaption}\item[{int}]{day,  }\item[{int}]{month,  }\item[{int}]{year }\end{DoxyParamCaption})}
+
+
+
+Função que cria uma data. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em int} & dia \\
+\hline
+{\em int} & mes \\
+\hline
+{\em int} & ano \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Date 
+\end{DoxyReturn}
+\mbox{\Hypertarget{date_8c_a321791d1095cb4a243e750a61002eac0}\label{date_8c_a321791d1095cb4a243e750a61002eac0}} 
+\index{date.\+c@{date.\+c}!print\+Date@{print\+Date}}
+\index{print\+Date@{print\+Date}!date.\+c@{date.\+c}}
+\subsubsection{\texorpdfstring{print\+Date()}{printDate()}}
+{\footnotesize\ttfamily void print\+Date (\begin{DoxyParamCaption}\item[{\hyperlink{structdates}{Date}}]{d }\end{DoxyParamCaption})}
+
+
+
+Função que faz printf. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Date} & \\
+\hline
+\end{DoxyParams}

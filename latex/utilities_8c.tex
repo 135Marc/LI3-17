@@ -1,0 +1,637 @@
+\hypertarget{utilities_8c}{}\section{utilities.\+c File Reference}
+\label{utilities_8c}\index{utilities.\+c@{utilities.\+c}}
+
+
+Funções auxiliares da interface;.  
+
+
+{\ttfamily \#include \char`\"{}utilities.\+h\char`\"{}}\newline
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structUsers}{User} \hyperlink{utilities_8c_a3f6a3ffafa4915b5c6534d3d1a2d8735}{get\+\_\+\+User} (G\+Hash\+Table $\ast$ht, long id)
+\begin{DoxyCompactList}\small\item\em Função que retorna um utilizador da hashtable a partir do seu id;. \end{DoxyCompactList}\item 
+\hyperlink{structPosts}{Post} \hyperlink{utilities_8c_a0ea255623130be16adaa2553de98fea4}{get\+\_\+\+Post} (G\+Hash\+Table $\ast$hp, long id)
+\begin{DoxyCompactList}\small\item\em Função que retorna um post da hashtable a partir do seu id;. \end{DoxyCompactList}\item 
+\hyperlink{structllist}{L\+O\+N\+G\+\_\+list} \hyperlink{utilities_8c_a29b3016af811f99906267dd4eaaaf606}{sort\+\_\+user\+\_\+by\+\_\+N} (G\+List $\ast$list, G\+Compare\+Func func, int N)
+\begin{DoxyCompactList}\small\item\em Função que retorna uma L\+O\+N\+G\+\_\+\+L\+I\+ST dos identificadores de N utilizadores;. \end{DoxyCompactList}\item 
+\hyperlink{structllist}{L\+O\+N\+G\+\_\+list} \hyperlink{utilities_8c_a06bcf42df310af1b831d759c15e1b66b}{sort\+\_\+post\+\_\+by\+\_\+N} (G\+List $\ast$list, G\+Compare\+Func func, int N)
+\begin{DoxyCompactList}\small\item\em Função que retorna uma L\+O\+N\+G\+\_\+\+L\+I\+ST dos identificadores de N posts;. \end{DoxyCompactList}\item 
+\hyperlink{structlong__pair}{L\+O\+N\+G\+\_\+pair} \hyperlink{utilities_8c_a5520455006ab675f772e9ed75151f301}{total\+\_\+\+QandA} (G\+List $\ast$list, \hyperlink{structdates}{Date} begin, \hyperlink{structdates}{Date} end)
+\begin{DoxyCompactList}\small\item\em Função que retorna a contagem de perguntas e respostas sobre a forma de um L\+O\+N\+G\+\_\+pair;. \end{DoxyCompactList}\item 
+G\+List $\ast$ \hyperlink{utilities_8c_a576d741de99e7699f5130820417c0dd8}{filter\+\_\+answer\+\_\+by\+\_\+dates} (G\+List $\ast$list, \hyperlink{structdates}{Date} begin, \hyperlink{structdates}{Date} end)
+\begin{DoxyCompactList}\small\item\em Função que retorna a lista ligada de respostas contidas no intervalo de tempo especificado;. \end{DoxyCompactList}\item 
+G\+List $\ast$ \hyperlink{utilities_8c_a938a7bd1c5258e4fd8c977c95387517f}{filter\+\_\+questions\+\_\+by\+\_\+dates} (G\+List $\ast$list, \hyperlink{structdates}{Date} begin, \hyperlink{structdates}{Date} end)
+\begin{DoxyCompactList}\small\item\em Função que retorna a lista ligada de perguntas contidas no intervalo de tempo especificado;. \end{DoxyCompactList}\item 
+\hyperlink{structllist}{L\+O\+N\+G\+\_\+list} \hyperlink{utilities_8c_ae16029d796c4fcfa5187d000a62fe541}{set\+\_\+long\+\_\+N} (G\+List $\ast$list, int N)
+\begin{DoxyCompactList}\small\item\em Função que retorna a uma L\+O\+N\+G\+\_\+\+L\+I\+ST com N identificadores de posts;. \end{DoxyCompactList}\item 
+\hyperlink{structstr__pair}{S\+T\+R\+\_\+pair} \hyperlink{utilities_8c_a27e2670db6edad73510e8ed83c0f56ee}{infos\+\_\+from} (G\+Hash\+Table $\ast$ht, \hyperlink{structPosts}{Post} p, \hyperlink{structUsers}{User} u)
+\begin{DoxyCompactList}\small\item\em Função que retorna um S\+T\+R\+\_\+pair que contem o titulo de uma pergunta e o nome do utilizador;. \end{DoxyCompactList}\item 
+G\+List $\ast$ \hyperlink{utilities_8c_ac9281a0263f3f9845df858734162c44c}{filter\+\_\+question\+\_\+in\+Title} (G\+List $\ast$list, char $\ast$word)
+\begin{DoxyCompactList}\small\item\em Função que retorna a contagem de perguntas e respostas sobre a forma de um L\+O\+N\+G\+\_\+pair;. \end{DoxyCompactList}\item 
+G\+List $\ast$ \hyperlink{utilities_8c_af0e88739fdb40936e9de09ef19b99b45}{filter\+\_\+question\+\_\+tags\+\_\+date} (G\+List $\ast$list, char $\ast$tag, \hyperlink{structdates}{Date} begin, \hyperlink{structdates}{Date} end)
+\begin{DoxyCompactList}\small\item\em Função que retorna a lista ligada de posts feitos entre um dado intervalo de tempo que contenham uma determinada tag;. \end{DoxyCompactList}\item 
+G\+List $\ast$ \hyperlink{utilities_8c_a725a9169b3751be5544cbd994b8b5ee2}{filter\+\_\+ordered\+\_\+posts} (G\+List $\ast$list)
+\begin{DoxyCompactList}\small\item\em Função que retorna a lista ligada de posts ordenados por cronologia inversa;. \end{DoxyCompactList}\item 
+long $\ast$ \hyperlink{utilities_8c_ac4a816dab7c2ed08ad377d78e9a0b724}{get\+\_\+10\+\_\+latest} (G\+List $\ast$list)
+\begin{DoxyCompactList}\small\item\em Função que retorna um array com os identificadores de 10 posts;. \end{DoxyCompactList}\item 
+G\+List $\ast$ \hyperlink{utilities_8c_aa286203fd3ff390a621aeafafd698b07}{get\+\_\+\+Answers} (G\+List $\ast$l, long postid)
+\begin{DoxyCompactList}\small\item\em Função que retorna a lista ligada de respostas referentes a uma certa pergunta;. \end{DoxyCompactList}\item 
+int \hyperlink{utilities_8c_aa830a96915e97a38ec306c5c6b460790}{has\+\_\+answered\+\_\+post} (G\+List $\ast$list, long postid, long uid)
+\begin{DoxyCompactList}\small\item\em Função que verifica se um certo utilizador respondeu a uma pergunta;. \end{DoxyCompactList}\item 
+\hyperlink{structllist}{L\+O\+N\+G\+\_\+list} \hyperlink{utilities_8c_af7eca5a81dd067be056ce057f81c320c}{filter\+\_\+both\+\_\+contributions} (G\+List $\ast$com, G\+List $\ast$aux, long id1, long id2, int N)
+\begin{DoxyCompactList}\small\item\em Função que retorna uma L\+O\+N\+G\+\_\+\+L\+I\+ST que contêm os identificadores de N posts que ambos os utilizadores tenham contribuido;. \end{DoxyCompactList}\item 
+G\+List $\ast$ \hyperlink{utilities_8c_af55b4faa14f0485192a3a8f456eb6942}{posts\+\_\+from} (G\+List $\ast$list, long id)
+\begin{DoxyCompactList}\small\item\em Função que retorna a lista ligada de posts feitos por um utilizador;. \end{DoxyCompactList}\item 
+G\+List $\ast$ \hyperlink{utilities_8c_a012f64ad2106c7b7f15f504f4d0081c1}{posts\+\_\+from\+\_\+both} (G\+List $\ast$list, long id1, long id2)
+\begin{DoxyCompactList}\small\item\em Função que retorna a lista ligada de posts feitos por dois utilizadores;. \end{DoxyCompactList}\item 
+G\+List $\ast$ \hyperlink{utilities_8c_a868c501a21c012c92a161d045d91b2d9}{filter\+\_\+answers\+\_\+by\+\_\+qid} (G\+List $\ast$list, long id)
+\begin{DoxyCompactList}\small\item\em Função que retorna a lista ligada de respostas de uma pergunta específica;. \end{DoxyCompactList}\item 
+G\+List $\ast$ \hyperlink{utilities_8c_aea7fe5b171f0dd4296ba914ce049cb86}{filter\+\_\+by\+\_\+user\+\_\+and\+\_\+dates} (G\+List $\ast$posts, long uid, \hyperlink{structdates}{Date} x, \hyperlink{structdates}{Date} y)
+\begin{DoxyCompactList}\small\item\em Função que retorna a lista ligada de posts feitos por um certo utilizador num intervalo de tempo definido;. \end{DoxyCompactList}\item 
+void \hyperlink{utilities_8c_a408d26040612bf0d1cd340373692c107}{set\+\_\+\+Tag\+\_\+\+Count} (G\+List $\ast$tags, \hyperlink{structPosts}{Post} p)
+\begin{DoxyCompactList}\small\item\em Função que incrementa os contadores das tags presentes num post;. \end{DoxyCompactList}\item 
+int \hyperlink{utilities_8c_a8c10d1ba954fd93750fe028ff415801f}{calc\+\_\+answer} (\hyperlink{structPosts}{Post} p, \hyperlink{structUsers}{User} u)
+\begin{DoxyCompactList}\small\item\em Função que aplica a fórmula de cálculo da melhor resposta;. \end{DoxyCompactList}\item 
+long \hyperlink{utilities_8c_a234282d848e8def1b583e254f8a60188}{calculate\+\_\+best\+\_\+answer} (G\+Hash\+Table $\ast$com, G\+List $\ast$aux)
+\begin{DoxyCompactList}\small\item\em Função que retorna o cálculo da melhor resposta de um post;. \end{DoxyCompactList}\item 
+\hyperlink{structllist}{L\+O\+N\+G\+\_\+list} \hyperlink{utilities_8c_a57c2414f97fb168bad9c246e450017e5}{sort\+\_\+\+N\+\_\+tags\+\_\+by} (G\+List $\ast$tags, G\+Compare\+Func func, int N)
+\begin{DoxyCompactList}\small\item\em Função que retorna uma L\+O\+N\+G\+\_\+\+L\+I\+ST de N tags;. \end{DoxyCompactList}\item 
+void \hyperlink{utilities_8c_a1555160a4ac61f90021c32d90fc9a408}{set\+\_\+\+Tag\+\_\+\+Counters} (G\+List $\ast$totalposts, G\+List $\ast$com)
+\begin{DoxyCompactList}\small\item\em Função que incrementa os contadores das tags presentes em cada um dos posts;. \end{DoxyCompactList}\item 
+G\+List $\ast$ \hyperlink{utilities_8c_a971a613655612ed01696738aa0308b04}{create\+\_\+\+N\+\_\+best\+\_\+users} (G\+List $\ast$users, int N)
+\begin{DoxyCompactList}\small\item\em Função que retorna a lista ligada dos N melhores utilizadores;. \end{DoxyCompactList}\item 
+G\+List $\ast$ \hyperlink{utilities_8c_aebfa3cf204cbc0dbfeef484ff2b4bdda}{filter\+\_\+total\+\_\+posts} (G\+List $\ast$nbest, G\+List $\ast$com, \hyperlink{structdates}{Date} begin, \hyperlink{structdates}{Date} end)
+\begin{DoxyCompactList}\small\item\em Função que retorna a lista ligada de todos os posts feitos pelos N melhores utilizados efetuados dentro de um intervalo de tempo;. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Funções auxiliares da interface;. 
+
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{utilities_8c_a8c10d1ba954fd93750fe028ff415801f}\label{utilities_8c_a8c10d1ba954fd93750fe028ff415801f}} 
+\index{utilities.\+c@{utilities.\+c}!calc\+\_\+answer@{calc\+\_\+answer}}
+\index{calc\+\_\+answer@{calc\+\_\+answer}!utilities.\+c@{utilities.\+c}}
+\subsubsection{\texorpdfstring{calc\+\_\+answer()}{calc\_answer()}}
+{\footnotesize\ttfamily int calc\+\_\+answer (\begin{DoxyParamCaption}\item[{\hyperlink{structPosts}{Post}}]{p,  }\item[{\hyperlink{structUsers}{User}}]{u }\end{DoxyParamCaption})}
+
+
+
+Função que aplica a fórmula de cálculo da melhor resposta;. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & Apontador para a estrutura \hyperlink{structPosts}{Posts}; \\
+\hline
+{\em u} & Apontador para a estrutura \hyperlink{structUsers}{Users}; \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int Resultado da aplicação da fórmula; 
+\end{DoxyReturn}
+\mbox{\Hypertarget{utilities_8c_a234282d848e8def1b583e254f8a60188}\label{utilities_8c_a234282d848e8def1b583e254f8a60188}} 
+\index{utilities.\+c@{utilities.\+c}!calculate\+\_\+best\+\_\+answer@{calculate\+\_\+best\+\_\+answer}}
+\index{calculate\+\_\+best\+\_\+answer@{calculate\+\_\+best\+\_\+answer}!utilities.\+c@{utilities.\+c}}
+\subsubsection{\texorpdfstring{calculate\+\_\+best\+\_\+answer()}{calculate\_best\_answer()}}
+{\footnotesize\ttfamily long calculate\+\_\+best\+\_\+answer (\begin{DoxyParamCaption}\item[{G\+Hash\+Table $\ast$}]{com,  }\item[{G\+List $\ast$}]{aux }\end{DoxyParamCaption})}
+
+
+
+Função que retorna o cálculo da melhor resposta de um post;. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em com} & Apontador para a hashtable (G\+Hash\+Table$\ast$) de utilizadores; \\
+\hline
+{\em aux} & Apontador para a lista ligada(\+G\+List$\ast$) de posts; \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+long Identificador da melhor resposta; 
+\end{DoxyReturn}
+\mbox{\Hypertarget{utilities_8c_a971a613655612ed01696738aa0308b04}\label{utilities_8c_a971a613655612ed01696738aa0308b04}} 
+\index{utilities.\+c@{utilities.\+c}!create\+\_\+\+N\+\_\+best\+\_\+users@{create\+\_\+\+N\+\_\+best\+\_\+users}}
+\index{create\+\_\+\+N\+\_\+best\+\_\+users@{create\+\_\+\+N\+\_\+best\+\_\+users}!utilities.\+c@{utilities.\+c}}
+\subsubsection{\texorpdfstring{create\+\_\+\+N\+\_\+best\+\_\+users()}{create\_N\_best\_users()}}
+{\footnotesize\ttfamily G\+List$\ast$ create\+\_\+\+N\+\_\+best\+\_\+users (\begin{DoxyParamCaption}\item[{G\+List $\ast$}]{users,  }\item[{int}]{N }\end{DoxyParamCaption})}
+
+
+
+Função que retorna a lista ligada dos N melhores utilizadores;. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em users} & Apontador para a lista ligada(\+G\+List$\ast$) de utilizadores; \\
+\hline
+{\em N} & Número de utilizadores; \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+G\+List$\ast$ O apontador da estrutura G\+List com a lista ligada dos N melhores utilizadores; 
+\end{DoxyReturn}
+\mbox{\Hypertarget{utilities_8c_a576d741de99e7699f5130820417c0dd8}\label{utilities_8c_a576d741de99e7699f5130820417c0dd8}} 
+\index{utilities.\+c@{utilities.\+c}!filter\+\_\+answer\+\_\+by\+\_\+dates@{filter\+\_\+answer\+\_\+by\+\_\+dates}}
+\index{filter\+\_\+answer\+\_\+by\+\_\+dates@{filter\+\_\+answer\+\_\+by\+\_\+dates}!utilities.\+c@{utilities.\+c}}
+\subsubsection{\texorpdfstring{filter\+\_\+answer\+\_\+by\+\_\+dates()}{filter\_answer\_by\_dates()}}
+{\footnotesize\ttfamily G\+List$\ast$ filter\+\_\+answer\+\_\+by\+\_\+dates (\begin{DoxyParamCaption}\item[{G\+List $\ast$}]{list,  }\item[{\hyperlink{structdates}{Date}}]{begin,  }\item[{\hyperlink{structdates}{Date}}]{end }\end{DoxyParamCaption})}
+
+
+
+Função que retorna a lista ligada de respostas contidas no intervalo de tempo especificado;. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em list} & Apontador para a lista ligada(\+G\+List$\ast$) de posts; \\
+\hline
+{\em begin} & Data inicial; \\
+\hline
+{\em end} & Data final; \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+G\+List$\ast$ O apontador da estrutura G\+List com a lista ligada de posts feitos entre o intervalo de tempo especificado; 
+\end{DoxyReturn}
+\mbox{\Hypertarget{utilities_8c_a868c501a21c012c92a161d045d91b2d9}\label{utilities_8c_a868c501a21c012c92a161d045d91b2d9}} 
+\index{utilities.\+c@{utilities.\+c}!filter\+\_\+answers\+\_\+by\+\_\+qid@{filter\+\_\+answers\+\_\+by\+\_\+qid}}
+\index{filter\+\_\+answers\+\_\+by\+\_\+qid@{filter\+\_\+answers\+\_\+by\+\_\+qid}!utilities.\+c@{utilities.\+c}}
+\subsubsection{\texorpdfstring{filter\+\_\+answers\+\_\+by\+\_\+qid()}{filter\_answers\_by\_qid()}}
+{\footnotesize\ttfamily G\+List$\ast$ filter\+\_\+answers\+\_\+by\+\_\+qid (\begin{DoxyParamCaption}\item[{G\+List $\ast$}]{list,  }\item[{long}]{id }\end{DoxyParamCaption})}
+
+
+
+Função que retorna a lista ligada de respostas de uma pergunta específica;. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em list} & Apontador para a lista ligada(\+G\+List$\ast$) de posts; \\
+\hline
+{\em id} & Identificador da pergunta; \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+G\+List$\ast$ O apontador da estrutura G\+List com a lista ligada de respostas da pergunta especificada; 
+\end{DoxyReturn}
+\mbox{\Hypertarget{utilities_8c_af7eca5a81dd067be056ce057f81c320c}\label{utilities_8c_af7eca5a81dd067be056ce057f81c320c}} 
+\index{utilities.\+c@{utilities.\+c}!filter\+\_\+both\+\_\+contributions@{filter\+\_\+both\+\_\+contributions}}
+\index{filter\+\_\+both\+\_\+contributions@{filter\+\_\+both\+\_\+contributions}!utilities.\+c@{utilities.\+c}}
+\subsubsection{\texorpdfstring{filter\+\_\+both\+\_\+contributions()}{filter\_both\_contributions()}}
+{\footnotesize\ttfamily \hyperlink{structllist}{L\+O\+N\+G\+\_\+list} filter\+\_\+both\+\_\+contributions (\begin{DoxyParamCaption}\item[{G\+List $\ast$}]{com,  }\item[{G\+List $\ast$}]{aux,  }\item[{long}]{id1,  }\item[{long}]{id2,  }\item[{int}]{N }\end{DoxyParamCaption})}
+
+
+
+Função que retorna uma L\+O\+N\+G\+\_\+\+L\+I\+ST que contêm os identificadores de N posts que ambos os utilizadores tenham contribuido;. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em list} & Apontador para a lista ligada(\+G\+List$\ast$) de posts \char`\"{}original\char`\"{} ; \\
+\hline
+{\em aux} & Apontador para a lista ligada(\+G\+List$\ast$) de posts que ambos fizeram; \\
+\hline
+{\em id1} & Identificador do primeiro utilizador; \\
+\hline
+{\em id2} & Identificador do segundo utilizador; \\
+\hline
+{\em N} & Dimensão da lista; \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+L\+O\+N\+G\+\_\+list O apontador da estrutura L\+O\+N\+G\+\_\+list com os N posts em que ambos os utilizadore contribuiram; 
+\end{DoxyReturn}
+\mbox{\Hypertarget{utilities_8c_aea7fe5b171f0dd4296ba914ce049cb86}\label{utilities_8c_aea7fe5b171f0dd4296ba914ce049cb86}} 
+\index{utilities.\+c@{utilities.\+c}!filter\+\_\+by\+\_\+user\+\_\+and\+\_\+dates@{filter\+\_\+by\+\_\+user\+\_\+and\+\_\+dates}}
+\index{filter\+\_\+by\+\_\+user\+\_\+and\+\_\+dates@{filter\+\_\+by\+\_\+user\+\_\+and\+\_\+dates}!utilities.\+c@{utilities.\+c}}
+\subsubsection{\texorpdfstring{filter\+\_\+by\+\_\+user\+\_\+and\+\_\+dates()}{filter\_by\_user\_and\_dates()}}
+{\footnotesize\ttfamily G\+List$\ast$ filter\+\_\+by\+\_\+user\+\_\+and\+\_\+dates (\begin{DoxyParamCaption}\item[{G\+List $\ast$}]{posts,  }\item[{long}]{uid,  }\item[{\hyperlink{structdates}{Date}}]{x,  }\item[{\hyperlink{structdates}{Date}}]{y }\end{DoxyParamCaption})}
+
+
+
+Função que retorna a lista ligada de posts feitos por um certo utilizador num intervalo de tempo definido;. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em posts} & Apontador para a lista ligada(\+G\+List$\ast$) de posts; \\
+\hline
+{\em uid} & Identificador do utilizador; \\
+\hline
+{\em x} & Data inicial; \\
+\hline
+{\em y} & Data final; \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+G\+List$\ast$ O apontador da estrutura G\+List com a lista ligada de posts feitos pelo utilizador especificado no intervalo de tempo; 
+\end{DoxyReturn}
+\mbox{\Hypertarget{utilities_8c_a725a9169b3751be5544cbd994b8b5ee2}\label{utilities_8c_a725a9169b3751be5544cbd994b8b5ee2}} 
+\index{utilities.\+c@{utilities.\+c}!filter\+\_\+ordered\+\_\+posts@{filter\+\_\+ordered\+\_\+posts}}
+\index{filter\+\_\+ordered\+\_\+posts@{filter\+\_\+ordered\+\_\+posts}!utilities.\+c@{utilities.\+c}}
+\subsubsection{\texorpdfstring{filter\+\_\+ordered\+\_\+posts()}{filter\_ordered\_posts()}}
+{\footnotesize\ttfamily G\+List$\ast$ filter\+\_\+ordered\+\_\+posts (\begin{DoxyParamCaption}\item[{G\+List $\ast$}]{list }\end{DoxyParamCaption})}
+
+
+
+Função que retorna a lista ligada de posts ordenados por cronologia inversa;. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em list} & Apontador para a lista ligada(\+G\+List$\ast$) de posts; \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+G\+List$\ast$ O apontador da estrutura G\+List com a lista ligada de posts ordenados por cronologia inversa; 
+\end{DoxyReturn}
+\mbox{\Hypertarget{utilities_8c_ac9281a0263f3f9845df858734162c44c}\label{utilities_8c_ac9281a0263f3f9845df858734162c44c}} 
+\index{utilities.\+c@{utilities.\+c}!filter\+\_\+question\+\_\+in\+Title@{filter\+\_\+question\+\_\+in\+Title}}
+\index{filter\+\_\+question\+\_\+in\+Title@{filter\+\_\+question\+\_\+in\+Title}!utilities.\+c@{utilities.\+c}}
+\subsubsection{\texorpdfstring{filter\+\_\+question\+\_\+in\+Title()}{filter\_question\_inTitle()}}
+{\footnotesize\ttfamily G\+List$\ast$ filter\+\_\+question\+\_\+in\+Title (\begin{DoxyParamCaption}\item[{G\+List $\ast$}]{list,  }\item[{char $\ast$}]{word }\end{DoxyParamCaption})}
+
+
+
+Função que retorna a contagem de perguntas e respostas sobre a forma de um L\+O\+N\+G\+\_\+pair;. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em list} & Apontador para a lista ligada(\+G\+List$\ast$) de posts; \\
+\hline
+{\em word} & String de procura; \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+G\+List$\ast$ O apontador da estrutura G\+List com a lista ligada de posts que contêm a word no titulo,ordenados por cronologia inversa; 
+\end{DoxyReturn}
+\mbox{\Hypertarget{utilities_8c_af0e88739fdb40936e9de09ef19b99b45}\label{utilities_8c_af0e88739fdb40936e9de09ef19b99b45}} 
+\index{utilities.\+c@{utilities.\+c}!filter\+\_\+question\+\_\+tags\+\_\+date@{filter\+\_\+question\+\_\+tags\+\_\+date}}
+\index{filter\+\_\+question\+\_\+tags\+\_\+date@{filter\+\_\+question\+\_\+tags\+\_\+date}!utilities.\+c@{utilities.\+c}}
+\subsubsection{\texorpdfstring{filter\+\_\+question\+\_\+tags\+\_\+date()}{filter\_question\_tags\_date()}}
+{\footnotesize\ttfamily G\+List$\ast$ filter\+\_\+question\+\_\+tags\+\_\+date (\begin{DoxyParamCaption}\item[{G\+List $\ast$}]{list,  }\item[{char $\ast$}]{tag,  }\item[{\hyperlink{structdates}{Date}}]{begin,  }\item[{\hyperlink{structdates}{Date}}]{end }\end{DoxyParamCaption})}
+
+
+
+Função que retorna a lista ligada de posts feitos entre um dado intervalo de tempo que contenham uma determinada tag;. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em list} & Apontador para a lista ligada(\+G\+List$\ast$) de posts; \\
+\hline
+{\em tag} & Tag de procura; \\
+\hline
+{\em begin} & Data inicial; \\
+\hline
+{\em end} & Data final; \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+G\+List$\ast$ O apontador da estrutura G\+List com a lista ligada de posts,feitos no intervalo de tempo pedido,que contêm a tag especificada; 
+\end{DoxyReturn}
+\mbox{\Hypertarget{utilities_8c_a938a7bd1c5258e4fd8c977c95387517f}\label{utilities_8c_a938a7bd1c5258e4fd8c977c95387517f}} 
+\index{utilities.\+c@{utilities.\+c}!filter\+\_\+questions\+\_\+by\+\_\+dates@{filter\+\_\+questions\+\_\+by\+\_\+dates}}
+\index{filter\+\_\+questions\+\_\+by\+\_\+dates@{filter\+\_\+questions\+\_\+by\+\_\+dates}!utilities.\+c@{utilities.\+c}}
+\subsubsection{\texorpdfstring{filter\+\_\+questions\+\_\+by\+\_\+dates()}{filter\_questions\_by\_dates()}}
+{\footnotesize\ttfamily G\+List$\ast$ filter\+\_\+questions\+\_\+by\+\_\+dates (\begin{DoxyParamCaption}\item[{G\+List $\ast$}]{list,  }\item[{\hyperlink{structdates}{Date}}]{begin,  }\item[{\hyperlink{structdates}{Date}}]{end }\end{DoxyParamCaption})}
+
+
+
+Função que retorna a lista ligada de perguntas contidas no intervalo de tempo especificado;. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em list} & Apontador para a lista ligada(\+G\+List$\ast$) de posts; \\
+\hline
+{\em begin} & Data inicial; \\
+\hline
+{\em end} & Data final; \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+G\+List$\ast$ O apontador da estrutura G\+List com a lista ligada de posts feitos entre o intervalo de tempo especificado; 
+\end{DoxyReturn}
+\mbox{\Hypertarget{utilities_8c_aebfa3cf204cbc0dbfeef484ff2b4bdda}\label{utilities_8c_aebfa3cf204cbc0dbfeef484ff2b4bdda}} 
+\index{utilities.\+c@{utilities.\+c}!filter\+\_\+total\+\_\+posts@{filter\+\_\+total\+\_\+posts}}
+\index{filter\+\_\+total\+\_\+posts@{filter\+\_\+total\+\_\+posts}!utilities.\+c@{utilities.\+c}}
+\subsubsection{\texorpdfstring{filter\+\_\+total\+\_\+posts()}{filter\_total\_posts()}}
+{\footnotesize\ttfamily G\+List$\ast$ filter\+\_\+total\+\_\+posts (\begin{DoxyParamCaption}\item[{G\+List $\ast$}]{nbest,  }\item[{G\+List $\ast$}]{com,  }\item[{\hyperlink{structdates}{Date}}]{begin,  }\item[{\hyperlink{structdates}{Date}}]{end }\end{DoxyParamCaption})}
+
+
+
+Função que retorna a lista ligada de todos os posts feitos pelos N melhores utilizados efetuados dentro de um intervalo de tempo;. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nbest} & Apontador para a lista ligada(\+G\+List$\ast$) de utilizadores; \\
+\hline
+{\em com} & Apontador para a lista ligada(\+G\+List$\ast$) de posts; \\
+\hline
+{\em begin} & Data inicial; \\
+\hline
+{\em end} & Data final; \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+G\+List$\ast$ O apontador da estrutura G\+List com a lista ligada de posts feitos pelos N melhores utilizadores,no intervalo de tempo especificado; 
+\end{DoxyReturn}
+\mbox{\Hypertarget{utilities_8c_ac4a816dab7c2ed08ad377d78e9a0b724}\label{utilities_8c_ac4a816dab7c2ed08ad377d78e9a0b724}} 
+\index{utilities.\+c@{utilities.\+c}!get\+\_\+10\+\_\+latest@{get\+\_\+10\+\_\+latest}}
+\index{get\+\_\+10\+\_\+latest@{get\+\_\+10\+\_\+latest}!utilities.\+c@{utilities.\+c}}
+\subsubsection{\texorpdfstring{get\+\_\+10\+\_\+latest()}{get\_10\_latest()}}
+{\footnotesize\ttfamily long$\ast$ get\+\_\+10\+\_\+latest (\begin{DoxyParamCaption}\item[{G\+List $\ast$}]{list }\end{DoxyParamCaption})}
+
+
+
+Função que retorna um array com os identificadores de 10 posts;. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em list} & Apontador para a lista ligada(\+G\+List$\ast$) de posts; \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+long$\ast$ Um array com os identificadores de 10 posts; 
+\end{DoxyReturn}
+\mbox{\Hypertarget{utilities_8c_aa286203fd3ff390a621aeafafd698b07}\label{utilities_8c_aa286203fd3ff390a621aeafafd698b07}} 
+\index{utilities.\+c@{utilities.\+c}!get\+\_\+\+Answers@{get\+\_\+\+Answers}}
+\index{get\+\_\+\+Answers@{get\+\_\+\+Answers}!utilities.\+c@{utilities.\+c}}
+\subsubsection{\texorpdfstring{get\+\_\+\+Answers()}{get\_Answers()}}
+{\footnotesize\ttfamily G\+List$\ast$ get\+\_\+\+Answers (\begin{DoxyParamCaption}\item[{G\+List $\ast$}]{l,  }\item[{long}]{postid }\end{DoxyParamCaption})}
+
+
+
+Função que retorna a lista ligada de respostas referentes a uma certa pergunta;. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em l} & Apontador para a lista ligada(\+G\+List$\ast$) de posts; \\
+\hline
+{\em postid} & Identificador da pergunta; \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+G\+List$\ast$ O apontador da estrutura G\+List com a lista ligada de respostas da pergunta especificada; 
+\end{DoxyReturn}
+\mbox{\Hypertarget{utilities_8c_a0ea255623130be16adaa2553de98fea4}\label{utilities_8c_a0ea255623130be16adaa2553de98fea4}} 
+\index{utilities.\+c@{utilities.\+c}!get\+\_\+\+Post@{get\+\_\+\+Post}}
+\index{get\+\_\+\+Post@{get\+\_\+\+Post}!utilities.\+c@{utilities.\+c}}
+\subsubsection{\texorpdfstring{get\+\_\+\+Post()}{get\_Post()}}
+{\footnotesize\ttfamily \hyperlink{structPosts}{Post} get\+\_\+\+Post (\begin{DoxyParamCaption}\item[{G\+Hash\+Table $\ast$}]{hp,  }\item[{long}]{id }\end{DoxyParamCaption})}
+
+
+
+Função que retorna um post da hashtable a partir do seu id;. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ht} & Apontador para a tabela de Hash(\+G\+Hash\+Table$\ast$); \\
+\hline
+{\em id} & Identificador do post; \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+User O apontador da estrutura Post contido na tabela de hash; 
+\end{DoxyReturn}
+\mbox{\Hypertarget{utilities_8c_a3f6a3ffafa4915b5c6534d3d1a2d8735}\label{utilities_8c_a3f6a3ffafa4915b5c6534d3d1a2d8735}} 
+\index{utilities.\+c@{utilities.\+c}!get\+\_\+\+User@{get\+\_\+\+User}}
+\index{get\+\_\+\+User@{get\+\_\+\+User}!utilities.\+c@{utilities.\+c}}
+\subsubsection{\texorpdfstring{get\+\_\+\+User()}{get\_User()}}
+{\footnotesize\ttfamily \hyperlink{structUsers}{User} get\+\_\+\+User (\begin{DoxyParamCaption}\item[{G\+Hash\+Table $\ast$}]{ht,  }\item[{long}]{id }\end{DoxyParamCaption})}
+
+
+
+Função que retorna um utilizador da hashtable a partir do seu id;. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ht} & Apontador para a tabela de Hash(\+G\+Hash\+Table$\ast$); \\
+\hline
+{\em id} & Identificador do utilizador; \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+User O apontador da estrutura User contido na tabela de hash; 
+\end{DoxyReturn}
+\mbox{\Hypertarget{utilities_8c_aa830a96915e97a38ec306c5c6b460790}\label{utilities_8c_aa830a96915e97a38ec306c5c6b460790}} 
+\index{utilities.\+c@{utilities.\+c}!has\+\_\+answered\+\_\+post@{has\+\_\+answered\+\_\+post}}
+\index{has\+\_\+answered\+\_\+post@{has\+\_\+answered\+\_\+post}!utilities.\+c@{utilities.\+c}}
+\subsubsection{\texorpdfstring{has\+\_\+answered\+\_\+post()}{has\_answered\_post()}}
+{\footnotesize\ttfamily int has\+\_\+answered\+\_\+post (\begin{DoxyParamCaption}\item[{G\+List $\ast$}]{list,  }\item[{long}]{postid,  }\item[{long}]{uid }\end{DoxyParamCaption})}
+
+
+
+Função que verifica se um certo utilizador respondeu a uma pergunta;. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em list} & Apontador para a lista ligada(\+G\+List$\ast$) de posts; \\
+\hline
+{\em postid} & Identificador da pergunta; \\
+\hline
+{\em uid} & Identificador do utilizador; \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 1 caso se verifique, 0 caso contrário; 
+\end{DoxyReturn}
+\mbox{\Hypertarget{utilities_8c_a27e2670db6edad73510e8ed83c0f56ee}\label{utilities_8c_a27e2670db6edad73510e8ed83c0f56ee}} 
+\index{utilities.\+c@{utilities.\+c}!infos\+\_\+from@{infos\+\_\+from}}
+\index{infos\+\_\+from@{infos\+\_\+from}!utilities.\+c@{utilities.\+c}}
+\subsubsection{\texorpdfstring{infos\+\_\+from()}{infos\_from()}}
+{\footnotesize\ttfamily \hyperlink{structstr__pair}{S\+T\+R\+\_\+pair} infos\+\_\+from (\begin{DoxyParamCaption}\item[{G\+Hash\+Table $\ast$}]{ht,  }\item[{\hyperlink{structPosts}{Post}}]{p,  }\item[{\hyperlink{structUsers}{User}}]{u }\end{DoxyParamCaption})}
+
+
+
+Função que retorna um S\+T\+R\+\_\+pair que contem o titulo de uma pergunta e o nome do utilizador;. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ht} & Apontador para a lista ligada(\+G\+List$\ast$) de posts; \\
+\hline
+{\em p} & Apontador para a estrutura \hyperlink{structPosts}{Posts}; \\
+\hline
+{\em u} & Apontador para a estrutura \hyperlink{structUsers}{Users}; \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+S\+T\+R\+\_\+pair O apontador da estrutura S\+T\+R\+\_\+pair com o titulo da pergunta e nome do autor; 
+\end{DoxyReturn}
+\mbox{\Hypertarget{utilities_8c_af55b4faa14f0485192a3a8f456eb6942}\label{utilities_8c_af55b4faa14f0485192a3a8f456eb6942}} 
+\index{utilities.\+c@{utilities.\+c}!posts\+\_\+from@{posts\+\_\+from}}
+\index{posts\+\_\+from@{posts\+\_\+from}!utilities.\+c@{utilities.\+c}}
+\subsubsection{\texorpdfstring{posts\+\_\+from()}{posts\_from()}}
+{\footnotesize\ttfamily G\+List$\ast$ posts\+\_\+from (\begin{DoxyParamCaption}\item[{G\+List $\ast$}]{list,  }\item[{long}]{id }\end{DoxyParamCaption})}
+
+
+
+Função que retorna a lista ligada de posts feitos por um utilizador;. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em list} & Apontador para a lista ligada(\+G\+List$\ast$) de posts; \\
+\hline
+{\em id} & Identificador do utilizador \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+G\+List$\ast$ O apontador da estrutura G\+List com a lista ligada de posts feitos pelo utilizador especificado; 
+\end{DoxyReturn}
+\mbox{\Hypertarget{utilities_8c_a012f64ad2106c7b7f15f504f4d0081c1}\label{utilities_8c_a012f64ad2106c7b7f15f504f4d0081c1}} 
+\index{utilities.\+c@{utilities.\+c}!posts\+\_\+from\+\_\+both@{posts\+\_\+from\+\_\+both}}
+\index{posts\+\_\+from\+\_\+both@{posts\+\_\+from\+\_\+both}!utilities.\+c@{utilities.\+c}}
+\subsubsection{\texorpdfstring{posts\+\_\+from\+\_\+both()}{posts\_from\_both()}}
+{\footnotesize\ttfamily G\+List$\ast$ posts\+\_\+from\+\_\+both (\begin{DoxyParamCaption}\item[{G\+List $\ast$}]{list,  }\item[{long}]{id1,  }\item[{long}]{id2 }\end{DoxyParamCaption})}
+
+
+
+Função que retorna a lista ligada de posts feitos por dois utilizadores;. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em list} & Apontador para a lista ligada(\+G\+List$\ast$) de posts; \\
+\hline
+{\em id1} & Identificador do primeiro utilizador; \\
+\hline
+{\em id2} & Identificador do segundo utilizador; \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+G\+List$\ast$ O apontador da estrutura G\+List com a lista ligada de posts feitos pelos dois utilizadores; 
+\end{DoxyReturn}
+\mbox{\Hypertarget{utilities_8c_ae16029d796c4fcfa5187d000a62fe541}\label{utilities_8c_ae16029d796c4fcfa5187d000a62fe541}} 
+\index{utilities.\+c@{utilities.\+c}!set\+\_\+long\+\_\+N@{set\+\_\+long\+\_\+N}}
+\index{set\+\_\+long\+\_\+N@{set\+\_\+long\+\_\+N}!utilities.\+c@{utilities.\+c}}
+\subsubsection{\texorpdfstring{set\+\_\+long\+\_\+\+N()}{set\_long\_N()}}
+{\footnotesize\ttfamily \hyperlink{structllist}{L\+O\+N\+G\+\_\+list} set\+\_\+long\+\_\+N (\begin{DoxyParamCaption}\item[{G\+List $\ast$}]{list,  }\item[{int}]{N }\end{DoxyParamCaption})}
+
+
+
+Função que retorna a uma L\+O\+N\+G\+\_\+\+L\+I\+ST com N identificadores de posts;. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em list} & Apontador para a lista ligada(\+G\+List$\ast$) de posts; \\
+\hline
+{\em N} & Dimensão da lista; \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+L\+O\+N\+G\+\_\+list O apontador da estrutura L\+O\+N\+G\+\_\+list com os identificadores de N posts; 
+\end{DoxyReturn}
+\mbox{\Hypertarget{utilities_8c_a408d26040612bf0d1cd340373692c107}\label{utilities_8c_a408d26040612bf0d1cd340373692c107}} 
+\index{utilities.\+c@{utilities.\+c}!set\+\_\+\+Tag\+\_\+\+Count@{set\+\_\+\+Tag\+\_\+\+Count}}
+\index{set\+\_\+\+Tag\+\_\+\+Count@{set\+\_\+\+Tag\+\_\+\+Count}!utilities.\+c@{utilities.\+c}}
+\subsubsection{\texorpdfstring{set\+\_\+\+Tag\+\_\+\+Count()}{set\_Tag\_Count()}}
+{\footnotesize\ttfamily void set\+\_\+\+Tag\+\_\+\+Count (\begin{DoxyParamCaption}\item[{G\+List $\ast$}]{tags,  }\item[{\hyperlink{structPosts}{Post}}]{p }\end{DoxyParamCaption})}
+
+
+
+Função que incrementa os contadores das tags presentes num post;. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tags} & Apontador para a lista ligada(\+G\+List$\ast$) de tags; \\
+\hline
+{\em p} & Apontador para a estrutura \hyperlink{structPosts}{Posts}; \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{utilities_8c_a1555160a4ac61f90021c32d90fc9a408}\label{utilities_8c_a1555160a4ac61f90021c32d90fc9a408}} 
+\index{utilities.\+c@{utilities.\+c}!set\+\_\+\+Tag\+\_\+\+Counters@{set\+\_\+\+Tag\+\_\+\+Counters}}
+\index{set\+\_\+\+Tag\+\_\+\+Counters@{set\+\_\+\+Tag\+\_\+\+Counters}!utilities.\+c@{utilities.\+c}}
+\subsubsection{\texorpdfstring{set\+\_\+\+Tag\+\_\+\+Counters()}{set\_Tag\_Counters()}}
+{\footnotesize\ttfamily void set\+\_\+\+Tag\+\_\+\+Counters (\begin{DoxyParamCaption}\item[{G\+List $\ast$}]{totalposts,  }\item[{G\+List $\ast$}]{com }\end{DoxyParamCaption})}
+
+
+
+Função que incrementa os contadores das tags presentes em cada um dos posts;. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em list} & Apontador para a lista ligada(\+G\+List$\ast$) de posts; \\
+\hline
+{\em com} & Apontador para a lista ligada(\+G\+List$\ast$) de tags; \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{utilities_8c_a57c2414f97fb168bad9c246e450017e5}\label{utilities_8c_a57c2414f97fb168bad9c246e450017e5}} 
+\index{utilities.\+c@{utilities.\+c}!sort\+\_\+\+N\+\_\+tags\+\_\+by@{sort\+\_\+\+N\+\_\+tags\+\_\+by}}
+\index{sort\+\_\+\+N\+\_\+tags\+\_\+by@{sort\+\_\+\+N\+\_\+tags\+\_\+by}!utilities.\+c@{utilities.\+c}}
+\subsubsection{\texorpdfstring{sort\+\_\+\+N\+\_\+tags\+\_\+by()}{sort\_N\_tags\_by()}}
+{\footnotesize\ttfamily \hyperlink{structllist}{L\+O\+N\+G\+\_\+list} sort\+\_\+\+N\+\_\+tags\+\_\+by (\begin{DoxyParamCaption}\item[{G\+List $\ast$}]{tags,  }\item[{G\+Compare\+Func}]{func,  }\item[{int}]{N }\end{DoxyParamCaption})}
+
+
+
+Função que retorna uma L\+O\+N\+G\+\_\+\+L\+I\+ST de N tags;. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em list} & Apontador para a lista ligada(\+G\+List$\ast$) de tags; \\
+\hline
+{\em func} & Função de comparação; \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+L\+O\+N\+G\+\_\+\+L\+I\+ST O apontador da estrutura L\+O\+N\+G\+\_\+\+L\+I\+ST que contém os N identificadores de uma tag ordenados pela função func; 
+\end{DoxyReturn}
+\mbox{\Hypertarget{utilities_8c_a06bcf42df310af1b831d759c15e1b66b}\label{utilities_8c_a06bcf42df310af1b831d759c15e1b66b}} 
+\index{utilities.\+c@{utilities.\+c}!sort\+\_\+post\+\_\+by\+\_\+N@{sort\+\_\+post\+\_\+by\+\_\+N}}
+\index{sort\+\_\+post\+\_\+by\+\_\+N@{sort\+\_\+post\+\_\+by\+\_\+N}!utilities.\+c@{utilities.\+c}}
+\subsubsection{\texorpdfstring{sort\+\_\+post\+\_\+by\+\_\+\+N()}{sort\_post\_by\_N()}}
+{\footnotesize\ttfamily \hyperlink{structllist}{L\+O\+N\+G\+\_\+list} sort\+\_\+post\+\_\+by\+\_\+N (\begin{DoxyParamCaption}\item[{G\+List $\ast$}]{list,  }\item[{G\+Compare\+Func}]{func,  }\item[{int}]{N }\end{DoxyParamCaption})}
+
+
+
+Função que retorna uma L\+O\+N\+G\+\_\+\+L\+I\+ST dos identificadores de N posts;. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em list} & Apontador para a lista ligada(\+G\+List$\ast$) de posts; \\
+\hline
+{\em func} & Função de comparação; \\
+\hline
+{\em N} & Número pretendido de posts; \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+L\+O\+N\+G\+\_\+\+L\+I\+ST O apontador da estrutura L\+O\+N\+G\+\_\+\+L\+I\+ST com N posts ordenados pela função fornecida; 
+\end{DoxyReturn}
+\mbox{\Hypertarget{utilities_8c_a29b3016af811f99906267dd4eaaaf606}\label{utilities_8c_a29b3016af811f99906267dd4eaaaf606}} 
+\index{utilities.\+c@{utilities.\+c}!sort\+\_\+user\+\_\+by\+\_\+N@{sort\+\_\+user\+\_\+by\+\_\+N}}
+\index{sort\+\_\+user\+\_\+by\+\_\+N@{sort\+\_\+user\+\_\+by\+\_\+N}!utilities.\+c@{utilities.\+c}}
+\subsubsection{\texorpdfstring{sort\+\_\+user\+\_\+by\+\_\+\+N()}{sort\_user\_by\_N()}}
+{\footnotesize\ttfamily \hyperlink{structllist}{L\+O\+N\+G\+\_\+list} sort\+\_\+user\+\_\+by\+\_\+N (\begin{DoxyParamCaption}\item[{G\+List $\ast$}]{list,  }\item[{G\+Compare\+Func}]{func,  }\item[{int}]{N }\end{DoxyParamCaption})}
+
+
+
+Função que retorna uma L\+O\+N\+G\+\_\+\+L\+I\+ST dos identificadores de N utilizadores;. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em list} & Apontador para a lista ligada(\+G\+List$\ast$) de utilizadores; \\
+\hline
+{\em func} & Função de comparação; \\
+\hline
+{\em N} & Número pretendido de utilizadores; \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+L\+O\+N\+G\+\_\+\+L\+I\+ST O apontador da estrutura L\+O\+N\+G\+\_\+\+L\+I\+ST com N utilizadores ordenados pela função fornecida; 
+\end{DoxyReturn}
+\mbox{\Hypertarget{utilities_8c_a5520455006ab675f772e9ed75151f301}\label{utilities_8c_a5520455006ab675f772e9ed75151f301}} 
+\index{utilities.\+c@{utilities.\+c}!total\+\_\+\+QandA@{total\+\_\+\+QandA}}
+\index{total\+\_\+\+QandA@{total\+\_\+\+QandA}!utilities.\+c@{utilities.\+c}}
+\subsubsection{\texorpdfstring{total\+\_\+\+Qand\+A()}{total\_QandA()}}
+{\footnotesize\ttfamily \hyperlink{structlong__pair}{L\+O\+N\+G\+\_\+pair} total\+\_\+\+QandA (\begin{DoxyParamCaption}\item[{G\+List $\ast$}]{list,  }\item[{\hyperlink{structdates}{Date}}]{begin,  }\item[{\hyperlink{structdates}{Date}}]{end }\end{DoxyParamCaption})}
+
+
+
+Função que retorna a contagem de perguntas e respostas sobre a forma de um L\+O\+N\+G\+\_\+pair;. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em list} & Apontador para a lista ligada(\+G\+List$\ast$) de posts; \\
+\hline
+{\em begin} & Data inicial; \\
+\hline
+{\em end} & Data final; \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+L\+O\+N\+G\+\_\+pair O apontador da estrutura L\+O\+N\+G\+\_\+pair com a contagem de perguntas e respostas; 
+\end{DoxyReturn}

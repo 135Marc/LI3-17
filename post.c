@@ -1,12 +1,22 @@
 #include "post.h"
 
+/**
+* @file post.c
+* @brief Estrutura dos posts;
+*/
+
 typedef struct Posts {
-	long id,ownerid,parentid;
-	int typeid,score,answercount,commentcount;
-	char* title;
-	char* date;
-	char* tags;
-	Date d;
+	long id; /**< Identificador do post */
+	long ownerid /**< Identificador do autor do post */
+	long parentid; /**< Identificador do post parente */
+	int typeid; /**< Identificador de tipo do post */
+	int score; /**< Score do post */
+	int answercount; /**< Contagem de respostas do post */
+	int commentcount; /**< Contagem de comenários do post */
+	char* title; /**< Titulo do post */
+	char* date; /**< Data do post (em string) */
+	char* tags; /**< Tags do post */
+	Date d; /**< Data do post (formato Date)*/
 }Posts;
 
 

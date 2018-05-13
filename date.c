@@ -1,5 +1,10 @@
 #include "date.h"
 
+/**
+* @file date.c
+* @brief Estrutura das datas;
+*/
+
 typedef struct dates {
 	int day;
 	int month;

@@ -1,14 +1,17 @@
 #include "users.h"
 
+/**
+* @file users.c
+* @brief Estrutura dos utilizadores
+*/
+
 typedef struct Users {
-	int reputation;
-	long id;
-	char* displayname;
-	char* shortbio;
-	int postcount;
+	int reputation; /**< Reputação do utilizador*/
+	long id; /**< Identificador do utilizador*/
+	char* displayname; /**< Nome do utilizador*/
+	char* shortbio; /**< Shortbio do utilizador*/
+	int postcount; /**< Postcount do utilizador*/
 } Users;
-
-
 
 /**	@brief Função que cria um user
 *   @param int reputaçao
@@ -28,8 +31,8 @@ User new_User(int reputation, long id,char* displayname,char* shortbio) {
 }
 
 
-/**	@brief Função que liberta a estrutura user da memoria
-*   @param User
+/*@brief Função que liberta o espaço ocupado pela estrutura na memoria;
+*   @param User;
 */
 void freeUser (User u) {
 	if (u) {

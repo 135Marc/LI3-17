@@ -1,0 +1,301 @@
+\hypertarget{common_8c}{}\section{common.\+c File Reference}
+\label{common_8c}\index{common.\+c@{common.\+c}}
+
+
+Estrutura dos utilizadores.  
+
+
+{\ttfamily \#include \char`\"{}common.\+h\char`\"{}}\newline
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+char $\ast$ \hyperlink{common_8c_aaec695d4d3f73b13b968950d7857116d}{mystrdup} (const char $\ast$s)
+\begin{DoxyCompactList}\small\item\em Função que duplica uma string;. \end{DoxyCompactList}\item 
+int \hyperlink{common_8c_a44a8c2be94efe7f5277bdd1b11c3ae97}{cmp\+Val} (int a, int b)
+\begin{DoxyCompactList}\small\item\em Função que compara dois inteiros de forma inversa;. \end{DoxyCompactList}\item 
+char $\ast$ \hyperlink{common_8c_a7f49f7448fa44ce242524538b5a87dfb}{split\+\_\+string} (char $\ast$s, int i)
+\begin{DoxyCompactList}\small\item\em Função que divide uma string;. \end{DoxyCompactList}\item 
+int \hyperlink{common_8c_a3ca88510ef7c1dd12b85c219b3ba97e7}{in\+Title} (char $\ast$s1, char $\ast$s2)
+\begin{DoxyCompactList}\small\item\em Função que verifica se uma string está contida noutra;. \end{DoxyCompactList}\item 
+int \hyperlink{common_8c_a95b6a2d9b40860384aa1be3773ae2d94}{in\+Tag} (char $\ast$tags, char $\ast$tag)
+\begin{DoxyCompactList}\small\item\em Função que verifica se uma string está contida noutra;. \end{DoxyCompactList}\item 
+char $\ast$ \hyperlink{common_8c_aa2b0d4717ac9735282f8c683c3a7f92c}{string\+Till} (char $\ast$string, char c)
+\begin{DoxyCompactList}\small\item\em Função que Retorna a string resultante até um caracter específico. \end{DoxyCompactList}\item 
+char $\ast$ \hyperlink{common_8c_a0a649a2a2aaf77016a60a8851115142b}{sort\+Date} (char $\ast$date)
+\begin{DoxyCompactList}\small\item\em Função que normaliza o formato de uma string (que contém uma data) \end{DoxyCompactList}\item 
+int \hyperlink{common_8c_ae9dd69952142a810231944898c5f3b88}{elem\+Char} (char $\ast$string, char c)
+\begin{DoxyCompactList}\small\item\em Função que verifica se um caracter pertence a uma string. \end{DoxyCompactList}\item 
+char $\ast$ \hyperlink{common_8c_aee5c7504a9ca38f327660d472954a7e9}{string\+Between} (char $\ast$string, char c)
+\begin{DoxyCompactList}\small\item\em Função que retorna a string resultante entre um caracter especifico. \end{DoxyCompactList}\item 
+char $\ast$ \hyperlink{common_8c_a7d8798377dfa9f93e82db5c68ec82021}{string\+After} (char $\ast$string, char c)
+\begin{DoxyCompactList}\small\item\em Função que retorna a string resultante após n ocorrências de um caracter específico. \end{DoxyCompactList}\item 
+\hyperlink{structdates}{Date} \hyperlink{common_8c_a73e51dd422acea9b340a412b48278cce}{date\+From\+Post} (char $\ast$date)
+\begin{DoxyCompactList}\small\item\em Função que obtém a data de um post (string) e converte-\/a no formato Date. \end{DoxyCompactList}\item 
+int \hyperlink{common_8c_a6e8c2f305a24f86434b51e5540a829fa}{cmp\+Dates} (\hyperlink{structdates}{Date} d1, \hyperlink{structdates}{Date} d2)
+\begin{DoxyCompactList}\small\item\em Função que obtém a data de um post (string) e converte-\/a no formato Date. \end{DoxyCompactList}\item 
+int \hyperlink{common_8c_a723e07c8149929b5e27cff5b069eca9b}{between\+Date} (\hyperlink{structdates}{Date} d, \hyperlink{structdates}{Date} x, \hyperlink{structdates}{Date} y)
+\begin{DoxyCompactList}\small\item\em Função que verifica se uma data está entre um dado intervalo de datas. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Estrutura dos utilizadores. 
+
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{common_8c_a723e07c8149929b5e27cff5b069eca9b}\label{common_8c_a723e07c8149929b5e27cff5b069eca9b}} 
+\index{common.\+c@{common.\+c}!between\+Date@{between\+Date}}
+\index{between\+Date@{between\+Date}!common.\+c@{common.\+c}}
+\subsubsection{\texorpdfstring{between\+Date()}{betweenDate()}}
+{\footnotesize\ttfamily int between\+Date (\begin{DoxyParamCaption}\item[{\hyperlink{structdates}{Date}}]{d,  }\item[{\hyperlink{structdates}{Date}}]{x,  }\item[{\hyperlink{structdates}{Date}}]{y }\end{DoxyParamCaption})}
+
+
+
+Função que verifica se uma data está entre um dado intervalo de datas. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em d} & Data a comparar; \\
+\hline
+{\em x} & Data inicial; \\
+\hline
+{\em y} & Data final; \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 1 se está contida, 0 caso contrário; 
+\end{DoxyReturn}
+\mbox{\Hypertarget{common_8c_a6e8c2f305a24f86434b51e5540a829fa}\label{common_8c_a6e8c2f305a24f86434b51e5540a829fa}} 
+\index{common.\+c@{common.\+c}!cmp\+Dates@{cmp\+Dates}}
+\index{cmp\+Dates@{cmp\+Dates}!common.\+c@{common.\+c}}
+\subsubsection{\texorpdfstring{cmp\+Dates()}{cmpDates()}}
+{\footnotesize\ttfamily int cmp\+Dates (\begin{DoxyParamCaption}\item[{\hyperlink{structdates}{Date}}]{d1,  }\item[{\hyperlink{structdates}{Date}}]{d2 }\end{DoxyParamCaption})}
+
+
+
+Função que obtém a data de um post (string) e converte-\/a no formato Date. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em date} & String a converter; \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Date Apontador da estrutura Date; 
+\end{DoxyReturn}
+\mbox{\Hypertarget{common_8c_a44a8c2be94efe7f5277bdd1b11c3ae97}\label{common_8c_a44a8c2be94efe7f5277bdd1b11c3ae97}} 
+\index{common.\+c@{common.\+c}!cmp\+Val@{cmp\+Val}}
+\index{cmp\+Val@{cmp\+Val}!common.\+c@{common.\+c}}
+\subsubsection{\texorpdfstring{cmp\+Val()}{cmpVal()}}
+{\footnotesize\ttfamily int cmp\+Val (\begin{DoxyParamCaption}\item[{int}]{a,  }\item[{int}]{b }\end{DoxyParamCaption})}
+
+
+
+Função que compara dois inteiros de forma inversa;. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & Inteiro; \\
+\hline
+{\em b} & Inteiro; \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int -\/1 se a $>$ b , 1 se b $>$ a , 0 caso contrário; 
+\end{DoxyReturn}
+\mbox{\Hypertarget{common_8c_a73e51dd422acea9b340a412b48278cce}\label{common_8c_a73e51dd422acea9b340a412b48278cce}} 
+\index{common.\+c@{common.\+c}!date\+From\+Post@{date\+From\+Post}}
+\index{date\+From\+Post@{date\+From\+Post}!common.\+c@{common.\+c}}
+\subsubsection{\texorpdfstring{date\+From\+Post()}{dateFromPost()}}
+{\footnotesize\ttfamily \hyperlink{structdates}{Date} date\+From\+Post (\begin{DoxyParamCaption}\item[{char $\ast$}]{date }\end{DoxyParamCaption})}
+
+
+
+Função que obtém a data de um post (string) e converte-\/a no formato Date. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em date} & String a converter; \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Date Apontador da estrutura Date; 
+\end{DoxyReturn}
+\mbox{\Hypertarget{common_8c_ae9dd69952142a810231944898c5f3b88}\label{common_8c_ae9dd69952142a810231944898c5f3b88}} 
+\index{common.\+c@{common.\+c}!elem\+Char@{elem\+Char}}
+\index{elem\+Char@{elem\+Char}!common.\+c@{common.\+c}}
+\subsubsection{\texorpdfstring{elem\+Char()}{elemChar()}}
+{\footnotesize\ttfamily int elem\+Char (\begin{DoxyParamCaption}\item[{char $\ast$}]{string,  }\item[{char}]{c }\end{DoxyParamCaption})}
+
+
+
+Função que verifica se um caracter pertence a uma string. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em string} & String maior; \\
+\hline
+{\em c} & Caracter a encontrar; \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 1 caso o caracter esteja contido na string,0 caso contrário; 
+\end{DoxyReturn}
+\mbox{\Hypertarget{common_8c_a95b6a2d9b40860384aa1be3773ae2d94}\label{common_8c_a95b6a2d9b40860384aa1be3773ae2d94}} 
+\index{common.\+c@{common.\+c}!in\+Tag@{in\+Tag}}
+\index{in\+Tag@{in\+Tag}!common.\+c@{common.\+c}}
+\subsubsection{\texorpdfstring{in\+Tag()}{inTag()}}
+{\footnotesize\ttfamily int in\+Tag (\begin{DoxyParamCaption}\item[{char $\ast$}]{tags,  }\item[{char $\ast$}]{tag }\end{DoxyParamCaption})}
+
+
+
+Função que verifica se uma string está contida noutra;. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tags} & String em formato de tag; \\
+\hline
+{\em tag} & String a comparar; \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 1 caso s2 esteja contida em s1,0 caso contrário; 
+\end{DoxyReturn}
+\mbox{\Hypertarget{common_8c_a3ca88510ef7c1dd12b85c219b3ba97e7}\label{common_8c_a3ca88510ef7c1dd12b85c219b3ba97e7}} 
+\index{common.\+c@{common.\+c}!in\+Title@{in\+Title}}
+\index{in\+Title@{in\+Title}!common.\+c@{common.\+c}}
+\subsubsection{\texorpdfstring{in\+Title()}{inTitle()}}
+{\footnotesize\ttfamily int in\+Title (\begin{DoxyParamCaption}\item[{char $\ast$}]{s1,  }\item[{char $\ast$}]{s2 }\end{DoxyParamCaption})}
+
+
+
+Função que verifica se uma string está contida noutra;. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s1} & String maior; \\
+\hline
+{\em s2} & String menor; \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 1 caso s2 esteja contida em s1,0 caso contrário; 
+\end{DoxyReturn}
+\mbox{\Hypertarget{common_8c_aaec695d4d3f73b13b968950d7857116d}\label{common_8c_aaec695d4d3f73b13b968950d7857116d}} 
+\index{common.\+c@{common.\+c}!mystrdup@{mystrdup}}
+\index{mystrdup@{mystrdup}!common.\+c@{common.\+c}}
+\subsubsection{\texorpdfstring{mystrdup()}{mystrdup()}}
+{\footnotesize\ttfamily char$\ast$ mystrdup (\begin{DoxyParamCaption}\item[{const char $\ast$}]{s }\end{DoxyParamCaption})}
+
+
+
+Função que duplica uma string;. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & String a ser duplicada; \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+char$\ast$ String duplicada; 
+\end{DoxyReturn}
+\mbox{\Hypertarget{common_8c_a0a649a2a2aaf77016a60a8851115142b}\label{common_8c_a0a649a2a2aaf77016a60a8851115142b}} 
+\index{common.\+c@{common.\+c}!sort\+Date@{sort\+Date}}
+\index{sort\+Date@{sort\+Date}!common.\+c@{common.\+c}}
+\subsubsection{\texorpdfstring{sort\+Date()}{sortDate()}}
+{\footnotesize\ttfamily char$\ast$ sort\+Date (\begin{DoxyParamCaption}\item[{char $\ast$}]{date }\end{DoxyParamCaption})}
+
+
+
+Função que normaliza o formato de uma string (que contém uma data) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s1} & String maior; \\
+\hline
+{\em s2} & String menor; \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 1 caso s2 esteja contida em s1,0 caso contrário; 
+\end{DoxyReturn}
+\mbox{\Hypertarget{common_8c_a7f49f7448fa44ce242524538b5a87dfb}\label{common_8c_a7f49f7448fa44ce242524538b5a87dfb}} 
+\index{common.\+c@{common.\+c}!split\+\_\+string@{split\+\_\+string}}
+\index{split\+\_\+string@{split\+\_\+string}!common.\+c@{common.\+c}}
+\subsubsection{\texorpdfstring{split\+\_\+string()}{split\_string()}}
+{\footnotesize\ttfamily char$\ast$ split\+\_\+string (\begin{DoxyParamCaption}\item[{char $\ast$}]{s,  }\item[{int}]{i }\end{DoxyParamCaption})}
+
+
+
+Função que divide uma string;. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & String a ser dividida; \\
+\hline
+{\em i} & Indice onde a string vai começar a ser percorrida; \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+char$\ast$ String dividida; 
+\end{DoxyReturn}
+\mbox{\Hypertarget{common_8c_a7d8798377dfa9f93e82db5c68ec82021}\label{common_8c_a7d8798377dfa9f93e82db5c68ec82021}} 
+\index{common.\+c@{common.\+c}!string\+After@{string\+After}}
+\index{string\+After@{string\+After}!common.\+c@{common.\+c}}
+\subsubsection{\texorpdfstring{string\+After()}{stringAfter()}}
+{\footnotesize\ttfamily char$\ast$ string\+After (\begin{DoxyParamCaption}\item[{char $\ast$}]{string,  }\item[{char}]{c }\end{DoxyParamCaption})}
+
+
+
+Função que retorna a string resultante após n ocorrências de um caracter específico. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em string} & String a ser percorrida; \\
+\hline
+{\em c} & Caracter delimitador; \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+char$\ast$ String contida após o delimitador; 
+\end{DoxyReturn}
+\mbox{\Hypertarget{common_8c_aee5c7504a9ca38f327660d472954a7e9}\label{common_8c_aee5c7504a9ca38f327660d472954a7e9}} 
+\index{common.\+c@{common.\+c}!string\+Between@{string\+Between}}
+\index{string\+Between@{string\+Between}!common.\+c@{common.\+c}}
+\subsubsection{\texorpdfstring{string\+Between()}{stringBetween()}}
+{\footnotesize\ttfamily char$\ast$ string\+Between (\begin{DoxyParamCaption}\item[{char $\ast$}]{string,  }\item[{char}]{c }\end{DoxyParamCaption})}
+
+
+
+Função que retorna a string resultante entre um caracter especifico. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em string} & String a ser percorrida; \\
+\hline
+{\em c} & Caracter delimitador; \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+char$\ast$ String contida entre o delimitador; 
+\end{DoxyReturn}
+\mbox{\Hypertarget{common_8c_aa2b0d4717ac9735282f8c683c3a7f92c}\label{common_8c_aa2b0d4717ac9735282f8c683c3a7f92c}} 
+\index{common.\+c@{common.\+c}!string\+Till@{string\+Till}}
+\index{string\+Till@{string\+Till}!common.\+c@{common.\+c}}
+\subsubsection{\texorpdfstring{string\+Till()}{stringTill()}}
+{\footnotesize\ttfamily char$\ast$ string\+Till (\begin{DoxyParamCaption}\item[{char $\ast$}]{string,  }\item[{char}]{c }\end{DoxyParamCaption})}
+
+
+
+Função que Retorna a string resultante até um caracter específico. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em string} & String a ser percorrida; \\
+\hline
+{\em c} & Caracter onde a string para; \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+char$\ast$ String obtida até ao caracter especificado; 
+\end{DoxyReturn}

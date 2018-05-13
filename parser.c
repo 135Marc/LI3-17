@@ -1,5 +1,10 @@
 #include "parser.h"
 
+/**
+* @file parser.c
+* @brief Parser
+*/
+
 
 /**	@brief Função que insere o user na tabela de Hash
 *   @param GHashTable*

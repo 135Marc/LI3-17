@@ -1,0 +1,166 @@
+\hypertarget{parser_8c}{}\section{parser.\+c File Reference}
+\label{parser_8c}\index{parser.\+c@{parser.\+c}}
+
+
+Parser.  
+
+
+{\ttfamily \#include \char`\"{}parser.\+h\char`\"{}}\newline
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{parser_8c_ad04bcfdab59691abd719c5a5e59ab43a}{insert\+\_\+\+User} (G\+Hash\+Table $\ast$ht, \hyperlink{structUsers}{User} u)
+\begin{DoxyCompactList}\small\item\em Função que insere o user na tabela de Hash. \end{DoxyCompactList}\item 
+void \hyperlink{parser_8c_ab676a87afa512fc8d5f82f5e64e3ad33}{insert\+\_\+\+Tag} (G\+Hash\+Table $\ast$ht, \hyperlink{structTags}{Tag} t)
+\begin{DoxyCompactList}\small\item\em Função que insere a tag na tabela de Hash. \end{DoxyCompactList}\item 
+void \hyperlink{parser_8c_ae5251207d36ecbbab9bd35883c96c8cb}{insert\+\_\+\+Post} (G\+Hash\+Table $\ast$hp, \hyperlink{structPosts}{Post} p)
+\begin{DoxyCompactList}\small\item\em Função que insere o post na tabela de Hash. \end{DoxyCompactList}\item 
+\hyperlink{structUsers}{User} \hyperlink{parser_8c_af96c245a4849c4a6e9d30503a9c07443}{get\+\_\+\+U\+User} (G\+Hash\+Table $\ast$ht, long id)
+\begin{DoxyCompactList}\small\item\em Função que devolve o user da tabela de Hash. \end{DoxyCompactList}\item 
+G\+Hash\+Table $\ast$ \hyperlink{parser_8c_afed14c2df6a1206bc79060b2a964cf03}{load\+\_\+user} (G\+Hash\+Table $\ast$com, char $\ast$dump\+\_\+path)
+\begin{DoxyCompactList}\small\item\em Função que carrega os ficheiros X\+ML dos users para a tabela de hash. \end{DoxyCompactList}\item 
+G\+Hash\+Table $\ast$ \hyperlink{parser_8c_a1aa96d39aa7e624e6f811665829c6bfd}{load\+\_\+tag} (G\+Hash\+Table $\ast$com, char $\ast$dump\+\_\+path)
+\begin{DoxyCompactList}\small\item\em Função que carrega os ficheiros X\+ML das \hyperlink{structTags}{Tags} para a tabela de hash. \end{DoxyCompactList}\item 
+G\+Hash\+Table $\ast$ \hyperlink{parser_8c_ab8a49d9862728abec71b579a681de41e}{load\+\_\+post} (G\+Hash\+Table $\ast$com, G\+Hash\+Table $\ast$comz, char $\ast$dump\+\_\+path)
+\begin{DoxyCompactList}\small\item\em Função que carrega os ficheiros X\+ML dos \hyperlink{structPosts}{Posts} para a tabela de hash. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Parser. 
+
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{parser_8c_af96c245a4849c4a6e9d30503a9c07443}\label{parser_8c_af96c245a4849c4a6e9d30503a9c07443}} 
+\index{parser.\+c@{parser.\+c}!get\+\_\+\+U\+User@{get\+\_\+\+U\+User}}
+\index{get\+\_\+\+U\+User@{get\+\_\+\+U\+User}!parser.\+c@{parser.\+c}}
+\subsubsection{\texorpdfstring{get\+\_\+\+U\+User()}{get\_UUser()}}
+{\footnotesize\ttfamily \hyperlink{structUsers}{User} get\+\_\+\+U\+User (\begin{DoxyParamCaption}\item[{G\+Hash\+Table $\ast$}]{ht,  }\item[{long}]{id }\end{DoxyParamCaption})}
+
+
+
+Função que devolve o user da tabela de Hash. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em G\+Hash\+Table$\ast$} & \\
+\hline
+{\em long} & ID \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+User 
+\end{DoxyReturn}
+\mbox{\Hypertarget{parser_8c_ae5251207d36ecbbab9bd35883c96c8cb}\label{parser_8c_ae5251207d36ecbbab9bd35883c96c8cb}} 
+\index{parser.\+c@{parser.\+c}!insert\+\_\+\+Post@{insert\+\_\+\+Post}}
+\index{insert\+\_\+\+Post@{insert\+\_\+\+Post}!parser.\+c@{parser.\+c}}
+\subsubsection{\texorpdfstring{insert\+\_\+\+Post()}{insert\_Post()}}
+{\footnotesize\ttfamily void insert\+\_\+\+Post (\begin{DoxyParamCaption}\item[{G\+Hash\+Table $\ast$}]{hp,  }\item[{\hyperlink{structPosts}{Post}}]{p }\end{DoxyParamCaption})}
+
+
+
+Função que insere o post na tabela de Hash. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em G\+Hash\+Table$\ast$} & \\
+\hline
+{\em Post} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{parser_8c_ab676a87afa512fc8d5f82f5e64e3ad33}\label{parser_8c_ab676a87afa512fc8d5f82f5e64e3ad33}} 
+\index{parser.\+c@{parser.\+c}!insert\+\_\+\+Tag@{insert\+\_\+\+Tag}}
+\index{insert\+\_\+\+Tag@{insert\+\_\+\+Tag}!parser.\+c@{parser.\+c}}
+\subsubsection{\texorpdfstring{insert\+\_\+\+Tag()}{insert\_Tag()}}
+{\footnotesize\ttfamily void insert\+\_\+\+Tag (\begin{DoxyParamCaption}\item[{G\+Hash\+Table $\ast$}]{ht,  }\item[{\hyperlink{structTags}{Tag}}]{t }\end{DoxyParamCaption})}
+
+
+
+Função que insere a tag na tabela de Hash. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em G\+Hash\+Table$\ast$} & \\
+\hline
+{\em Tag} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{parser_8c_ad04bcfdab59691abd719c5a5e59ab43a}\label{parser_8c_ad04bcfdab59691abd719c5a5e59ab43a}} 
+\index{parser.\+c@{parser.\+c}!insert\+\_\+\+User@{insert\+\_\+\+User}}
+\index{insert\+\_\+\+User@{insert\+\_\+\+User}!parser.\+c@{parser.\+c}}
+\subsubsection{\texorpdfstring{insert\+\_\+\+User()}{insert\_User()}}
+{\footnotesize\ttfamily void insert\+\_\+\+User (\begin{DoxyParamCaption}\item[{G\+Hash\+Table $\ast$}]{ht,  }\item[{\hyperlink{structUsers}{User}}]{u }\end{DoxyParamCaption})}
+
+
+
+Função que insere o user na tabela de Hash. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em G\+Hash\+Table$\ast$} & \\
+\hline
+{\em User} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{parser_8c_ab8a49d9862728abec71b579a681de41e}\label{parser_8c_ab8a49d9862728abec71b579a681de41e}} 
+\index{parser.\+c@{parser.\+c}!load\+\_\+post@{load\+\_\+post}}
+\index{load\+\_\+post@{load\+\_\+post}!parser.\+c@{parser.\+c}}
+\subsubsection{\texorpdfstring{load\+\_\+post()}{load\_post()}}
+{\footnotesize\ttfamily G\+Hash\+Table$\ast$ load\+\_\+post (\begin{DoxyParamCaption}\item[{G\+Hash\+Table $\ast$}]{com,  }\item[{G\+Hash\+Table $\ast$}]{comz,  }\item[{char $\ast$}]{dump\+\_\+path }\end{DoxyParamCaption})}
+
+
+
+Função que carrega os ficheiros X\+ML dos \hyperlink{structPosts}{Posts} para a tabela de hash. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em G\+Hash\+Table$\ast$} & \\
+\hline
+{\em G\+Hash\+Table$\ast$} & \\
+\hline
+{\em char$\ast$} & path para os ficheiros X\+ML \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+G\+Hash\+Table$\ast$ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{parser_8c_a1aa96d39aa7e624e6f811665829c6bfd}\label{parser_8c_a1aa96d39aa7e624e6f811665829c6bfd}} 
+\index{parser.\+c@{parser.\+c}!load\+\_\+tag@{load\+\_\+tag}}
+\index{load\+\_\+tag@{load\+\_\+tag}!parser.\+c@{parser.\+c}}
+\subsubsection{\texorpdfstring{load\+\_\+tag()}{load\_tag()}}
+{\footnotesize\ttfamily G\+Hash\+Table$\ast$ load\+\_\+tag (\begin{DoxyParamCaption}\item[{G\+Hash\+Table $\ast$}]{com,  }\item[{char $\ast$}]{dump\+\_\+path }\end{DoxyParamCaption})}
+
+
+
+Função que carrega os ficheiros X\+ML das \hyperlink{structTags}{Tags} para a tabela de hash. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em G\+Hash\+Table$\ast$} & \\
+\hline
+{\em char$\ast$} & path para os ficheiros X\+ML \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+G\+Hash\+Table$\ast$ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{parser_8c_afed14c2df6a1206bc79060b2a964cf03}\label{parser_8c_afed14c2df6a1206bc79060b2a964cf03}} 
+\index{parser.\+c@{parser.\+c}!load\+\_\+user@{load\+\_\+user}}
+\index{load\+\_\+user@{load\+\_\+user}!parser.\+c@{parser.\+c}}
+\subsubsection{\texorpdfstring{load\+\_\+user()}{load\_user()}}
+{\footnotesize\ttfamily G\+Hash\+Table$\ast$ load\+\_\+user (\begin{DoxyParamCaption}\item[{G\+Hash\+Table $\ast$}]{com,  }\item[{char $\ast$}]{dump\+\_\+path }\end{DoxyParamCaption})}
+
+
+
+Função que carrega os ficheiros X\+ML dos users para a tabela de hash. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em G\+Hash\+Table$\ast$} & \\
+\hline
+{\em char$\ast$} & path para os ficheiros X\+ML \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+G\+Hash\+Table$\ast$ 
+\end{DoxyReturn}

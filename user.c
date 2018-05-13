@@ -3,6 +3,12 @@
 #include "user.h"
 #include "common.h"
 
+/**
+* @file user.c
+* @brief Estrutura USER;
+*/
+
+
 struct user {
   char* bio;
   long posts[10];

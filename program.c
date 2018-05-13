@@ -1,9 +1,12 @@
 #include "./interface.h"
 #include <time.h>
+/**
+* @file program.c
+* @brief Programa principal;
+*/
+
 int main () {
 	TAD_community ht=NULL;
-	/*ht = load(ht,"../dump exemplo/ubuntu/");
-	ht=clean(ht);*/
     clock_t a,b,c,d,e,f,g,h,m,j,k,l,y,o,z;
     o = clock();
     ht = init(ht);

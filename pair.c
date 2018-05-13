@@ -1,5 +1,9 @@
 #include "pair.h"
 
+/**
+* @file pair.c
+* @brief Estrutura dos pares;
+*/
 
 struct str_pair {
   char* fst;

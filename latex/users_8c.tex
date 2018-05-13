@@ -1,0 +1,255 @@
+\hypertarget{users_8c}{}\section{users.\+c File Reference}
+\label{users_8c}\index{users.\+c@{users.\+c}}
+
+
+Estrutura dos utilizadores.  
+
+
+{\ttfamily \#include \char`\"{}users.\+h\char`\"{}}\newline
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structUsers}{Users}
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{users_8c_adfef1ff7ad7bff72378429d9949d1dc3}\label{users_8c_adfef1ff7ad7bff72378429d9949d1dc3}} 
+typedef struct \hyperlink{structUsers}{Users} {\bfseries Users}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structUsers}{User} \hyperlink{users_8c_a90001f1e3acc25f45ce319ee2f53f365}{new\+\_\+\+User} (int reputation, long id, char $\ast$displayname, char $\ast$shortbio)
+\begin{DoxyCompactList}\small\item\em Função que cria um user. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{users_8c_a6e8dcfe3bfcd2ac3b2cca5a98194a7aa}\label{users_8c_a6e8dcfe3bfcd2ac3b2cca5a98194a7aa}} 
+void {\bfseries free\+User} (\hyperlink{structUsers}{User} u)
+\item 
+int \hyperlink{users_8c_aa95b424dada1f5e291682a631e1ccc49}{get\+Rep} (\hyperlink{structUsers}{User} u)
+\begin{DoxyCompactList}\small\item\em Função que extrai a reputaçao do user. \end{DoxyCompactList}\item 
+long \hyperlink{users_8c_a04b87183c49ec1b60a26e53587f9ec61}{get\+I\+D\+User} (\hyperlink{structUsers}{User} u)
+\begin{DoxyCompactList}\small\item\em Função que extrai o identificador do user. \end{DoxyCompactList}\item 
+int \hyperlink{users_8c_afbb00d0f19f98044487bbe3576ac061e}{get\+Post\+Count} (\hyperlink{structUsers}{User} u)
+\begin{DoxyCompactList}\small\item\em Função que extrai o contador de posts do user. \end{DoxyCompactList}\item 
+char $\ast$ \hyperlink{users_8c_a7f9c936f4c95a92b166dfe21d0f19f33}{get\+Display\+Name} (\hyperlink{structUsers}{User} u)
+\begin{DoxyCompactList}\small\item\em Função que extrai o nome do user. \end{DoxyCompactList}\item 
+char $\ast$ \hyperlink{users_8c_a756e14b7361a54e29831d5a04d8680f4}{get\+Short\+Bio} (\hyperlink{structUsers}{User} u)
+\begin{DoxyCompactList}\small\item\em Função que extrai a shorbio do user. \end{DoxyCompactList}\item 
+void \hyperlink{users_8c_a77403d6d644ade74243593f91c405633}{print\+User} (\hyperlink{structUsers}{User} u)
+\item 
+int \hyperlink{users_8c_a9c8a35b02a8a1ff1f9afaddfaecb7c51}{cmp\+User\+ID} (\hyperlink{structUsers}{User} u1, \hyperlink{structUsers}{User} u2)
+\begin{DoxyCompactList}\small\item\em Função que compara os ID\textquotesingle{}s de dois users. \end{DoxyCompactList}\item 
+int \hyperlink{users_8c_a21c3d5668e261f7378817d2aeb2d9f47}{cmp\+Rep} (\hyperlink{structUsers}{User} u1, \hyperlink{structUsers}{User} u2)
+\begin{DoxyCompactList}\small\item\em Função que compara a reputaçao de dois users. \end{DoxyCompactList}\item 
+int \hyperlink{users_8c_abd7844c475148f408662a9fd5a2b3c21}{cmp\+Post\+Count} (\hyperlink{structUsers}{User} u1, \hyperlink{structUsers}{User} u2)
+\begin{DoxyCompactList}\small\item\em Função que compara o contador de post de dois users. \end{DoxyCompactList}\item 
+void \hyperlink{users_8c_aa42ffce8b86b0b10c077ecd2bb25da16}{add\+\_\+\+Post} (\hyperlink{structUsers}{User} u)
+\begin{DoxyCompactList}\small\item\em Função que incrementa o numero de posts que o user faz. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Estrutura dos utilizadores. 
+
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{users_8c_aa42ffce8b86b0b10c077ecd2bb25da16}\label{users_8c_aa42ffce8b86b0b10c077ecd2bb25da16}} 
+\index{users.\+c@{users.\+c}!add\+\_\+\+Post@{add\+\_\+\+Post}}
+\index{add\+\_\+\+Post@{add\+\_\+\+Post}!users.\+c@{users.\+c}}
+\subsubsection{\texorpdfstring{add\+\_\+\+Post()}{add\_Post()}}
+{\footnotesize\ttfamily void add\+\_\+\+Post (\begin{DoxyParamCaption}\item[{\hyperlink{structUsers}{User}}]{u }\end{DoxyParamCaption})}
+
+
+
+Função que incrementa o numero de posts que o user faz. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em User} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{users_8c_abd7844c475148f408662a9fd5a2b3c21}\label{users_8c_abd7844c475148f408662a9fd5a2b3c21}} 
+\index{users.\+c@{users.\+c}!cmp\+Post\+Count@{cmp\+Post\+Count}}
+\index{cmp\+Post\+Count@{cmp\+Post\+Count}!users.\+c@{users.\+c}}
+\subsubsection{\texorpdfstring{cmp\+Post\+Count()}{cmpPostCount()}}
+{\footnotesize\ttfamily int cmp\+Post\+Count (\begin{DoxyParamCaption}\item[{\hyperlink{structUsers}{User}}]{u1,  }\item[{\hyperlink{structUsers}{User}}]{u2 }\end{DoxyParamCaption})}
+
+
+
+Função que compara o contador de post de dois users. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em User} & u1 utilizador 1 \\
+\hline
+{\em User} & u2 utilizador 2 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int retorna -\/1 se u1 for maior que u2 e 1 caso contrario 
+\end{DoxyReturn}
+\mbox{\Hypertarget{users_8c_a21c3d5668e261f7378817d2aeb2d9f47}\label{users_8c_a21c3d5668e261f7378817d2aeb2d9f47}} 
+\index{users.\+c@{users.\+c}!cmp\+Rep@{cmp\+Rep}}
+\index{cmp\+Rep@{cmp\+Rep}!users.\+c@{users.\+c}}
+\subsubsection{\texorpdfstring{cmp\+Rep()}{cmpRep()}}
+{\footnotesize\ttfamily int cmp\+Rep (\begin{DoxyParamCaption}\item[{\hyperlink{structUsers}{User}}]{u1,  }\item[{\hyperlink{structUsers}{User}}]{u2 }\end{DoxyParamCaption})}
+
+
+
+Função que compara a reputaçao de dois users. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em User} & u1 utilizador 1 \\
+\hline
+{\em User} & u2 utilizador 2 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int retorna -\/1 se u1 for maior que u2 e 1 caso contrario 
+\end{DoxyReturn}
+\mbox{\Hypertarget{users_8c_a9c8a35b02a8a1ff1f9afaddfaecb7c51}\label{users_8c_a9c8a35b02a8a1ff1f9afaddfaecb7c51}} 
+\index{users.\+c@{users.\+c}!cmp\+User\+ID@{cmp\+User\+ID}}
+\index{cmp\+User\+ID@{cmp\+User\+ID}!users.\+c@{users.\+c}}
+\subsubsection{\texorpdfstring{cmp\+User\+I\+D()}{cmpUserID()}}
+{\footnotesize\ttfamily int cmp\+User\+ID (\begin{DoxyParamCaption}\item[{\hyperlink{structUsers}{User}}]{u1,  }\item[{\hyperlink{structUsers}{User}}]{u2 }\end{DoxyParamCaption})}
+
+
+
+Função que compara os ID\textquotesingle{}s de dois users. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em User} & u1 utilizador 1 \\
+\hline
+{\em User} & u2 utilizador 2 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int retorna -\/1 se o u1 for maior que u2 e 1 caso contrario 
+\end{DoxyReturn}
+\mbox{\Hypertarget{users_8c_a7f9c936f4c95a92b166dfe21d0f19f33}\label{users_8c_a7f9c936f4c95a92b166dfe21d0f19f33}} 
+\index{users.\+c@{users.\+c}!get\+Display\+Name@{get\+Display\+Name}}
+\index{get\+Display\+Name@{get\+Display\+Name}!users.\+c@{users.\+c}}
+\subsubsection{\texorpdfstring{get\+Display\+Name()}{getDisplayName()}}
+{\footnotesize\ttfamily char$\ast$ get\+Display\+Name (\begin{DoxyParamCaption}\item[{\hyperlink{structUsers}{User}}]{u }\end{DoxyParamCaption})}
+
+
+
+Função que extrai o nome do user. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em User} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+char$\ast$ nome do user 
+\end{DoxyReturn}
+\mbox{\Hypertarget{users_8c_a04b87183c49ec1b60a26e53587f9ec61}\label{users_8c_a04b87183c49ec1b60a26e53587f9ec61}} 
+\index{users.\+c@{users.\+c}!get\+I\+D\+User@{get\+I\+D\+User}}
+\index{get\+I\+D\+User@{get\+I\+D\+User}!users.\+c@{users.\+c}}
+\subsubsection{\texorpdfstring{get\+I\+D\+User()}{getIDUser()}}
+{\footnotesize\ttfamily long get\+I\+D\+User (\begin{DoxyParamCaption}\item[{\hyperlink{structUsers}{User}}]{u }\end{DoxyParamCaption})}
+
+
+
+Função que extrai o identificador do user. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em User} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+long ID do user 
+\end{DoxyReturn}
+\mbox{\Hypertarget{users_8c_afbb00d0f19f98044487bbe3576ac061e}\label{users_8c_afbb00d0f19f98044487bbe3576ac061e}} 
+\index{users.\+c@{users.\+c}!get\+Post\+Count@{get\+Post\+Count}}
+\index{get\+Post\+Count@{get\+Post\+Count}!users.\+c@{users.\+c}}
+\subsubsection{\texorpdfstring{get\+Post\+Count()}{getPostCount()}}
+{\footnotesize\ttfamily int get\+Post\+Count (\begin{DoxyParamCaption}\item[{\hyperlink{structUsers}{User}}]{u }\end{DoxyParamCaption})}
+
+
+
+Função que extrai o contador de posts do user. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em User} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int contador de posts 
+\end{DoxyReturn}
+\mbox{\Hypertarget{users_8c_aa95b424dada1f5e291682a631e1ccc49}\label{users_8c_aa95b424dada1f5e291682a631e1ccc49}} 
+\index{users.\+c@{users.\+c}!get\+Rep@{get\+Rep}}
+\index{get\+Rep@{get\+Rep}!users.\+c@{users.\+c}}
+\subsubsection{\texorpdfstring{get\+Rep()}{getRep()}}
+{\footnotesize\ttfamily int get\+Rep (\begin{DoxyParamCaption}\item[{\hyperlink{structUsers}{User}}]{u }\end{DoxyParamCaption})}
+
+
+
+Função que extrai a reputaçao do user. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em User} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int reputaçao 
+\end{DoxyReturn}
+\mbox{\Hypertarget{users_8c_a756e14b7361a54e29831d5a04d8680f4}\label{users_8c_a756e14b7361a54e29831d5a04d8680f4}} 
+\index{users.\+c@{users.\+c}!get\+Short\+Bio@{get\+Short\+Bio}}
+\index{get\+Short\+Bio@{get\+Short\+Bio}!users.\+c@{users.\+c}}
+\subsubsection{\texorpdfstring{get\+Short\+Bio()}{getShortBio()}}
+{\footnotesize\ttfamily char$\ast$ get\+Short\+Bio (\begin{DoxyParamCaption}\item[{\hyperlink{structUsers}{User}}]{u }\end{DoxyParamCaption})}
+
+
+
+Função que extrai a shorbio do user. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em User} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+char$\ast$ shortbio 
+\end{DoxyReturn}
+\mbox{\Hypertarget{users_8c_a90001f1e3acc25f45ce319ee2f53f365}\label{users_8c_a90001f1e3acc25f45ce319ee2f53f365}} 
+\index{users.\+c@{users.\+c}!new\+\_\+\+User@{new\+\_\+\+User}}
+\index{new\+\_\+\+User@{new\+\_\+\+User}!users.\+c@{users.\+c}}
+\subsubsection{\texorpdfstring{new\+\_\+\+User()}{new\_User()}}
+{\footnotesize\ttfamily \hyperlink{structUsers}{User} new\+\_\+\+User (\begin{DoxyParamCaption}\item[{int}]{reputation,  }\item[{long}]{id,  }\item[{char $\ast$}]{displayname,  }\item[{char $\ast$}]{shortbio }\end{DoxyParamCaption})}
+
+
+
+Função que cria um user. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em int} & reputaçao \\
+\hline
+{\em long} & ID \\
+\hline
+{\em char$\ast$} & nome do utilizador \\
+\hline
+{\em char$\ast$} & shortbio \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+User 
+\end{DoxyReturn}
+\mbox{\Hypertarget{users_8c_a77403d6d644ade74243593f91c405633}\label{users_8c_a77403d6d644ade74243593f91c405633}} 
+\index{users.\+c@{users.\+c}!print\+User@{print\+User}}
+\index{print\+User@{print\+User}!users.\+c@{users.\+c}}
+\subsubsection{\texorpdfstring{print\+User()}{printUser()}}
+{\footnotesize\ttfamily void print\+User (\begin{DoxyParamCaption}\item[{\hyperlink{structUsers}{User}}]{u }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em User} & \\
+\hline
+\end{DoxyParams}

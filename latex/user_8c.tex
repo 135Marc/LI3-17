@@ -1,0 +1,123 @@
+\hypertarget{user_8c}{}\section{user.\+c File Reference}
+\label{user_8c}\index{user.\+c@{user.\+c}}
+
+
+Estrutura U\+S\+ER;.  
+
+
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}user.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}common.\+h\char`\"{}}\newline
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structuser}{user}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structuser}{U\+S\+ER} \hyperlink{user_8c_a52400a15370bdbb6528564f9064a55d8}{create\+\_\+user} (char $\ast$bio, long $\ast$post\+\_\+history)
+\begin{DoxyCompactList}\small\item\em Função que cria um user. \end{DoxyCompactList}\item 
+char $\ast$ \hyperlink{user_8c_afc0f940f83091f1ce056e2a2682943c2}{get\+\_\+bio} (\hyperlink{structuser}{U\+S\+ER} u)
+\begin{DoxyCompactList}\small\item\em Função que extrai a bio de um user. \end{DoxyCompactList}\item 
+long $\ast$ \hyperlink{user_8c_a738e16e1446e2ae087b97f4c7863b9f1}{get\+\_\+10\+\_\+latest\+\_\+posts} (\hyperlink{structuser}{U\+S\+ER} u)
+\begin{DoxyCompactList}\small\item\em Função que extrai os 10 ultimos posts do user. \end{DoxyCompactList}\item 
+void \hyperlink{user_8c_aea0883335bb98ce1772d19cd544a92e7}{free\+\_\+user} (\hyperlink{structuser}{U\+S\+ER} u)
+\begin{DoxyCompactList}\small\item\em Função que liberta o espaço utilizado na estrutura. \end{DoxyCompactList}\item 
+void \hyperlink{user_8c_aebc7bd76599b200c6f629b9e42af55ff}{print\+\_\+\+U\+S\+ER} (\hyperlink{structuser}{U\+S\+ER} u)
+\begin{DoxyCompactList}\small\item\em Função que faz os printf. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Estrutura U\+S\+ER;. 
+
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{user_8c_a52400a15370bdbb6528564f9064a55d8}\label{user_8c_a52400a15370bdbb6528564f9064a55d8}} 
+\index{user.\+c@{user.\+c}!create\+\_\+user@{create\+\_\+user}}
+\index{create\+\_\+user@{create\+\_\+user}!user.\+c@{user.\+c}}
+\subsubsection{\texorpdfstring{create\+\_\+user()}{create\_user()}}
+{\footnotesize\ttfamily \hyperlink{structuser}{U\+S\+ER} create\+\_\+user (\begin{DoxyParamCaption}\item[{char $\ast$}]{bio,  }\item[{long $\ast$}]{post\+\_\+history }\end{DoxyParamCaption})}
+
+
+
+Função que cria um user. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em char$\ast$} & bio \\
+\hline
+{\em long$\ast$} & historico de posts \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+U\+S\+ER 
+\end{DoxyReturn}
+\mbox{\Hypertarget{user_8c_aea0883335bb98ce1772d19cd544a92e7}\label{user_8c_aea0883335bb98ce1772d19cd544a92e7}} 
+\index{user.\+c@{user.\+c}!free\+\_\+user@{free\+\_\+user}}
+\index{free\+\_\+user@{free\+\_\+user}!user.\+c@{user.\+c}}
+\subsubsection{\texorpdfstring{free\+\_\+user()}{free\_user()}}
+{\footnotesize\ttfamily void free\+\_\+user (\begin{DoxyParamCaption}\item[{\hyperlink{structuser}{U\+S\+ER}}]{u }\end{DoxyParamCaption})}
+
+
+
+Função que liberta o espaço utilizado na estrutura. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em U\+S\+ER} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{user_8c_a738e16e1446e2ae087b97f4c7863b9f1}\label{user_8c_a738e16e1446e2ae087b97f4c7863b9f1}} 
+\index{user.\+c@{user.\+c}!get\+\_\+10\+\_\+latest\+\_\+posts@{get\+\_\+10\+\_\+latest\+\_\+posts}}
+\index{get\+\_\+10\+\_\+latest\+\_\+posts@{get\+\_\+10\+\_\+latest\+\_\+posts}!user.\+c@{user.\+c}}
+\subsubsection{\texorpdfstring{get\+\_\+10\+\_\+latest\+\_\+posts()}{get\_10\_latest\_posts()}}
+{\footnotesize\ttfamily long$\ast$ get\+\_\+10\+\_\+latest\+\_\+posts (\begin{DoxyParamCaption}\item[{\hyperlink{structuser}{U\+S\+ER}}]{u }\end{DoxyParamCaption})}
+
+
+
+Função que extrai os 10 ultimos posts do user. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em U\+S\+ER} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+long$\ast$ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{user_8c_afc0f940f83091f1ce056e2a2682943c2}\label{user_8c_afc0f940f83091f1ce056e2a2682943c2}} 
+\index{user.\+c@{user.\+c}!get\+\_\+bio@{get\+\_\+bio}}
+\index{get\+\_\+bio@{get\+\_\+bio}!user.\+c@{user.\+c}}
+\subsubsection{\texorpdfstring{get\+\_\+bio()}{get\_bio()}}
+{\footnotesize\ttfamily char$\ast$ get\+\_\+bio (\begin{DoxyParamCaption}\item[{\hyperlink{structuser}{U\+S\+ER}}]{u }\end{DoxyParamCaption})}
+
+
+
+Função que extrai a bio de um user. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em U\+S\+ER} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+char$\ast$ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{user_8c_aebc7bd76599b200c6f629b9e42af55ff}\label{user_8c_aebc7bd76599b200c6f629b9e42af55ff}} 
+\index{user.\+c@{user.\+c}!print\+\_\+\+U\+S\+ER@{print\+\_\+\+U\+S\+ER}}
+\index{print\+\_\+\+U\+S\+ER@{print\+\_\+\+U\+S\+ER}!user.\+c@{user.\+c}}
+\subsubsection{\texorpdfstring{print\+\_\+\+U\+S\+E\+R()}{print\_USER()}}
+{\footnotesize\ttfamily void print\+\_\+\+U\+S\+ER (\begin{DoxyParamCaption}\item[{\hyperlink{structuser}{U\+S\+ER}}]{u }\end{DoxyParamCaption})}
+
+
+
+Função que faz os printf. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em U\+S\+ER} & \\
+\hline
+\end{DoxyParams}
